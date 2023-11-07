@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\smart_packing",
+    "\\smart_packing\\WindowsFormsApp1"
   ],
+  "SelectedNode": "\\smart_packing\\WindowsFormsApp1\\Form1.Designer.cs",
   "PreviewInSolutionExplorer": false
 }
