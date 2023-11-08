@@ -58,7 +58,6 @@ namespace WindowsFormsApp1
 
         private void listFile_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(listFile.SelectedItem);
             if (listFile.SelectedIndex != -1)
             {
                 string selectedImagePath = (listFile.SelectedItem as MediaFile).Path;
