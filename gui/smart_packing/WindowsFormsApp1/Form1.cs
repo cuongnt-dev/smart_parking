@@ -11,12 +11,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge;
 using AForge.Video;
+using AForge.Video.DirectShow;
+
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
         
-        private VideoCa FinalFrame;
+        private VideoCaptureDevice FinalFrame;
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace WindowsFormsApp1
             {
                 Multiselect = true,
                 ValidateNames = true,
-                Filter = "WMV|*.wmv|WAV|*.wav|MP3|*.mp3|MP4|*.mp4|MKV|*.MKV"
+                Filter = "Image Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.tif;*.tiff|All Files|*.*"
             })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
@@ -56,12 +58,17 @@ namespace WindowsFormsApp1
 
         private void listFile_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MediaFile file = listFile.SelectedItem as MediaFile;
-            if (file != null)
+            Console.WriteLine(listFile.SelectedItem);
+            if (listFile.SelectedIndex != -1)
             {
-                axWindowsMediaPlayer.URL = file.Path;
-                axWindowsMediaPlayer.Ctlcontrols.play();
+                string selectedImagePath = (listFile.SelectedItem as MediaFile).Path;
+                pictureBoxSelectedImage.Image = Image.FromFile(selectedImagePath);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Click me");
         }
     }
 }
