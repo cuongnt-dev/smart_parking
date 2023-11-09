@@ -1,74 +1,62 @@
+import os
 import cv2
-from lib_detection import load_model, detect_lp, im2single
+from lib_detection import detect_lp, im2single, load_model
 import easyocr
 import numpy as np
 import re
 
-# Đường dẫn ảnh, các bạn đổi tên file tại đây để thử nhé
-img_name = "0000_08244_b.jpg"
-test_img_path = f"test/{img_name}"
+from util import normalize_image, replace_with_dict, current_milli_time
 
-# Load model LP detection
-wpod_net_path = "wpod-net_update1.json"
-wpod_net = load_model(wpod_net_path)
+root = os.path.dirname(os.path.abspath(__file__))
+global wpod_net
 
-# Đọc file ảnh đầu vào
-Ivehicle = cv2.imread(test_img_path)
-Ivehicle = cv2.resize(Ivehicle, (900, 700))
-
-# Kích thước lớn nhất và nhỏ nhất của 1 chiều ảnh
-Dmax = 608
-Dmin = 310
-
-# Lấy tỷ lệ giữa W và H của ảnh và tìm ra chiều nhỏ nhất
-ratio = float(max(Ivehicle.shape[:2])) / min(Ivehicle.shape[:2])
-side = int(ratio * Dmin)
-bound_dim = min(side, Dmax)
-
-_, LpImg, lp_type = detect_lp(wpod_net, im2single(Ivehicle), bound_dim, lp_threshold=0.5)
-
-def normalize_image(image):
-
-    image = image.astype("float32")
-    image -= image.min()
-    image /= image.max()
-    image *= 255
-    return image.astype("uint8")
-
-if len(LpImg):
-    # Xử lý đọc biển đầu tiên, các bạn có thể sửa code để detect all biển số
-    filename = f'detect/{img_name}'
-
-    # Convert the image from RGB to BGR before saving
-    rgb_image = normalize_image(LpImg[0])
-    # bgr_image = cv2.cvtColor(rgb_image, cv2.COLOR_BGR2RGB)
-    cv2.imwrite(filename, rgb_image)
+def init_model():
+    global wpod_net
+    wpod_net_path = "wpod-net_update1.json"
+    wpod_net = load_model(wpod_net_path)
 
 
-def replace_with_dict(val, d):
-    if d is None:
-         d = {'I': '1', 'J': '1'}
-    return val.translate(str.maketrans(d))
+def detect_plate(image_path):
+    detect_plate_img = ""
+    file_extension = os.path.splitext(image_path)[1]
+    # Đọc file ảnh đầu vào
+    Ivehicle = cv2.imread(image_path)
+    Ivehicle = cv2.resize(Ivehicle, (900, 700))
 
-pattern = r'[^A-Za-z0-9\-]+'
-def extract_number_plate_text(img_name):
+    # Kích thước lớn nhất và nhỏ nhất của 1 chiều ảnh
+    Dmax = 608
+    Dmin = 310
+
+    # Lấy tỷ lệ giữa W và H của ảnh và tìm ra chiều nhỏ nhất
+    ratio = float(max(Ivehicle.shape[:2])) / min(Ivehicle.shape[:2])
+    side = int(ratio * Dmin)
+    bound_dim = min(side, Dmax)
+
+    _, LpImg, lp_type = detect_lp(wpod_net, im2single(Ivehicle), bound_dim, lp_threshold=0.5)
+
+    if len(LpImg):
+        detect_plate_img = normalize_image(LpImg[0])
+    return detect_plate_img, file_extension
+
+
+def extract_number_plate_text(plate, extension):
+    pattern = r'[^A-Za-z0-9\-]+'
     plateResult = {}
-    IMAGE_PATH = f'detect/{img_name}'
     # Load the image of the number plate
-    image = cv2.imread(IMAGE_PATH)
+    extract_path = f"{root}\extract\{current_milli_time()}{extension}"
 
     reader = easyocr.Reader(["en"])
-    results = reader.readtext(image)
+    results = reader.readtext(plate)
 
     for result in results:
         bounding_box = result[0]
         bounding_box_int = np.array(bounding_box, dtype=int)
 
         # Draw the bounding box around the text box
-        cv2.rectangle(image, bounding_box_int[0], bounding_box_int[2], (0, 255, 0), 2)
+        cv2.rectangle(plate, bounding_box_int[0], bounding_box_int[2], (0, 255, 0), 2)
         plateResult[bounding_box_int[0][1]] = result[1]
 
-    cv2.imwrite(f'extract/{img_name}', image)
+    cv2.imwrite(extract_path, plate)
     sorted_items = sorted(plateResult.items())
     sorted_items = [item[1] for item in sorted_items]
 
@@ -81,9 +69,4 @@ def extract_number_plate_text(img_name):
             concatenated_string = f"{temp_str}"
         elif index == 1:
             concatenated_string += f" {replace_with_dict(value, None)}"
-    return concatenated_string
-
-
-# Extract the text from the number plate image
-plate = extract_number_plate_text(img_name)
-print(plate)
+    return concatenated_string, extract_path
