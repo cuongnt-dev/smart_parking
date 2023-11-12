@@ -8,6 +8,7 @@ import re
 from util import normalize_image, replace_with_dict, current_milli_time
 
 root = os.path.dirname(os.path.abspath(__file__))
+extract_dir_path = f"{root}\extract"
 global wpod_net
 
 def init_model():
@@ -18,7 +19,7 @@ def init_model():
 
 def detect_plate(image_path):
     detect_plate_img = ""
-    file_extension = os.path.splitext(image_path)[1]
+    image_file = os.path.basename(image_path)
     # Đọc file ảnh đầu vào
     Ivehicle = cv2.imread(image_path)
     Ivehicle = cv2.resize(Ivehicle, (900, 700))
@@ -36,14 +37,14 @@ def detect_plate(image_path):
 
     if len(LpImg):
         detect_plate_img = normalize_image(LpImg[0])
-    return detect_plate_img, file_extension
+    return detect_plate_img, image_file
 
 
-def extract_number_plate_text(plate, extension):
+def extract_number_plate_text(plate, image_file):
     pattern = r'[^A-Za-z0-9\-]+'
     plateResult = {}
     # Load the image of the number plate
-    extract_path = f"{root}\extract\{current_milli_time()}{extension}"
+    extract_path = f"{extract_dir_path}\{image_file}"
 
     reader = easyocr.Reader(["en"])
     results = reader.readtext(plate)

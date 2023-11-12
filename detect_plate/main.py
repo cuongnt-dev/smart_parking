@@ -6,10 +6,10 @@ app = Flask(__name__)
 
 
 @app.get("/detect")
-def hello_world():
+def detect():
     image_path = request.args.get('image')
-    plate, extension = detect_plate(image_path)
-    plate_text, plate_extract_path = extract_number_plate_text(plate, extension)
+    plate,image_file = detect_plate(image_path)
+    plate_text, plate_extract_path = extract_number_plate_text(plate, image_file)
     return jsonify({
         "PlateText": plate_text,
         "PlateExtractPath": plate_extract_path

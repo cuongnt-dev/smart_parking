@@ -14,6 +14,7 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Drawing.Imaging;
 
 namespace WindowsFormsApp1
 {
@@ -22,6 +23,8 @@ namespace WindowsFormsApp1
         
         private VideoCaptureDevice FinalFrame;
         private readonly HttpClient httpClient;
+        FilterInfoCollection listWebcamInfo;
+        VideoCaptureDevice videoCaptureDevice;
         public Form1()
         {
             InitializeComponent();
@@ -59,6 +62,13 @@ namespace WindowsFormsApp1
         {
             listFile.ValueMember = "Path";
             listFile.DisplayMember = "FileName";
+            listWebcamInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo item in listWebcamInfo)
+            {
+                comboBoxListWebcam.Items.Add(item.Name);
+            }
+            comboBoxListWebcam.SelectedIndex = 0;
+            videoCaptureDevice = new VideoCaptureDevice();
         }
 
         private void listFile_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,6 +111,39 @@ namespace WindowsFormsApp1
             {
                 plateResult.Text = "Error: " + ex.Message;
             }
+        }
+
+        private void buttonPlayWebcam_Click(object sender, EventArgs e)
+        {
+            videoCaptureDevice = new VideoCaptureDevice(listWebcamInfo[comboBoxListWebcam.SelectedIndex].MonikerString);
+            videoCaptureDevice.NewFrame += videoCaptureDevice_NewFrame;
+            videoCaptureDevice.Start();
+        }
+
+        private void videoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            pictureBoxWebcam.Image = (Bitmap)eventArgs.Frame.Clone();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(videoCaptureDevice.IsRunning == true)
+            {
+                videoCaptureDevice.Stop();
+            }
+        }
+
+        private void buttonCaptureWebcam_Click(object sender, EventArgs e)
+        {
+            pictureBoxCaptureWebcam.Image = pictureBoxWebcam.Image;
+            // Generate a filename based on the current timestamp
+            string fileName = $"{DateTime.Now.Ticks}.jpg";
+
+            // Combine the filename with the directory where you want to save the image
+            string filePath = Path.Combine("D:\\LV\\capture", fileName);
+
+            // Save the image to the specified file
+            pictureBoxCaptureWebcam.Image.Save(filePath, ImageFormat.Jpeg);
         }
     }
 }
