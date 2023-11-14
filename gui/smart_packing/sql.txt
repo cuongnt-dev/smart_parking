@@ -1,0 +1,14 @@
+CREATE TABLE "user" (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    company VARCHAR(255) NOT NULL,
+    parkingCardId VARCHAR(20) NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    role VARCHAR(10) CHECK (role IN ('User', 'Admin')) NOT NULL,
+    plate_number VARCHAR(20),
+    password VARCHAR(255) NOT NULL
+);
+
+
+INSERT INTO "user" (name, company, parkingCardId, status, role, password)
+VALUES ('admin', 'YourCompany', '123456', 'Active', 'Admin', 'Abc12345');
