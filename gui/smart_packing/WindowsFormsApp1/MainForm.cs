@@ -16,6 +16,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Drawing.Imaging;
 using Npgsql;
+using WindowsFormsApp1.database;
 
 namespace WindowsFormsApp1
 {
@@ -26,14 +27,12 @@ namespace WindowsFormsApp1
         private readonly HttpClient httpClient;
         FilterInfoCollection listWebcamInfo;
         VideoCaptureDevice videoCaptureDevice;
-        private string sqlConnectionString;
-        private NpgsqlConnection conn = null;
+        
         public MainForm()
         {
             InitializeComponent();
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri("http://localhost:3000/");
-            sqlConnectionString = "Host=localhost;Port=5432;Username=postgres;Password=Abc12345;Database=smart_parking";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -157,24 +156,7 @@ namespace WindowsFormsApp1
                 comboBoxListWebcam.SelectedIndex = 0;
             }
             videoCaptureDevice = new VideoCaptureDevice();
-            try
-            {
-                conn = new NpgsqlConnection(sqlConnectionString);
-                conn.Open();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to connect to PostgreSQL. Error: " + ex.Message);
-            }
-            finally
-            {
-                // Close connection
-                if (null != conn)
-                {
-                    conn.Close();
-
-                }
-            }
+            DB.Connect();
         }
     }
 }

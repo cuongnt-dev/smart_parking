@@ -47,6 +47,9 @@
     <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.1.21\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -118,29 +121,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthenicationForm.cs">
+    <Compile Include="database\DB.cs" />
+    <Compile Include="form\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AuthenicationForm.Designer.cs">
+    <Compile Include="form\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\AuthenicationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\AuthenicationForm.Designer.cs">
       <DependentUpon>AuthenicationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DetectResponse.cs" />
+    <Compile Include="classes\DetectResponse.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MediaFile.cs" />
+    <Compile Include="classes\MediaFile.cs" />
+    <Compile Include="database\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserManageForm.cs">
+    <Compile Include="form\UserManageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserManageForm.Designer.cs">
+    <Compile Include="form\UserManageForm.Designer.cs">
       <DependentUpon>UserManageForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AuthenicationForm.resx">
+    <Compile Include="utils\Hash.cs" />
+    <EmbeddedResource Include="form\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\AuthenicationForm.resx">
       <DependentUpon>AuthenicationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -155,7 +170,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserManageForm.resx">
+    <EmbeddedResource Include="form\UserManageForm.resx">
       <DependentUpon>UserManageForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
