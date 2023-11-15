@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.database;
+using WindowsFormsApp1.form;
 using WindowsFormsApp1.model;
 
 namespace WindowsFormsApp1
@@ -29,6 +30,12 @@ namespace WindowsFormsApp1
             dataGridViewUser.DataSource = users;
             dataGridViewUser.Columns["Password"].Visible = false;
             dataGridViewUser.Columns["Plate"].Visible = false;
+        }
+
+        private void buttonAddUser_Click(object sender, EventArgs e)
+        {
+            AddUserForm addUserForm = new AddUserForm();
+            addUserForm.ShowDialog();
         }
     }
 }

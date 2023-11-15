@@ -35,32 +35,34 @@
             // 
             // buttonAddUser
             // 
-            this.buttonAddUser.Location = new System.Drawing.Point(22, 26);
+            this.buttonAddUser.Location = new System.Drawing.Point(16, 21);
+            this.buttonAddUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAddUser.Name = "buttonAddUser";
-            this.buttonAddUser.Size = new System.Drawing.Size(85, 47);
+            this.buttonAddUser.Size = new System.Drawing.Size(64, 38);
             this.buttonAddUser.TabIndex = 0;
             this.buttonAddUser.Text = "Add User";
             this.buttonAddUser.UseVisualStyleBackColor = true;
+            this.buttonAddUser.Click += new System.EventHandler(this.buttonAddUser_Click);
             // 
             // dataGridViewUser
             // 
             this.dataGridViewUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUser.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridViewUser.Location = new System.Drawing.Point(0, 166);
+            this.dataGridViewUser.Location = new System.Drawing.Point(0, 135);
+            this.dataGridViewUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewUser.Name = "dataGridViewUser";
             this.dataGridViewUser.RowHeadersWidth = 51;
             this.dataGridViewUser.RowTemplate.Height = 24;
-            this.dataGridViewUser.Size = new System.Drawing.Size(905, 388);
+            this.dataGridViewUser.Size = new System.Drawing.Size(679, 315);
             this.dataGridViewUser.TabIndex = 1;
             // 
             // UserManageForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 554);
+            this.ClientSize = new System.Drawing.Size(679, 450);
             this.Controls.Add(this.dataGridViewUser);
             this.Controls.Add(this.buttonAddUser);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserManageForm";
             this.Text = "User Management";
             this.Load += new System.EventHandler(this.UserManageForm_Load);

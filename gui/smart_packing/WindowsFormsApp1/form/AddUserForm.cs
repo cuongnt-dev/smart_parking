@@ -12,28 +12,38 @@ using WindowsFormsApp1.model;
 
 namespace WindowsFormsApp1.form
 {
-    public partial class AddUser : Form
+    public partial class AddUserForm : Form
     {
-        public AddUser()
+        public AddUserForm()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddUserForm_Load(object sender, EventArgs e)
         {
-            string userName = textBoxUserName.Text;
-            string companyName = textBoxCompanyName.Text;
-            string cardId = textBoxCardId.Text;
-            string role = comboBoxRole.SelectedItem.ToString();
+
+        }
+
+        private void buttonAddUser_Click(object sender, EventArgs e)
+        {
             User usr = new User
             {
-                Name = userName,
-                Company = companyName,
-                ParkingCardId = cardId,
-                Role = role
-
+                Name = textBoxUserName.Text,
+                Company = textBoxCompanyName.Text,
+                ParkingCardId = textBoxCardID.Text,
+                Role = "User",
             };
-            DB.AddUser(usr)
+            try
+            {
+                DB.AddUser(usr);
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Create User fail {ex.Message}");
+            } finally
+            {
+                this.Hide();
+            }
+            
         }
     }
 }
