@@ -14,14 +14,10 @@ namespace WindowsFormsApp1.form
 {
     public partial class AddUserForm : Form
     {
+        public event EventHandler<User> LoadUserList;
         public AddUserForm()
         {
             InitializeComponent();
-        }
-
-        private void AddUserForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonAddUser_Click(object sender, EventArgs e)
@@ -31,11 +27,13 @@ namespace WindowsFormsApp1.form
                 Name = textBoxUserName.Text,
                 Company = textBoxCompanyName.Text,
                 ParkingCardId = textBoxCardID.Text,
+                Status = "Enable",
                 Role = "User",
             };
             try
             {
                 DB.AddUser(usr);
+                LoadUserList.Invoke(this, usr);
             } catch (Exception ex)
             {
                 MessageBox.Show($"Create User fail {ex.Message}");
