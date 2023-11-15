@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.database;
+using WindowsFormsApp1.form;
 using WindowsFormsApp1.model;
 using WindowsFormsApp1.utils;
 
@@ -15,9 +16,11 @@ namespace WindowsFormsApp1
 {
     public partial class AuthenicationForm : Form
     {
-        public AuthenicationForm()
+        private string authenticationFor;
+        public AuthenicationForm(string authFor)
         {
             InitializeComponent();
+            authenticationFor = authFor;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,8 +34,15 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Username Or Password wrong. Please try again");
                 return;
             }
-            UserManageForm manageForm = new UserManageForm(usrs[0]);
-            manageForm.Show();
+            if(authenticationFor == "UserManageForm")
+            {
+                UserManageForm form = new UserManageForm(usrs[0]);
+                form.Show();
+            } else if(authenticationFor == "ParkingManageForm")
+            {
+                ParkingManageForm form = new ParkingManageForm();
+                form.Show();
+            }
             this.Hide();
         }
     }

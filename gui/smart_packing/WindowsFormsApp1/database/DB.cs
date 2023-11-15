@@ -54,5 +54,43 @@ namespace WindowsFormsApp1.database
                          "VALUES (@Name, @Company, @ParkingCardId, @Status, @Role, @Plate, @Password)";
             conn.Execute(insertQuery, usr);
         }
+
+        static public void DeleteUserById(int id)
+        {
+            string query = "DELETE FROM \"user\" WHERE id = @UserId";
+            conn.Execute(query, new { UserId = id });
+        }
+
+        static public void CreateLog(Log log)
+        {
+            string query = "INSERT INTO log (type, occurrence, plate) VALUES (@Type, @Occurrence, @Plate)";
+            conn.Execute(query, log);
+        }
+
+        internal static List<Log> GetLogWithCondition(string cond)
+        {
+            string query = $"SELECT * FROM \"log\"";
+
+            if (!string.IsNullOrEmpty(cond))
+            {
+                query += $" WHERE {cond}";
+            }
+            var logs = conn.Query<Log>(query).ToList();
+            return logs;
+        }
+
+        internal static Log GetLatestLog(int id)
+        {
+            string query = $"SELECT * FROM \"log\" WHERE user_id='{id}' ORDER BY occurrence DESC LIMIT 1";
+
+            
+            var logs = conn.Query<Log>(query).ToList();
+            if(logs.Count > 0)
+            {
+                return logs[0];
+            }
+            return null;
+            
+        }
     }
 }

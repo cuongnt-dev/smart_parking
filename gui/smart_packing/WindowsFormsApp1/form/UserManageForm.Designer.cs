@@ -81,6 +81,7 @@
             this.buttonDeleteSelectedUser.TabIndex = 0;
             this.buttonDeleteSelectedUser.Text = "Delete";
             this.buttonDeleteSelectedUser.UseVisualStyleBackColor = true;
+            this.buttonDeleteSelectedUser.Click += new System.EventHandler(this.buttonDeleteSelectedUser_Click);
             // 
             // labelSelectedUser
             // 

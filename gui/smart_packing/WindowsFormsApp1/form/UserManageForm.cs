@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
     {
         private User account;
         private List<User> users;
+        private int selectedUserIndex;
 
         public UserManageForm(User account)
         {
@@ -58,10 +59,24 @@ namespace WindowsFormsApp1
                 string userName = Convert.ToString(latestSelectedRow.Cells[1].Value);  // Assumes Name is the second column
                 string companyName = Convert.ToString(latestSelectedRow.Cells[2].Value); // Assumes Company is the third column
                 labelSelectedUser.Text = $"{userId} - {userName} - {companyName}";
+                selectedUserIndex = userId;
                 dataGridViewUser.SelectionChanged += dataGridViewUser_SelectionChanged;
             } else
             {
                 groupBoxSelectedUser.Visible = false;
+            }
+        }
+
+        private void buttonDeleteSelectedUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DB.DeleteUserById(selectedUserIndex);
+                MessageBox.Show("Delete User Successfully");
+                LoadUserList(this, null);
+            } catch(Exception ex)
+            {
+                MessageBox.Show($"Delete User fail {ex.Message}");
             }
         }
     }

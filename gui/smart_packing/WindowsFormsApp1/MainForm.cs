@@ -138,7 +138,7 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AuthenicationForm authenicationForm = new AuthenicationForm();
+            AuthenicationForm authenicationForm = new AuthenicationForm("UserManageForm");
             authenicationForm.ShowDialog();
         }
 
@@ -157,6 +157,12 @@ namespace WindowsFormsApp1
             }
             videoCaptureDevice = new VideoCaptureDevice();
             DB.Connect();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AuthenicationForm authenicationForm = new AuthenicationForm("ParkingManageForm");
+            authenicationForm.ShowDialog();
         }
     }
 }

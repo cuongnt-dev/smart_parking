@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="database\DB.cs" />
+    <Compile Include="database\Log.cs" />
     <Compile Include="form\AddUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +136,12 @@
       <DependentUpon>AuthenicationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="classes\DetectResponse.cs" />
+    <Compile Include="form\ParkingManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\ParkingManageForm.Designer.cs">
+      <DependentUpon>ParkingManageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\AuthenicationForm.resx">
       <DependentUpon>AuthenicationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\ParkingManageForm.resx">
+      <DependentUpon>ParkingManageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
