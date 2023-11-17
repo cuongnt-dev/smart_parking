@@ -62,7 +62,6 @@ D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\Dapper.dll
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\Dapper.xml
-D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.form.AddUser.resources
 E:\Project\MySelf\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
 E:\Project\MySelf\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
 E:\Project\MySelf\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
@@ -129,3 +128,5 @@ E:\Project\MySelf\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\
 E:\Project\MySelf\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 E:\Project\MySelf\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 E:\Project\MySelf\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.form.ParkingManageForm.resources
+D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.form.AddUserForm.resources
+D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.form.ParkingManageForm.resources

@@ -22,12 +22,13 @@ namespace WindowsFormsApp1
 {
     public partial class MainForm : Form
     {
-        
-        private VideoCaptureDevice FinalFrame;
+
         private readonly HttpClient httpClient;
         FilterInfoCollection listWebcamInfo;
-        VideoCaptureDevice videoCaptureDevice;
-        
+        VideoCaptureDevice videoCaptureDeviceCheckin;
+        VideoCaptureDevice videoCaptureDeviceCheckout;
+
+
         public MainForm()
         {
             InitializeComponent();
@@ -35,48 +36,32 @@ namespace WindowsFormsApp1
             httpClient.BaseAddress = new Uri("http://localhost:3000/");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog()
+            listWebcamInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo item in listWebcamInfo)
             {
-                Multiselect = true,
-                ValidateNames = true,
-                Filter = "Image Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.tif;*.tiff|All Files|*.*"
-            })
-            {
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    List<MediaFile> files = new List<MediaFile>();
-                    foreach (string filename in ofd.FileNames)
-                    {
-                        FileInfo fi = new FileInfo(filename);
-                        files.Add(new MediaFile()
-                        {
-                            FileName = Path.GetFileNameWithoutExtension(fi.FullName),
-                            Path = fi.FullName
-                        });
-                    }
-                    listFile.DataSource = files;
-                }
+                comboBoxListWebcamCheckin.Items.Add(item.Name);
+                comboBoxListWebcamCheckout.Items.Add(item.Name);
             }
-        }
-
-        private void listFile_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listFile.SelectedIndex != -1)
+            if (comboBoxListWebcamCheckin.Items.Count > 0)
             {
-                string selectedImagePath = (listFile.SelectedItem as MediaFile).Path;
-                pictureBoxSelectedImage.Image = Image.FromFile(selectedImagePath);
+                comboBoxListWebcamCheckin.SelectedIndex = 0;
             }
+            if (comboBoxListWebcamCheckout.Items.Count > 1)
+            {
+                comboBoxListWebcamCheckout.SelectedIndex = 1;
+            }
+            DB.Connect();
         }
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Click me");
             try
             {
                 // Make a GET request to an API endpoint
-                string selectedPath = (listFile.SelectedItem as MediaFile).Path;
+                // string selectedPath = (listFile.SelectedItem as MediaFile).Path;
+                string selectedPath = "abc.jpoh";
                 HttpResponseMessage response = await httpClient.GetAsync($"detect?image={selectedPath}");
 
                 if (response.IsSuccessStatusCode)
@@ -103,29 +88,31 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void buttonPlayWebcam_Click(object sender, EventArgs e)
+        private void videoCaptureDeviceCheckin_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            videoCaptureDevice = new VideoCaptureDevice(listWebcamInfo[comboBoxListWebcam.SelectedIndex].MonikerString);
-            videoCaptureDevice.NewFrame += videoCaptureDevice_NewFrame;
-            videoCaptureDevice.Start();
+            pictureBoxWebcamCheckin.Image = (Bitmap)eventArgs.Frame.Clone();
         }
 
-        private void videoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        private void videoCaptureDeviceCheckout_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            pictureBoxWebcam.Image = (Bitmap)eventArgs.Frame.Clone();
+            pictureBoxWebcamCheckout.Image = (Bitmap)eventArgs.Frame.Clone();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(videoCaptureDevice.IsRunning == true)
+            if(videoCaptureDeviceCheckin.IsRunning == true)
             {
-                videoCaptureDevice.Stop();
+                videoCaptureDeviceCheckin.Stop();
+            }
+            if (videoCaptureDeviceCheckout.IsRunning == true)
+            {
+                videoCaptureDeviceCheckout.Stop();
             }
         }
 
         private void buttonCaptureWebcam_Click(object sender, EventArgs e)
         {
-            pictureBoxCaptureWebcam.Image = pictureBoxWebcam.Image;
+            pictureBoxWebcamCheckout.Image = pictureBoxWebcamCheckin.Image;
             // Generate a filename based on the current timestamp
             string fileName = $"{DateTime.Now.Ticks}.jpg";
 
@@ -133,7 +120,7 @@ namespace WindowsFormsApp1
             string filePath = Path.Combine("D:\\LV\\capture", fileName);
 
             // Save the image to the specified file
-            pictureBoxCaptureWebcam.Image.Save(filePath, ImageFormat.Jpeg);
+            pictureBoxWebcamCheckout.Image.Save(filePath, ImageFormat.Jpeg);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -142,27 +129,34 @@ namespace WindowsFormsApp1
             authenicationForm.ShowDialog();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            listFile.ValueMember = "Path";
-            listFile.DisplayMember = "FileName";
-            listWebcamInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo item in listWebcamInfo)
-            {
-                comboBoxListWebcam.Items.Add(item.Name);
-            }
-            if(comboBoxListWebcam.Items.Count > 0)
-            {
-                comboBoxListWebcam.SelectedIndex = 0;
-            }
-            videoCaptureDevice = new VideoCaptureDevice();
-            DB.Connect();
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             AuthenicationForm authenicationForm = new AuthenicationForm("ParkingManageForm");
             authenicationForm.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void buttonPlayWebcam_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBoxListWebcamCheckin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            videoCaptureDeviceCheckin = new VideoCaptureDevice(listWebcamInfo[comboBoxListWebcamCheckin.SelectedIndex].MonikerString);
+            videoCaptureDeviceCheckin.NewFrame += videoCaptureDeviceCheckin_NewFrame;
+            videoCaptureDeviceCheckin.Start();
+        }
+
+        private void comboBoxListWebcamCheckout_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            videoCaptureDeviceCheckout = new VideoCaptureDevice(listWebcamInfo[comboBoxListWebcamCheckout.SelectedIndex].MonikerString);
+            videoCaptureDeviceCheckout.NewFrame += videoCaptureDeviceCheckout_NewFrame;
+            videoCaptureDeviceCheckout.Start();
         }
     }
 }

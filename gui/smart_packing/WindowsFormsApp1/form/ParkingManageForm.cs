@@ -78,13 +78,13 @@ namespace WindowsFormsApp1.form
             }
             try
             {
-                Log log = new Log
+                Log l = new Log
                 {
                     Type = "Checkin",
                     Occurrence = DateTime.Now,
                     UserID = usrs[0].ID,
                 };
-                DB.CreateLog(log);
+                DB.CreateLog(l);
                 LoadLogList(this, null);
             }
             catch (Exception ex)
