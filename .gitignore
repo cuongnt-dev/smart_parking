@@ -1,4 +1,4 @@
 gui/smart_parking/.vs/*
 detect_plate/venv
 detect_plate/__cache__
-detect_plate/.idea
+detect_plate/.idea/*
