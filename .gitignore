@@ -1,3 +1,3 @@
-gui/smart_parking/.vs
+gui/smart_parking/.vs/*
 detect_plate/venv
 detect_plate/.idea
