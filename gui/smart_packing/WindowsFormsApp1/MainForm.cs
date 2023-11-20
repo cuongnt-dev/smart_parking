@@ -27,7 +27,7 @@ namespace WindowsFormsApp1
         FilterInfoCollection listWebcamInfo;
         VideoCaptureDevice videoCaptureDeviceCheckin;
         VideoCaptureDevice videoCaptureDeviceCheckout;
-
+        int filename = 111;
 
         public MainForm()
         {
@@ -55,14 +55,22 @@ namespace WindowsFormsApp1
             DB.Connect();
         }
 
-        private async void button2_Click(object sender, EventArgs e)
+        private async void buttonCaptureCheckin_Click(object sender, EventArgs e)
         {
             try
             {
+                pictureBoxSelectedImageCheckin.Image = pictureBoxWebcamCheckin.Image;
+                // Generate a filename based on the current timestamp
+                string fileName = $"{DateTime.Now.Ticks}.jpg";
+
+                // Combine the filename with the directory where you want to save the image
+                string filePath = Path.Combine("D:\\LV\\capture", fileName);
+
+                // Save the image to the specified file
+                pictureBoxSelectedImageCheckin.Image.Save(filePath, ImageFormat.Jpeg);
                 // Make a GET request to an API endpoint
                 // string selectedPath = (listFile.SelectedItem as MediaFile).Path;
-                string selectedPath = "abc.jpoh";
-                HttpResponseMessage response = await httpClient.GetAsync($"detect?image={selectedPath}");
+                HttpResponseMessage response = await httpClient.GetAsync($"detect?image={filePath}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -75,7 +83,7 @@ namespace WindowsFormsApp1
                     string plateText = responseObj.PlateText;
                     // Process the API response here
                     plateResult.Text = plateText;
-                    pictureBoxPlateImage.Image = Image.FromFile(plateExtractPath);
+                    // pictureBoxPlateImageCheckout.Image = Image.FromFile(plateExtractPath);
                 }
                 else
                 {
@@ -108,19 +116,6 @@ namespace WindowsFormsApp1
             {
                 videoCaptureDeviceCheckout.Stop();
             }
-        }
-
-        private void buttonCaptureWebcam_Click(object sender, EventArgs e)
-        {
-            pictureBoxWebcamCheckout.Image = pictureBoxWebcamCheckin.Image;
-            // Generate a filename based on the current timestamp
-            string fileName = $"{DateTime.Now.Ticks}.jpg";
-
-            // Combine the filename with the directory where you want to save the image
-            string filePath = Path.Combine("D:\\LV\\capture", fileName);
-
-            // Save the image to the specified file
-            pictureBoxWebcamCheckout.Image.Save(filePath, ImageFormat.Jpeg);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -157,6 +152,48 @@ namespace WindowsFormsApp1
             videoCaptureDeviceCheckout = new VideoCaptureDevice(listWebcamInfo[comboBoxListWebcamCheckout.SelectedIndex].MonikerString);
             videoCaptureDeviceCheckout.NewFrame += videoCaptureDeviceCheckout_NewFrame;
             videoCaptureDeviceCheckout.Start();
+        }
+
+        private async void buttonTestCapture_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pictureBoxSelectedImageCheckin.Image = Image.FromFile($"D:\\LV\\smart_parking\\detect_plate\\test\\{filename}.jpg");
+                filename = filename + 1;
+                // Generate a filename based on the current timestamp
+                string fileName = $"{DateTime.Now.Ticks}.jpg";
+
+                // Combine the filename with the directory where you want to save the image
+                string filePath = Path.Combine("D:\\LV\\capture", fileName);
+
+                // Save the image to the specified file
+                pictureBoxSelectedImageCheckin.Image.Save(filePath, ImageFormat.Jpeg);
+                // Make a GET request to an API endpoint
+                // string selectedPath = (listFile.SelectedItem as MediaFile).Path;
+                HttpResponseMessage response = await httpClient.GetAsync($"detect?image={filePath}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    DetectResponse responseObj = JsonConvert.DeserializeObject<DetectResponse>(apiResponse);
+
+                    // Access individual properties
+                    string plateExtractPath = responseObj.PlateExtractPath;
+                    string platePath = responseObj.PlatePath;
+                    string plateText = responseObj.PlateText;
+                    // Process the API response here
+                    plateResult.Text = plateText;
+                    // pictureBoxPlateImageCheckout.Image = Image.FromFile(plateExtractPath);
+                }
+                else
+                {
+                    plateResult.Text = "Error: " + response.ReasonPhrase;
+                }
+            }
+            catch (Exception ex)
+            {
+                plateResult.Text = "Error: " + ex.Message;
+            }
         }
     }
 }
