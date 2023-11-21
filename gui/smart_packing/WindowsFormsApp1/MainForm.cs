@@ -17,6 +17,9 @@ using Newtonsoft.Json;
 using System.Drawing.Imaging;
 using Npgsql;
 using WindowsFormsApp1.database;
+using System.Timers;
+using WindowsFormsApp1.model;
+using Microsoft.Scripting.ComInterop;
 
 namespace WindowsFormsApp1
 {
@@ -65,7 +68,7 @@ namespace WindowsFormsApp1
 
                 // Combine the filename with the directory where you want to save the image
                 string filePath = Path.Combine("D:\\LV\\capture", fileName);
-
+                
                 // Save the image to the specified file
                 pictureBoxSelectedImageCheckin.Image.Save(filePath, ImageFormat.Jpeg);
                 // Make a GET request to an API endpoint
@@ -76,7 +79,7 @@ namespace WindowsFormsApp1
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     DetectResponse responseObj = JsonConvert.DeserializeObject<DetectResponse>(apiResponse);
-
+                    Console.WriteLine("Current Time Calling API: " + DateTime.Now.ToString("HH:mm:ss"));
                     // Access individual properties
                     string plateExtractPath = responseObj.PlateExtractPath;
                     string platePath = responseObj.PlatePath;
@@ -171,12 +174,10 @@ namespace WindowsFormsApp1
                 // Make a GET request to an API endpoint
                 // string selectedPath = (listFile.SelectedItem as MediaFile).Path;
                 HttpResponseMessage response = await httpClient.GetAsync($"detect?image={filePath}");
-
                 if (response.IsSuccessStatusCode)
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     DetectResponse responseObj = JsonConvert.DeserializeObject<DetectResponse>(apiResponse);
-
                     // Access individual properties
                     string plateExtractPath = responseObj.PlateExtractPath;
                     string platePath = responseObj.PlatePath;
@@ -194,6 +195,124 @@ namespace WindowsFormsApp1
             {
                 plateResult.Text = "Error: " + ex.Message;
             }
+        }
+
+        private async Task<DetectResponse> ScanPlate()
+        {
+            try
+            {
+                pictureBoxSelectedImageCheckin.Image = pictureBoxWebcamCheckin.Image;
+                // Generate a filename based on the current timestamp
+                string fileName = $"{DateTime.Now.Ticks}.jpg";
+
+                // Combine the filename with the directory where you want to save the image
+                string filePath = Path.Combine("D:\\LV\\capture", fileName);
+
+                // Save the image to the specified file
+                pictureBoxSelectedImageCheckin.Image.Save(filePath, ImageFormat.Jpeg);
+                // Make a GET request to an API endpoint
+                // string selectedPath = (listFile.SelectedItem as MediaFile).Path;
+                HttpResponseMessage response = await httpClient.GetAsync($"detect?image={filePath}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    DetectResponse responseObj = JsonConvert.DeserializeObject<DetectResponse>(apiResponse);
+                    // Access individual properties
+                    string plateExtractPath = responseObj.PlateExtractPath;
+                    string platePath = responseObj.PlatePath;
+                    string plateText = responseObj.PlateText;
+                    // Process the API response here
+                    plateResult.Text = plateText;
+                    // pictureBoxPlateImageCheckout.Image = Image.FromFile(plateExtractPath);
+                    return responseObj;
+                }
+                else
+                {
+                    plateResult.Text = "Error: " + response.ReasonPhrase;
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                plateResult.Text = "Error: " + ex.Message;
+                return null;
+            }
+        }
+
+        private System.Timers.Timer debounceTimer;
+        private string cardId = "";
+        private bool isReadyReceiveCard = false;
+        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == ';')
+            {
+                isReadyReceiveCard = true;
+                debounceTimer = new System.Timers.Timer(100);
+                debounceTimer.Elapsed += EndTimer;
+                return;
+            }
+            if (isReadyReceiveCard)
+            {
+                cardId += e.KeyChar;
+                debounceTimer.Stop();
+                debounceTimer.Start();
+            }
+            
+        }
+
+        public async void EndTimer(object sender, ElapsedEventArgs e)
+        {
+            debounceTimer.Stop();
+            
+            if (cardId.Length == 8)
+            {
+                // Get CardId data
+                User usr = DB.GetUserByCardId(cardId);
+                DetectResponse res = await ScanPlate();
+                if (usr.Plate != res.PlateText)
+                {
+                    MessageBox.Show("Invalid Plate");
+                    return;
+                }
+                // Trigger cardId Checkin {cardId}
+                Log l = new Log
+                {
+                    UserID = usr.ID,
+                    Type = "Checkin",
+                    Occurrence = DateTime.Now,
+                };
+                DB.CreateLog(l);
+            }
+            else if (cardId.Length == 9 && cardId[cardId.Length - 1] == '?')
+            {
+                // Trigger cardId Checkout {tmpCardId}
+                string tmpCardId = cardId.Substring(0, cardId.Length - 1);
+                User usr = DB.GetUserByCardId(tmpCardId);
+                DetectResponse res = await ScanPlate();
+                if (usr.Plate != res.PlateText)
+                {
+                    MessageBox.Show("Invalid Plate");
+                    return;
+                }
+                // Get latest log of this user
+                Log log = DB.GetLatestLog(usr.ID);
+                if(log.Type != "Checkin")
+                {
+                    MessageBox.Show("This card didn't used for checkin before");
+                    return;
+                }
+                // Trigger cardId Checkin {cardId}
+                Log l = new Log
+                {
+                    UserID = usr.ID,
+                    Type = "Checkout",
+                    Occurrence = DateTime.Now,
+                };
+                DB.CreateLog(l);
+            }
+            cardId = "";
+            isReadyReceiveCard = false;
         }
     }
 }

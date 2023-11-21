@@ -48,6 +48,13 @@ namespace WindowsFormsApp1.database
             return users;
         }
 
+        static public User GetUserByCardId(string cardID)
+        {
+            string query = $"SELECT * FROM \"user\" WHERE parking_card_id = \"{cardID}\"";
+            var users = conn.Query<User>(query).ToList();
+            return users[0];
+        }
+
         static public void AddUser(User usr)
         {
             string insertQuery = "INSERT INTO \"user\" (Name, Company, ParkingCardId, Status, Role, Plate, Password) " +

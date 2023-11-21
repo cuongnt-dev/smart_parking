@@ -4,7 +4,7 @@ from detection import detect_plate, extract_number_plate_text, init_model
 
 app = Flask(__name__)
 
-
+from datetime import datetime
 @app.get("/detect")
 def detect():
     image_path = request.args.get('image')

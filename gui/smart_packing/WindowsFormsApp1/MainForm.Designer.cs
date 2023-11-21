@@ -48,6 +48,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonCaptureCheckout = new System.Windows.Forms.Button();
             this.buttonTestCapture = new System.Windows.Forms.Button();
+            this.textBoxCardId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageCheckin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlateImageCheckout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWebcamCheckin)).BeginInit();
@@ -253,11 +254,19 @@
             this.buttonTestCapture.UseVisualStyleBackColor = true;
             this.buttonTestCapture.Click += new System.EventHandler(this.buttonTestCapture_Click);
             // 
+            // textBoxCardId
+            // 
+            this.textBoxCardId.Location = new System.Drawing.Point(106, 88);
+            this.textBoxCardId.Name = "textBoxCardId";
+            this.textBoxCardId.Size = new System.Drawing.Size(107, 22);
+            this.textBoxCardId.TabIndex = 28;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 750);
+            this.ClientSize = new System.Drawing.Size(794, 750);
+            this.Controls.Add(this.textBoxCardId);
             this.Controls.Add(this.buttonTestCapture);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
@@ -278,11 +287,13 @@
             this.Controls.Add(this.pictureBoxPlateImageCheckout);
             this.Controls.Add(this.pictureBoxSelectedImageCheckin);
             this.Controls.Add(this.buttonCaptureCheckin);
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageCheckin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlateImageCheckout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWebcamCheckin)).EndInit();
@@ -313,6 +324,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonCaptureCheckout;
         private System.Windows.Forms.Button buttonTestCapture;
+        private System.Windows.Forms.TextBox textBoxCardId;
     }
 }
 
