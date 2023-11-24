@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="446992af-570e-4626-a87f-8f15c28493b0" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/1792c2a7-3613-413d-821d-5bcfa87e379c.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/fa3d7d9e-526f-4369-9e31-36df2061006c.vsidx" beforeDir="false" />
+    <list default="true" id="270b494f-e149-4dcb-a58a-f3ebab1ca775" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/detect_plate.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/063f17a9-55de-4418-b3a4-a95268a0d880.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/1c905787-3074-4314-b6a7-cd76c326c2fe.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/774bd4c2-6851-4adc-833e-386763a0a977.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/88d2f550-f0b8-4d18-bf7c-528d31f3abb1.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/9b53f223-9d43-480c-a672-eec1562307ce.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/cb03d9bc-1218-4662-8028-ff9a9d0e66f4.vsidx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/Interop.WMPLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/Interop.WMPLib.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/Interop.WMPLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/Interop.WMPLib.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.GenerateResource.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.ResolveComReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.ResolveComReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.pdb" afterDir="false" />
     </list>
@@ -25,44 +37,30 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2XvOKUkAWc869N20Fd9uK7kVWF1" />
+  <component name="ProjectId" id="2Ybc9myAB3LekDvDXnSZqA49REC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/main.py" />
+  </component>
   <component name="RunManager">
-    <configuration name="detect_plate" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="detect_plate" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="SDK_HOME" value="E:\Document\Essay\code\smart_parking\detect_plate\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -73,35 +71,14 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="446992af-570e-4626-a87f-8f15c28493b0" name="Changes" comment="" />
-      <created>1699506027932</created>
+      <changelist id="270b494f-e149-4dcb-a58a-f3ebab1ca775" name="Default Changelist" comment="" />
+      <created>1700797574127</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1699506027932</updated>
-      <workItem from="1699801469652" duration="2141000" />
-      <workItem from="1700494490238" duration="2884000" />
-      <workItem from="1700581522764" duration="2427000" />
+      <updated>1700797574127</updated>
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/detect_plate$detect_plate.coverage" NAME="detect_plate Coverage Results" MODIFIED="1700583301342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
