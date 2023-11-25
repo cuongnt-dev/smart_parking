@@ -183,13 +183,13 @@ namespace WindowsFormsApp1
         {
             try
             {
-                pictureBoxSelectedImageCheckin.Image = Image.FromFile($"D:\\LV\\smart_parking\\detect_plate\\test\\{filename}.jpg");
+                pictureBoxSelectedImageCheckin.Image = Image.FromFile($"E:\\Document\\Essay\\code\\smart_parking\\detect_plate\\test\\{filename}.jpg");
                 filename = filename + 1;
                 // Generate a filename based on the current timestamp
                 string fileName = $"{DateTime.Now.Ticks}.jpg";
 
                 // Combine the filename with the directory where you want to save the image
-                string filePath = Path.Combine("D:\\LV\\capture", fileName);
+                string filePath = Path.Combine("E:\\Document\\Essay\\code\\capture", fileName);
 
                 // Save the image to the specified file
                 pictureBoxSelectedImageCheckin.Image.Save(filePath, ImageFormat.Jpeg);
@@ -228,7 +228,7 @@ namespace WindowsFormsApp1
                 string fileName = $"{DateTime.Now.Ticks}.jpg";
 
                 // Combine the filename with the directory where you want to save the image
-                string filePath = Path.Combine("D:\\LV\\capture", fileName);
+                string filePath = Path.Combine("E:\\Document\\Essay\\code\\capture", fileName);
 
                 // Save the image to the specified file
                 pictureBoxSelectedImageCheckin.Image.Save(filePath, ImageFormat.Jpeg);
