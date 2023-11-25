@@ -43,6 +43,11 @@ namespace WindowsFormsApp1
                 ParkingManageForm form = new ParkingManageForm();
                 form.Show();
             }
+            else if (authenticationFor == "SystemManageForm")
+            {
+                SystemManageForm form = new SystemManageForm();
+                form.Show();
+            }
             this.Hide();
         }
     }

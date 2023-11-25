@@ -30,6 +30,8 @@ namespace WindowsFormsApp1
         FilterInfoCollection listWebcamInfo;
         VideoCaptureDevice videoCaptureDeviceCheckin;
         VideoCaptureDevice videoCaptureDeviceCheckout;
+        List<Setting> settingsList;
+
         int filename = 111;
 
         public MainForm()
@@ -39,23 +41,51 @@ namespace WindowsFormsApp1
             httpClient.BaseAddress = new Uri("http://localhost:3000/");
         }
 
+        private void LoadCheckinCamera()
+        {
+
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
             listWebcamInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo item in listWebcamInfo)
+            //foreach (FilterInfo item in listWebcamInfo)
+            //{
+            //    comboBoxListWebcamCheckin.Items.Add(item.Name);
+            //    comboBoxListWebcamCheckout.Items.Add(item.Name);
+            //}
+            //if (comboBoxListWebcamCheckin.Items.Count > 0)
+            //{
+            //    comboBoxListWebcamCheckin.SelectedIndex = 0;
+            //}
+            //if (comboBoxListWebcamCheckout.Items.Count > 1)
+            //{
+            //    comboBoxListWebcamCheckout.SelectedIndex = 1;
+            //}
+            
+            connectSerialPort();
+            try
             {
-                comboBoxListWebcamCheckin.Items.Add(item.Name);
-                comboBoxListWebcamCheckout.Items.Add(item.Name);
-            }
-            if (comboBoxListWebcamCheckin.Items.Count > 0)
+                DB.Connect();
+                settingsList = DB.GetAllSetting();
+                Setting checkinCamSetting = settingsList.FirstOrDefault(setting => setting.Name == Constant.CHECKIN_CAM);
+                if(checkinCamSetting != null)
+                {
+                    videoCaptureDeviceCheckin = new VideoCaptureDevice(listWebcamInfo.Cast<FilterInfo>().FirstOrDefault(info => info.Name == checkinCamSetting.Value).MonikerString);
+                    videoCaptureDeviceCheckin.NewFrame += videoCaptureDeviceCheckin_NewFrame;
+                    videoCaptureDeviceCheckin.Start();
+                }
+                Setting checkoutCamSetting = settingsList.FirstOrDefault(setting => setting.Name == Constant.CHECKOUT_CAM);
+                if (checkoutCamSetting != null)
+                {
+                    videoCaptureDeviceCheckout = new VideoCaptureDevice(listWebcamInfo.Cast<FilterInfo>().FirstOrDefault(info => info.Name == checkoutCamSetting.Value).MonikerString);
+                    videoCaptureDeviceCheckout.NewFrame += videoCaptureDeviceCheckout_NewFrame;
+                    videoCaptureDeviceCheckout.Start();
+                }
+                
+            } catch(Exception ex)
             {
-                comboBoxListWebcamCheckin.SelectedIndex = 0;
+                MessageBox.Show($"Error when load form {ex}");
             }
-            if (comboBoxListWebcamCheckout.Items.Count > 1)
-            {
-                comboBoxListWebcamCheckout.SelectedIndex = 1;
-            }
-            DB.Connect();
         }
 
         private async void buttonCaptureCheckin_Click(object sender, EventArgs e)
@@ -133,6 +163,12 @@ namespace WindowsFormsApp1
             authenicationForm.ShowDialog();
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AuthenicationForm authenicationForm = new AuthenicationForm("SystemManageForm");
+            authenicationForm.ShowDialog();
+        }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
@@ -141,20 +177,6 @@ namespace WindowsFormsApp1
         private void buttonPlayWebcam_Click(object sender, EventArgs e)
         {
             
-        }
-
-        private void comboBoxListWebcamCheckin_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            videoCaptureDeviceCheckin = new VideoCaptureDevice(listWebcamInfo[comboBoxListWebcamCheckin.SelectedIndex].MonikerString);
-            videoCaptureDeviceCheckin.NewFrame += videoCaptureDeviceCheckin_NewFrame;
-            videoCaptureDeviceCheckin.Start();
-        }
-
-        private void comboBoxListWebcamCheckout_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            videoCaptureDeviceCheckout = new VideoCaptureDevice(listWebcamInfo[comboBoxListWebcamCheckout.SelectedIndex].MonikerString);
-            videoCaptureDeviceCheckout.NewFrame += videoCaptureDeviceCheckout_NewFrame;
-            videoCaptureDeviceCheckout.Start();
         }
 
         private async void buttonTestCapture_Click(object sender, EventArgs e)
@@ -313,6 +335,38 @@ namespace WindowsFormsApp1
             }
             cardId = "";
             isReadyReceiveCard = false;
+        }
+
+        private void connectSerialPort()
+        {
+            if (!serialPort.IsOpen)
+            {
+                try
+                {
+                    serialPort.PortName = Constant.PORT_NAME;
+                    serialPort.BaudRate = Convert.ToInt32(Constant.BAUD_RATE);
+                    serialPort.Open();
+                    labelCheckinBarierStatus.Text = "Barier 1: Normal";
+                } catch(Exception ex)
+                {
+                    labelCheckinBarierStatus.Text = "Barier 1: Abnormal";
+                }
+            }
+        }
+
+
+        private void buttonToggleCheckinBarier_Click_1(object sender, EventArgs e)
+        {
+            serialPort.Write("CK1O");
+            statusIndicator.StatusColor = Color.Green;
+            labelCheckinBarier.Text = "Open";
+        }
+
+        private void buttonCloseCheckinBarier_Click(object sender, EventArgs e)
+        {
+            serialPort.Write("CK1C");
+            statusIndicator.StatusColor = Color.Red;
+            labelCheckinBarier.Text = "Close";
         }
     }
 }

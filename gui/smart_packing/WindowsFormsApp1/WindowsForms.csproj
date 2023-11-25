@@ -121,8 +121,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constant.cs" />
     <Compile Include="database\DB.cs" />
     <Compile Include="database\Log.cs" />
+    <Compile Include="database\Setting.cs" />
     <Compile Include="form\AddUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +144,12 @@
     <Compile Include="form\ParkingManageForm.Designer.cs">
       <DependentUpon>ParkingManageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\SystemManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\SystemManageForm.Designer.cs">
+      <DependentUpon>SystemManageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +166,9 @@
     <Compile Include="form\UserManageForm.Designer.cs">
       <DependentUpon>UserManageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatusIndicator.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="utils\Hash.cs" />
     <EmbeddedResource Include="form\AddUserForm.resx">
       <DependentUpon>AddUserForm.cs</DependentUpon>
@@ -167,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\ParkingManageForm.resx">
       <DependentUpon>ParkingManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\SystemManageForm.resx">
+      <DependentUpon>SystemManageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

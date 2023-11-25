@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonCaptureCheckin = new System.Windows.Forms.Button();
             this.pictureBoxSelectedImageCheckin = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlateImageCheckout = new System.Windows.Forms.PictureBox();
             this.plateResult = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxListWebcamCheckin = new System.Windows.Forms.ComboBox();
             this.pictureBoxWebcamCheckin = new System.Windows.Forms.PictureBox();
             this.pictureBoxWebcamCheckout = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -41,23 +41,35 @@
             this.button1 = new System.Windows.Forms.Button();
             this.labelCheckin = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonOpenCheckinStream = new System.Windows.Forms.Button();
-            this.buttonOpenCheckoutStream = new System.Windows.Forms.Button();
-            this.comboBoxListWebcamCheckout = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonCaptureCheckout = new System.Windows.Forms.Button();
             this.buttonTestCapture = new System.Windows.Forms.Button();
-            this.textBoxCardId = new System.Windows.Forms.TextBox();
+            this.serialPort = new System.IO.Ports.SerialPort(this.components);
+            this.groupBoxCheckin = new System.Windows.Forms.GroupBox();
+            this.buttonCloseCheckinBarier = new System.Windows.Forms.Button();
+            this.labelCheckinBarierStatus = new System.Windows.Forms.Label();
+            this.buttonToggleCheckinBarier = new System.Windows.Forms.Button();
+            this.labelCheckinBarier = new System.Windows.Forms.Label();
+            this.statusIndicator = new WindowsFormsApp1.StatusIndicator();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.statusIndicatorCheckout = new WindowsFormsApp1.StatusIndicator();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageCheckin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlateImageCheckout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWebcamCheckin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWebcamCheckout)).BeginInit();
+            this.groupBoxCheckin.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonCaptureCheckin
             // 
-            this.buttonCaptureCheckin.Location = new System.Drawing.Point(11, 656);
+            this.buttonCaptureCheckin.Location = new System.Drawing.Point(10, 711);
             this.buttonCaptureCheckin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCaptureCheckin.Name = "buttonCaptureCheckin";
             this.buttonCaptureCheckin.Size = new System.Drawing.Size(100, 28);
@@ -68,7 +80,8 @@
             // 
             // pictureBoxSelectedImageCheckin
             // 
-            this.pictureBoxSelectedImageCheckin.Location = new System.Drawing.Point(11, 433);
+            this.pictureBoxSelectedImageCheckin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSelectedImageCheckin.Location = new System.Drawing.Point(11, 409);
             this.pictureBoxSelectedImageCheckin.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxSelectedImageCheckin.Name = "pictureBoxSelectedImageCheckin";
             this.pictureBoxSelectedImageCheckin.Size = new System.Drawing.Size(362, 165);
@@ -78,7 +91,8 @@
             // 
             // pictureBoxPlateImageCheckout
             // 
-            this.pictureBoxPlateImageCheckout.Location = new System.Drawing.Point(401, 433);
+            this.pictureBoxPlateImageCheckout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxPlateImageCheckout.Location = new System.Drawing.Point(444, 411);
             this.pictureBoxPlateImageCheckout.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxPlateImageCheckout.Name = "pictureBoxPlateImageCheckout";
             this.pictureBoxPlateImageCheckout.Size = new System.Drawing.Size(376, 165);
@@ -88,7 +102,7 @@
             // 
             // plateResult
             // 
-            this.plateResult.Location = new System.Drawing.Point(119, 659);
+            this.plateResult.Location = new System.Drawing.Point(118, 714);
             this.plateResult.Margin = new System.Windows.Forms.Padding(4);
             this.plateResult.Name = "plateResult";
             this.plateResult.Size = new System.Drawing.Size(185, 22);
@@ -97,22 +111,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(122, 639);
+            this.label1.Location = new System.Drawing.Point(121, 694);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 16);
             this.label1.TabIndex = 8;
             this.label1.Text = "Plate Number";
-            // 
-            // comboBoxListWebcamCheckin
-            // 
-            this.comboBoxListWebcamCheckin.FormattingEnabled = true;
-            this.comboBoxListWebcamCheckin.Location = new System.Drawing.Point(106, 118);
-            this.comboBoxListWebcamCheckin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxListWebcamCheckin.Name = "comboBoxListWebcamCheckin";
-            this.comboBoxListWebcamCheckin.Size = new System.Drawing.Size(107, 24);
-            this.comboBoxListWebcamCheckin.TabIndex = 10;
-            this.comboBoxListWebcamCheckin.SelectedIndexChanged += new System.EventHandler(this.comboBoxListWebcamCheckin_SelectedIndexChanged);
             // 
             // pictureBoxWebcamCheckin
             // 
@@ -126,7 +130,7 @@
             // 
             // pictureBoxWebcamCheckout
             // 
-            this.pictureBoxWebcamCheckout.Location = new System.Drawing.Point(401, 153);
+            this.pictureBoxWebcamCheckout.Location = new System.Drawing.Point(444, 153);
             this.pictureBoxWebcamCheckout.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxWebcamCheckout.Name = "pictureBoxWebcamCheckout";
             this.pictureBoxWebcamCheckout.Size = new System.Drawing.Size(376, 250);
@@ -158,7 +162,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(666, 13);
+            this.button1.Location = new System.Drawing.Point(709, 15);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 68);
@@ -179,46 +183,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(402, 123);
+            this.label3.Location = new System.Drawing.Point(445, 123);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 16);
             this.label3.TabIndex = 20;
             this.label3.Text = "Checkout";
             // 
-            // buttonOpenCheckinStream
-            // 
-            this.buttonOpenCheckinStream.Location = new System.Drawing.Point(219, 115);
-            this.buttonOpenCheckinStream.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonOpenCheckinStream.Name = "buttonOpenCheckinStream";
-            this.buttonOpenCheckinStream.Size = new System.Drawing.Size(100, 34);
-            this.buttonOpenCheckinStream.TabIndex = 21;
-            this.buttonOpenCheckinStream.Text = "Stream";
-            this.buttonOpenCheckinStream.UseVisualStyleBackColor = true;
-            // 
-            // buttonOpenCheckoutStream
-            // 
-            this.buttonOpenCheckoutStream.Location = new System.Drawing.Point(621, 112);
-            this.buttonOpenCheckoutStream.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonOpenCheckoutStream.Name = "buttonOpenCheckoutStream";
-            this.buttonOpenCheckoutStream.Size = new System.Drawing.Size(100, 34);
-            this.buttonOpenCheckoutStream.TabIndex = 22;
-            this.buttonOpenCheckoutStream.Text = "Stream";
-            this.buttonOpenCheckoutStream.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxListWebcamCheckout
-            // 
-            this.comboBoxListWebcamCheckout.FormattingEnabled = true;
-            this.comboBoxListWebcamCheckout.Location = new System.Drawing.Point(507, 118);
-            this.comboBoxListWebcamCheckout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxListWebcamCheckout.Name = "comboBoxListWebcamCheckout";
-            this.comboBoxListWebcamCheckout.Size = new System.Drawing.Size(107, 24);
-            this.comboBoxListWebcamCheckout.TabIndex = 23;
-            this.comboBoxListWebcamCheckout.SelectedIndexChanged += new System.EventHandler(this.comboBoxListWebcamCheckout_SelectedIndexChanged);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(510, 639);
+            this.label2.Location = new System.Drawing.Point(547, 694);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 16);
@@ -227,7 +201,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(507, 659);
+            this.textBox1.Location = new System.Drawing.Point(550, 717);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(185, 22);
@@ -235,7 +209,7 @@
             // 
             // buttonCaptureCheckout
             // 
-            this.buttonCaptureCheckout.Location = new System.Drawing.Point(399, 656);
+            this.buttonCaptureCheckout.Location = new System.Drawing.Point(442, 714);
             this.buttonCaptureCheckout.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCaptureCheckout.Name = "buttonCaptureCheckout";
             this.buttonCaptureCheckout.Size = new System.Drawing.Size(100, 28);
@@ -245,7 +219,7 @@
             // 
             // buttonTestCapture
             // 
-            this.buttonTestCapture.Location = new System.Drawing.Point(11, 692);
+            this.buttonTestCapture.Location = new System.Drawing.Point(10, 747);
             this.buttonTestCapture.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTestCapture.Name = "buttonTestCapture";
             this.buttonTestCapture.Size = new System.Drawing.Size(100, 28);
@@ -254,26 +228,149 @@
             this.buttonTestCapture.UseVisualStyleBackColor = true;
             this.buttonTestCapture.Click += new System.EventHandler(this.buttonTestCapture_Click);
             // 
-            // textBoxCardId
+            // groupBoxCheckin
             // 
-            this.textBoxCardId.Location = new System.Drawing.Point(106, 88);
-            this.textBoxCardId.Name = "textBoxCardId";
-            this.textBoxCardId.Size = new System.Drawing.Size(107, 22);
-            this.textBoxCardId.TabIndex = 28;
+            this.groupBoxCheckin.Controls.Add(this.buttonCloseCheckinBarier);
+            this.groupBoxCheckin.Controls.Add(this.labelCheckinBarierStatus);
+            this.groupBoxCheckin.Controls.Add(this.buttonToggleCheckinBarier);
+            this.groupBoxCheckin.Controls.Add(this.labelCheckinBarier);
+            this.groupBoxCheckin.Controls.Add(this.statusIndicator);
+            this.groupBoxCheckin.Location = new System.Drawing.Point(11, 591);
+            this.groupBoxCheckin.Name = "groupBoxCheckin";
+            this.groupBoxCheckin.Size = new System.Drawing.Size(362, 100);
+            this.groupBoxCheckin.TabIndex = 29;
+            this.groupBoxCheckin.TabStop = false;
+            this.groupBoxCheckin.Text = "Checkin Barier";
+            // 
+            // buttonCloseCheckinBarier
+            // 
+            this.buttonCloseCheckinBarier.Location = new System.Drawing.Point(253, 26);
+            this.buttonCloseCheckinBarier.Name = "buttonCloseCheckinBarier";
+            this.buttonCloseCheckinBarier.Size = new System.Drawing.Size(77, 36);
+            this.buttonCloseCheckinBarier.TabIndex = 4;
+            this.buttonCloseCheckinBarier.Text = "Close";
+            this.buttonCloseCheckinBarier.UseVisualStyleBackColor = true;
+            this.buttonCloseCheckinBarier.Click += new System.EventHandler(this.buttonCloseCheckinBarier_Click);
+            // 
+            // labelCheckinBarierStatus
+            // 
+            this.labelCheckinBarierStatus.AutoSize = true;
+            this.labelCheckinBarierStatus.Location = new System.Drawing.Point(22, 26);
+            this.labelCheckinBarierStatus.Name = "labelCheckinBarierStatus";
+            this.labelCheckinBarierStatus.Size = new System.Drawing.Size(103, 16);
+            this.labelCheckinBarierStatus.TabIndex = 3;
+            this.labelCheckinBarierStatus.Text = "Barier 1: Normal";
+            // 
+            // buttonToggleCheckinBarier
+            // 
+            this.buttonToggleCheckinBarier.Location = new System.Drawing.Point(157, 26);
+            this.buttonToggleCheckinBarier.Name = "buttonToggleCheckinBarier";
+            this.buttonToggleCheckinBarier.Size = new System.Drawing.Size(77, 36);
+            this.buttonToggleCheckinBarier.TabIndex = 2;
+            this.buttonToggleCheckinBarier.Text = "Open";
+            this.buttonToggleCheckinBarier.UseVisualStyleBackColor = true;
+            this.buttonToggleCheckinBarier.Click += new System.EventHandler(this.buttonToggleCheckinBarier_Click_1);
+            // 
+            // labelCheckinBarier
+            // 
+            this.labelCheckinBarier.AutoSize = true;
+            this.labelCheckinBarier.Location = new System.Drawing.Point(47, 46);
+            this.labelCheckinBarier.Name = "labelCheckinBarier";
+            this.labelCheckinBarier.Size = new System.Drawing.Size(42, 16);
+            this.labelCheckinBarier.TabIndex = 1;
+            this.labelCheckinBarier.Text = "Close";
+            // 
+            // statusIndicator
+            // 
+            this.statusIndicator.Location = new System.Drawing.Point(25, 45);
+            this.statusIndicator.Name = "statusIndicator";
+            this.statusIndicator.Size = new System.Drawing.Size(16, 17);
+            this.statusIndicator.StatusColor = System.Drawing.Color.Red;
+            this.statusIndicator.TabIndex = 0;
+            this.statusIndicator.Text = "statusIndicator1";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.statusIndicatorCheckout);
+            this.groupBox1.Location = new System.Drawing.Point(442, 591);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(378, 86);
+            this.groupBox1.TabIndex = 30;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Checkout Barier";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(23, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 16);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Barier 2 Normal";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(281, 26);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(77, 36);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Close";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(178, 28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(80, 34);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Open";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(48, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 16);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Close";
+            // 
+            // statusIndicatorCheckout
+            // 
+            this.statusIndicatorCheckout.Location = new System.Drawing.Point(26, 45);
+            this.statusIndicatorCheckout.Name = "statusIndicatorCheckout";
+            this.statusIndicatorCheckout.Size = new System.Drawing.Size(16, 17);
+            this.statusIndicatorCheckout.StatusColor = System.Drawing.Color.Red;
+            this.statusIndicatorCheckout.TabIndex = 0;
+            this.statusIndicatorCheckout.Text = "statusIndicator2";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(326, 15);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(125, 68);
+            this.button6.TabIndex = 31;
+            this.button6.Text = "System Management";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 750);
-            this.Controls.Add(this.textBoxCardId);
+            this.ClientSize = new System.Drawing.Size(852, 833);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxCheckin);
             this.Controls.Add(this.buttonTestCapture);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonCaptureCheckout);
-            this.Controls.Add(this.comboBoxListWebcamCheckout);
-            this.Controls.Add(this.buttonOpenCheckoutStream);
-            this.Controls.Add(this.buttonOpenCheckinStream);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelCheckin);
             this.Controls.Add(this.button1);
@@ -281,7 +378,6 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.pictureBoxWebcamCheckout);
             this.Controls.Add(this.pictureBoxWebcamCheckin);
-            this.Controls.Add(this.comboBoxListWebcamCheckin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.plateResult);
             this.Controls.Add(this.pictureBoxPlateImageCheckout);
@@ -298,6 +394,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlateImageCheckout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWebcamCheckin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWebcamCheckout)).EndInit();
+            this.groupBoxCheckin.ResumeLayout(false);
+            this.groupBoxCheckin.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,7 +409,6 @@
         private System.Windows.Forms.PictureBox pictureBoxPlateImageCheckout;
         private System.Windows.Forms.TextBox plateResult;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxListWebcamCheckin;
         private System.Windows.Forms.PictureBox pictureBoxWebcamCheckin;
         private System.Windows.Forms.PictureBox pictureBoxWebcamCheckout;
         private System.Windows.Forms.Button button3;
@@ -317,14 +416,24 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelCheckin;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button buttonOpenCheckinStream;
-        private System.Windows.Forms.Button buttonOpenCheckoutStream;
-        private System.Windows.Forms.ComboBox comboBoxListWebcamCheckout;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonCaptureCheckout;
         private System.Windows.Forms.Button buttonTestCapture;
-        private System.Windows.Forms.TextBox textBoxCardId;
+        private System.IO.Ports.SerialPort serialPort;
+        private System.Windows.Forms.GroupBox groupBoxCheckin;
+        private StatusIndicator statusIndicator;
+        private System.Windows.Forms.Button buttonToggleCheckinBarier;
+        private System.Windows.Forms.Label labelCheckinBarier;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label4;
+        private StatusIndicator statusIndicatorCheckout;
+        private System.Windows.Forms.Label labelCheckinBarierStatus;
+        private System.Windows.Forms.Button buttonCloseCheckinBarier;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
 

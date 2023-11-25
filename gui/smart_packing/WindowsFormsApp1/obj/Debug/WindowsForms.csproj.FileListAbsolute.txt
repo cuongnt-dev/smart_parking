@@ -130,3 +130,4 @@ E:\Project\MySelf\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\
 E:\Project\MySelf\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.form.ParkingManageForm.resources
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.form.AddUserForm.resources
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.form.ParkingManageForm.resources
+D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.form.SystemManageForm.resources

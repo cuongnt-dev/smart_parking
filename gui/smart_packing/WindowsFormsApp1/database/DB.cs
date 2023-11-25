@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Newtonsoft.Json.Linq;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using WindowsFormsApp1.model;
 
 namespace WindowsFormsApp1.database
@@ -98,6 +100,45 @@ namespace WindowsFormsApp1.database
             }
             return null;
             
+        }
+
+        internal static List<Setting> GetAllSetting()
+        {
+            string query = $"SELECT * FROM \"setting\"";
+
+
+            var settings = conn.Query<Setting>(query).ToList();
+            if (settings.Count > 0)
+            {
+                return settings;
+            }
+            return null;
+        }
+
+        internal static void UpsertSetting(string name, string value)
+        {
+            // Check if the setting with the given name exists
+            var existingSetting = conn.QueryFirstOrDefault<Setting>(
+                "SELECT * FROM setting WHERE name = @Name",
+                new { Name = name }
+            );
+
+            if (existingSetting == null)
+            {
+                // Insert a new record if the setting doesn't exist
+                conn.Execute(
+                    "INSERT INTO setting (name, value) VALUES (@Name, @Value)",
+                    new { Name = name, Value = value }
+                );
+            }
+            else
+            {
+                // Update the existing record if the setting already exists
+                conn.Execute(
+                    "UPDATE setting SET value = @Value WHERE name = @Name",
+                    new { Name = name, Value = value }
+                );
+            }
         }
     }
 }
