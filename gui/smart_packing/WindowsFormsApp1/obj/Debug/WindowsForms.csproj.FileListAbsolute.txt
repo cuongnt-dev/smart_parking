@@ -45,11 +45,7 @@ D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\System.Text.Jso
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\System.Threading.Channels.xml
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\System.ValueTuple.xml
-D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\Interop.WMPLib.dll
-D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\AxInterop.WMPLib.dll
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsForms.csproj.AssemblyReference.cache
-D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\Interop.WMPLib.dll
-D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\AxInterop.WMPLib.dll
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsForms.csproj.ResolveComReference.cache
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AuthenicationForm.resources
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MainForm.resources
@@ -131,3 +127,4 @@ E:\Project\MySelf\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.form.AddUserForm.resources
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.form.ParkingManageForm.resources
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.form.SystemManageForm.resources
+D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\Interop.ActUtlTypeLib.dll

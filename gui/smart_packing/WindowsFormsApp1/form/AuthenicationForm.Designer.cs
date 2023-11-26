@@ -49,7 +49,7 @@
             // 
             this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUserName.Location = new System.Drawing.Point(134, 72);
-            this.textBoxUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxUserName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(208, 26);
             this.textBoxUserName.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(134, 147);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(208, 26);
@@ -77,7 +77,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(187, 195);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 4;
@@ -95,9 +95,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AuthenicationForm";
             this.Text = "Authenication";
+            this.Load += new System.EventHandler(this.AuthenicationForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

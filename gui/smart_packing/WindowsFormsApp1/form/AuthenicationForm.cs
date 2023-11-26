@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
     public partial class AuthenicationForm : Form
     {
         private string authenticationFor;
+        public event EventHandler LoadMainForm;
         public AuthenicationForm(string authFor)
         {
             InitializeComponent();
@@ -46,9 +47,15 @@ namespace WindowsFormsApp1
             else if (authenticationFor == "SystemManageForm")
             {
                 SystemManageForm form = new SystemManageForm();
+                form.ReloadMainForm += LoadMainForm;
                 form.Show();
             }
             this.Hide();
+        }
+
+        private void AuthenicationForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

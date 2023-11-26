@@ -1,5 +1,4 @@
-﻿using AxWMPLib;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +19,8 @@ using WindowsFormsApp1.database;
 using System.Timers;
 using WindowsFormsApp1.model;
 using Microsoft.Scripting.ComInterop;
+using ActUtlTypeLib;
+using WindowsFormsApp1.classes;
 
 namespace WindowsFormsApp1
 {
@@ -31,8 +32,8 @@ namespace WindowsFormsApp1
         VideoCaptureDevice videoCaptureDeviceCheckin;
         VideoCaptureDevice videoCaptureDeviceCheckout;
         List<Setting> settingsList;
-
         int filename = 111;
+        private System.Timers.Timer debounceTimer;
 
         public MainForm()
         {
@@ -41,51 +42,68 @@ namespace WindowsFormsApp1
             httpClient.BaseAddress = new Uri("http://localhost:3000/");
         }
 
-        private void LoadCheckinCamera()
+        private void connectSerialPort()
         {
-
+            if (!serialPort.IsOpen)
+            {
+                try
+                {
+                    serialPort.PortName = Constant.PORT_NAME;
+                    serialPort.BaudRate = Convert.ToInt32(Constant.BAUD_RATE);
+                    serialPort.Open();
+                    labelCheckinBarierStatus.Text = "Barier 1: Normal";
+                }
+                catch (Exception ex)
+                {
+                    labelCheckinBarierStatus.Text = "Barier 1: Abnormal";
+                }
+            }
         }
-        private void MainForm_Load(object sender, EventArgs e)
+
+        private void LoadMainForm(object sender, EventArgs e)
         {
             listWebcamInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            //foreach (FilterInfo item in listWebcamInfo)
-            //{
-            //    comboBoxListWebcamCheckin.Items.Add(item.Name);
-            //    comboBoxListWebcamCheckout.Items.Add(item.Name);
-            //}
-            //if (comboBoxListWebcamCheckin.Items.Count > 0)
-            //{
-            //    comboBoxListWebcamCheckin.SelectedIndex = 0;
-            //}
-            //if (comboBoxListWebcamCheckout.Items.Count > 1)
-            //{
-            //    comboBoxListWebcamCheckout.SelectedIndex = 1;
-            //}
-            
-            connectSerialPort();
+            // connectSerialPort();
+            PLC.Connect(Constant.ACT_LOGICAL_STATION_NUMBER);
             try
             {
                 DB.Connect();
                 settingsList = DB.GetAllSetting();
-                Setting checkinCamSetting = settingsList.FirstOrDefault(setting => setting.Name == Constant.CHECKIN_CAM);
-                if(checkinCamSetting != null)
+                Setting entranceCamSetting1 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_CAM_1);
+                if (entranceCamSetting1 != null)
                 {
-                    videoCaptureDeviceCheckin = new VideoCaptureDevice(listWebcamInfo.Cast<FilterInfo>().FirstOrDefault(info => info.Name == checkinCamSetting.Value).MonikerString);
+                    videoCaptureDeviceCheckin = new VideoCaptureDevice(listWebcamInfo.Cast<FilterInfo>().FirstOrDefault(info => info.Name == entranceCamSetting1.Value).MonikerString);
                     videoCaptureDeviceCheckin.NewFrame += videoCaptureDeviceCheckin_NewFrame;
                     videoCaptureDeviceCheckin.Start();
                 }
-                Setting checkoutCamSetting = settingsList.FirstOrDefault(setting => setting.Name == Constant.CHECKOUT_CAM);
-                if (checkoutCamSetting != null)
+                Setting entranceCamSetting2 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_CAM_2);
+                if (entranceCamSetting2 != null)
                 {
-                    videoCaptureDeviceCheckout = new VideoCaptureDevice(listWebcamInfo.Cast<FilterInfo>().FirstOrDefault(info => info.Name == checkoutCamSetting.Value).MonikerString);
+                    videoCaptureDeviceCheckout = new VideoCaptureDevice(listWebcamInfo.Cast<FilterInfo>().FirstOrDefault(info => info.Name == entranceCamSetting2.Value).MonikerString);
                     videoCaptureDeviceCheckout.NewFrame += videoCaptureDeviceCheckout_NewFrame;
                     videoCaptureDeviceCheckout.Start();
                 }
-                
-            } catch(Exception ex)
+                Setting entranceState1 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_1);
+                if (entranceState1 != null)
+                {
+                    labelEntranceState1.Text = $"State: {entranceState1.Value}";
+                }
+                Setting entranceState2 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_2);
+                if (entranceState2 != null)
+                {
+                    labelEntranceState2.Text = $"State: {entranceState2.Value}";
+                }
+
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show($"Error when load form {ex}");
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            LoadMainForm(sender, e);
         }
 
         private async void buttonCaptureCheckin_Click(object sender, EventArgs e)
@@ -166,6 +184,7 @@ namespace WindowsFormsApp1
         private void button6_Click(object sender, EventArgs e)
         {
             AuthenicationForm authenicationForm = new AuthenicationForm("SystemManageForm");
+            authenicationForm.LoadMainForm += LoadMainForm;
             authenicationForm.ShowDialog();
         }
 
@@ -174,10 +193,6 @@ namespace WindowsFormsApp1
             this.Hide();
         }
 
-        private void buttonPlayWebcam_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private async void buttonTestCapture_Click(object sender, EventArgs e)
         {
@@ -262,7 +277,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private System.Timers.Timer debounceTimer;
         private string cardId = "";
         private bool isReadyReceiveCard = false;
         private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
@@ -337,36 +351,61 @@ namespace WindowsFormsApp1
             isReadyReceiveCard = false;
         }
 
-        private void connectSerialPort()
-        {
-            if (!serialPort.IsOpen)
-            {
-                try
-                {
-                    serialPort.PortName = Constant.PORT_NAME;
-                    serialPort.BaudRate = Convert.ToInt32(Constant.BAUD_RATE);
-                    serialPort.Open();
-                    labelCheckinBarierStatus.Text = "Barier 1: Normal";
-                } catch(Exception ex)
-                {
-                    labelCheckinBarierStatus.Text = "Barier 1: Abnormal";
-                }
-            }
-        }
-
-
         private void buttonToggleCheckinBarier_Click_1(object sender, EventArgs e)
         {
-            serialPort.Write("CK1O");
-            statusIndicator.StatusColor = Color.Green;
-            labelCheckinBarier.Text = "Open";
+            PLC.WriteTo("X0", 1);
         }
 
         private void buttonCloseCheckinBarier_Click(object sender, EventArgs e)
         {
-            serialPort.Write("CK1C");
-            statusIndicator.StatusColor = Color.Red;
-            labelCheckinBarier.Text = "Close";
+            PLC.WriteTo("X0", 0);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            int value = PLC.ReadFrom(textBoxAddress.Text);
+            textBoxValue.Text = value.ToString();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            PLC.WriteTo(textBoxAddress.Text, Convert.ToInt16(textBoxValue.Text));
+        }
+
+        private void buttonOpenBarier2_Click(object sender, EventArgs e)
+        {
+            PLC.WriteTo("X1", 1);
+        }
+
+        private void buttonCloseBarier2_Click(object sender, EventArgs e)
+        {
+            PLC.WriteTo("X1", 0);
+        }
+
+        private void timerListenBarierState_Tick_1(object sender, EventArgs e)
+        {
+            int state1 = PLC.ReadFrom("y0");
+            if (state1 == 0)
+            {
+                statusIndicatorBarier1.StatusColor = Color.Red;
+                labelBarierState1.Text = "Close";
+            }
+            else
+            {
+                statusIndicatorBarier1.StatusColor = Color.Green;
+                labelBarierState1.Text = "Open";
+            }
+            int state2 = PLC.ReadFrom("y1");
+            if (state2 == 0)
+            {
+                statusIndicatorBarier2.StatusColor = Color.Red;
+                labelBarierState2.Text = "Close";
+            }
+            else
+            {
+                statusIndicatorBarier2.StatusColor = Color.Green;
+                labelBarierState2.Text = "Open";
+            }
         }
     }
 }
