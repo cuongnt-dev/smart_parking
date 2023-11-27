@@ -133,17 +133,17 @@ namespace WindowsFormsApp1
                     string platePath = responseObj.PlatePath;
                     string plateText = responseObj.PlateText;
                     // Process the API response here
-                    plateResult.Text = plateText;
+                    textBoxPlateEntrance1.Text = plateText;
                     // pictureBoxPlateImageCheckout.Image = Image.FromFile(plateExtractPath);
                 }
                 else
                 {
-                    plateResult.Text = "Error: " + response.ReasonPhrase;
+                    textBoxPlateEntrance1.Text = "Error: " + response.ReasonPhrase;
                 }
             }
             catch (Exception ex)
             {
-                plateResult.Text = "Error: " + ex.Message;
+                textBoxPlateEntrance1.Text = "Error: " + ex.Message;
             }
         }
 
@@ -220,17 +220,17 @@ namespace WindowsFormsApp1
                     string platePath = responseObj.PlatePath;
                     string plateText = responseObj.PlateText;
                     // Process the API response here
-                    plateResult.Text = plateText;
+                    textBoxPlateEntrance1.Text = plateText;
                     // pictureBoxPlateImageCheckout.Image = Image.FromFile(plateExtractPath);
                 }
                 else
                 {
-                    plateResult.Text = "Error: " + response.ReasonPhrase;
+                    textBoxPlateEntrance1.Text = "Error: " + response.ReasonPhrase;
                 }
             }
             catch (Exception ex)
             {
-                plateResult.Text = "Error: " + ex.Message;
+                textBoxPlateEntrance1.Text = "Error: " + ex.Message;
             }
         }
 
@@ -260,19 +260,19 @@ namespace WindowsFormsApp1
                     string platePath = responseObj.PlatePath;
                     string plateText = responseObj.PlateText;
                     // Process the API response here
-                    plateResult.Text = plateText;
+                    textBoxPlateEntrance1.Text = plateText;
                     // pictureBoxPlateImageCheckout.Image = Image.FromFile(plateExtractPath);
                     return responseObj;
                 }
                 else
                 {
-                    plateResult.Text = "Error: " + response.ReasonPhrase;
+                    textBoxPlateEntrance1.Text = "Error: " + response.ReasonPhrase;
                     return null;
                 }
             }
             catch (Exception ex)
             {
-                plateResult.Text = "Error: " + ex.Message;
+                textBoxPlateEntrance1.Text = "Error: " + ex.Message;
                 return null;
             }
         }
