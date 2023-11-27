@@ -407,5 +407,10 @@ namespace WindowsFormsApp1
                 labelBarierState2.Text = "Open";
             }
         }
+
+        private void timerInforDatetime_Tick(object sender, EventArgs e)
+        {
+            labelInforDatetime.Text = $"Datetime: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}";
+        }
     }
 }
