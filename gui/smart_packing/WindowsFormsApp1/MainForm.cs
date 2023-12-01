@@ -34,7 +34,8 @@ namespace WindowsFormsApp1
         List<Setting> settingsList;
         int filename = 111;
         private System.Timers.Timer debounceTimer;
-
+        Setting entranceState1;
+        Setting entranceState2;
         public MainForm()
         {
             InitializeComponent();
@@ -83,12 +84,12 @@ namespace WindowsFormsApp1
                     videoCaptureDeviceCheckout.NewFrame += videoCaptureDeviceCheckout_NewFrame;
                     videoCaptureDeviceCheckout.Start();
                 }
-                Setting entranceState1 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_1);
+                entranceState1 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_1);
                 if (entranceState1 != null)
                 {
                     labelEntranceState1.Text = $"State: {entranceState1.Value}";
                 }
-                Setting entranceState2 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_2);
+                entranceState2 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_2);
                 if (entranceState2 != null)
                 {
                     labelEntranceState2.Text = $"State: {entranceState2.Value}";
@@ -294,58 +295,87 @@ namespace WindowsFormsApp1
                 debounceTimer.Stop();
                 debounceTimer.Start();
             }
-            
         }
 
-        public async void EndTimer(object sender, ElapsedEventArgs e)
+        private async void Checkin(string parkingCardId)
+        {
+            // Get CardId data
+            User usr = DB.GetUserByCardId(parkingCardId);
+            DetectResponse res = await ScanPlate();
+            if (usr.Plate != res.PlateText)
+            {
+                MessageBox.Show("Invalid Plate");
+                return;
+            }
+            // Trigger cardId Checkin {cardId}
+            Log l = new Log
+            {
+                UserID = usr.ID,
+                Type = Constant.CHECKIN_STATE,
+                Occurrence = DateTime.Now,
+            };
+            DB.CreateLog(l);
+        }
+
+        private async void Checkout(string parkingCardId)
+        {
+            // Trigger cardId Checkout {tmpCardId}
+            User usr = DB.GetUserByCardId(parkingCardId);
+            DetectResponse res = await ScanPlate();
+            if (usr.Plate != res.PlateText)
+            {
+                MessageBox.Show("Invalid Plate");
+                return;
+            }
+            // Get latest log of this user
+            Log log = DB.GetLatestLog(usr.ID);
+            if (log.Type != "Checkin")
+            {
+                MessageBox.Show("This card didn't used for checkin before");
+                return;
+            }
+            // Trigger cardId Checkin {cardId}
+            Log l = new Log
+            {
+                UserID = usr.ID,
+                Type = Constant.CHECKOUT_STATE,
+                Occurrence = DateTime.Now,
+            };
+            DB.CreateLog(l);
+        }
+
+        public void EndTimer(object sender, ElapsedEventArgs e)
         {
             debounceTimer.Stop();
-            
-            if (cardId.Length == 8)
+            // Check last character
+            if (cardId.Length == 9)
             {
-                // Get CardId data
-                User usr = DB.GetUserByCardId(cardId);
-                DetectResponse res = await ScanPlate();
-                if (usr.Plate != res.PlateText)
+                char lastChar = cardId[cardId.Length - 1];
+                string parkingCardId = cardId.Remove(cardId.Length - 1);
+                if (lastChar == Constant.LAST_CHAR_ENTRANCE_1)
                 {
-                    MessageBox.Show("Invalid Plate");
-                    return;
+                    // Check current state of entrance
+                    if (entranceState1.Value == Constant.CHECKIN_STATE)
+                    {
+                        Checkin(parkingCardId);
+                    }
+                    else
+                    {
+                        Checkout(parkingCardId);
+                    }
                 }
-                // Trigger cardId Checkin {cardId}
-                Log l = new Log
+                if (lastChar == Constant.LAST_CHAR_ENTRANCE_2)
                 {
-                    UserID = usr.ID,
-                    Type = "Checkin",
-                    Occurrence = DateTime.Now,
-                };
-                DB.CreateLog(l);
-            }
-            else if (cardId.Length == 9 && cardId[cardId.Length - 1] == '?')
-            {
-                // Trigger cardId Checkout {tmpCardId}
-                string tmpCardId = cardId.Substring(0, cardId.Length - 1);
-                User usr = DB.GetUserByCardId(tmpCardId);
-                DetectResponse res = await ScanPlate();
-                if (usr.Plate != res.PlateText)
-                {
-                    MessageBox.Show("Invalid Plate");
-                    return;
+                    // Check current state of entrance
+                    if (entranceState2.Value == Constant.CHECKIN_STATE)
+                    {
+                        Checkin(parkingCardId);
+                    }
+                    else
+                    {
+                        Checkout(parkingCardId);
+                    }
                 }
-                // Get latest log of this user
-                Log log = DB.GetLatestLog(usr.ID);
-                if(log.Type != "Checkin")
-                {
-                    MessageBox.Show("This card didn't used for checkin before");
-                    return;
-                }
-                // Trigger cardId Checkin {cardId}
-                Log l = new Log
-                {
-                    UserID = usr.ID,
-                    Type = "Checkout",
-                    Occurrence = DateTime.Now,
-                };
-                DB.CreateLog(l);
             }
             cardId = "";
             isReadyReceiveCard = false;

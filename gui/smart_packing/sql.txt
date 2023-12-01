@@ -9,6 +9,17 @@ CREATE TABLE "user" (
     password VARCHAR(255) NULL
 );
 
+CREATE TABLE log (
+  id INT PRIMARY KEY,
+  type VARCHAR(255) NOT NULL,
+  occurrence TIMESTAMP  NOT NULL,
+  userID INT NOT NULL
+);
 
+CREATE TABLE setting (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    value VARCHAR(255) NOT NULL
+);
 INSERT INTO "user" (name, company, parkingCardId, status, role, password)
 VALUES ('admin', 'YourCompany', '123456', 'Active', 'Admin', '5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5');
