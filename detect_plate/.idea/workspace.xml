@@ -1,31 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="270b494f-e149-4dcb-a58a-f3ebab1ca775" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/detect_plate.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/063f17a9-55de-4418-b3a4-a95268a0d880.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/1c905787-3074-4314-b6a7-cd76c326c2fe.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/774bd4c2-6851-4adc-833e-386763a0a977.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/88d2f550-f0b8-4d18-bf7c-528d31f3abb1.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/9b53f223-9d43-480c-a672-eec1562307ce.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/cb03d9bc-1218-4662-8028-ff9a9d0e66f4.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/detect_plate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/detect_plate.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0004_06801_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0005_00490_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0005_00512_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0005_02171_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0006_05286_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0006_06035_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0006_06797_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0007_02188_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0007_05159_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0009_00490_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0009_05325_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0012_04539_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0013_05647_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0014_02176_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0019_01137_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0020_00536_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0028_00196_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0028_07031_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0107_00252_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0108_00973_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0109_01594_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0115_06646_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0115_08259_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0116_00148_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0116_00818_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0116_00986_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/0118_00092_b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/11.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/11.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/12.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/12.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/12.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/13.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/13.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/test/9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/1eb15dac-cb18-4dc6-942e-b9b3168e1160.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/37e5b696-3194-465d-b2b1-e096e180f777.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/83bf2e3a-5875-46b1-80e7-e6269f8b9adc.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/FileContentIndex/a25526e0-afc8-495c-8eb9-2e3c85265012.vsidx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/Constant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/Constant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/Interop.WMPLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/Interop.WMPLib.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/Interop.WMPLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/Interop.WMPLib.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/database/DB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/database/DB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/DesignTimeResolveAssemblyReferences.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/DesignTimeResolveAssemblyReferences.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.GenerateResource.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.ResolveComReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.ResolveComReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.pdb" afterDir="false" />
     </list>
@@ -37,17 +72,34 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2Ybc9myAB3LekDvDXnSZqA49REC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/main.py" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/LV/smart_parking/detect_plate",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="detect_plate" />
@@ -56,11 +108,13 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="E:\Document\Essay\code\smart_parking\detect_plate\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.9 (detect_plate) (2)" />
+      <option name="WORKING_DIRECTORY" value="D:\LV\smart_parking\detect_plate" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -71,6 +125,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="270b494f-e149-4dcb-a58a-f3ebab1ca775" name="Default Changelist" comment="" />
@@ -78,7 +133,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700797574127</updated>
+      <workItem from="1701537286167" duration="400000" />
+      <workItem from="1701537698851" duration="74000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

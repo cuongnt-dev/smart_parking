@@ -64,31 +64,6 @@ namespace WindowsFormsApp1
             });
         }
 
-        private void connectSerialPort()
-        {
-            if (!serialPort.IsOpen)
-            {
-                try
-                {
-                    serialPort.PortName = Constant.PORT_NAME;
-                    serialPort.BaudRate = Convert.ToInt32(Constant.BAUD_RATE);
-                    serialPort.Open();
-                    labelCheckinBarierStatus.Text = "Barier 1: Normal";
-                }
-                catch (Exception ex)
-                {
-                    labelCheckinBarierStatus.Text = "Barier 1: Abnormal";
-                }
-            }
-        }
-
-        private void videoCaptureDeviceEntrance2Out_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            pictureBoxCamEntrance2In.Image = (Bitmap)eventArgs.Frame.Clone();
-        }
-
-
-
         private void LoadMainForm(object sender, EventArgs e)
         {
             listWebcamInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -183,11 +158,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void videoCaptureDeviceEntrance1In_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            pictureBoxCamEntrance1In.Image = (Bitmap)eventArgs.Frame.Clone();
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             foreach (var item in camCaptureList)
@@ -228,13 +198,13 @@ namespace WindowsFormsApp1
         {
             try
             {
-                pictureBoxSelectedImageCheckin.Image = Image.FromFile($"E:\\Document\\Essay\\code\\smart_parking\\detect_plate\\test\\{filename}.jpg");
+                pictureBoxSelectedImageCheckin.Image = Image.FromFile($"{Constant.TEST_PLATE_PATH}\\{filename}.jpg");
                 filename = filename + 1;
                 // Generate a filename based on the current timestamp
                 string fileName = $"{DateTime.Now.Ticks}.jpg";
 
                 // Combine the filename with the directory where you want to save the image
-                string filePath = Path.Combine("E:\\Document\\Essay\\code\\capture", fileName);
+                string filePath = Path.Combine(Constant.CAPTURE_PATH, fileName);
 
                 // Save the image to the specified file
                 pictureBoxSelectedImageCheckin.Image.Save(filePath, ImageFormat.Jpeg);
@@ -264,19 +234,10 @@ namespace WindowsFormsApp1
             }
         }
 
-        private async Task<DetectResponse> ScanPlate()
+        private async Task<DetectResponse> ScanPlate(string filePath)
         {
             try
             {
-                pictureBoxSelectedImageCheckin.Image = pictureBoxCamEntrance1In.Image;
-                // Generate a filename based on the current timestamp
-                string fileName = $"{DateTime.Now.Ticks}.jpg";
-
-                // Combine the filename with the directory where you want to save the image
-                string filePath = Path.Combine("E:\\Document\\Essay\\code\\capture", fileName);
-
-                // Save the image to the specified file
-                pictureBoxSelectedImageCheckin.Image.Save(filePath, ImageFormat.Jpeg);
                 // Make a GET request to an API endpoint
                 // string selectedPath = (listFile.SelectedItem as MediaFile).Path;
                 HttpResponseMessage response = await httpClient.GetAsync($"detect?image={filePath}");
@@ -303,6 +264,7 @@ namespace WindowsFormsApp1
             catch (Exception ex)
             {
                 textBoxPlateEntrance1.Text = "Error: " + ex.Message;
+                MessageBox.Show($"Error: {ex.Message}");
                 return null;
             }
         }
@@ -314,7 +276,7 @@ namespace WindowsFormsApp1
             if(e.KeyChar == ';')
             {
                 isReadyReceiveCard = true;
-                debounceTimer = new System.Timers.Timer(100);
+                debounceTimer = new System.Timers.Timer(200);
                 debounceTimer.Elapsed += EndTimer;
                 return;
             }
@@ -326,31 +288,108 @@ namespace WindowsFormsApp1
             }
         }
 
-        private async void Checkin(string parkingCardId)
+        private void UpdateEntranceLabelInfor(string entrance, string parkingCardId, string plate, string state, DateTime occurance, string userName)
+        {
+            if(entrance == Constant.ENTRANCE_1)
+            {
+                labelEntrance1CardID.Text = $"Card ID: {parkingCardId}";
+                labelEntrance1PlateNumber.Text = $"Plate Number: {plate}";
+                labelEntrance1Type.Text = $"Type: {state}";
+                labelEntrance1Occurence.Text = $"Occurance: {occurance}";
+                labelEntrance1User.Text = $"User: {userName}";
+            } else
+            {
+                labelEntrance2CardID.Text = $"Card ID: {parkingCardId}";
+                labelEntrance2PlateNumber.Text = $"Plate Number: {plate}";
+                labelEntrance2Type.Text = $"Type: {state}";
+                labelEntrance2Occurence.Text = $"Occurance: {occurance}";
+                labelEntrance2User.Text = $"User: {userName}";
+            }
+        }
+
+        private async Task<DetectResponse> CapturePlateAsync(string entrance, string state)
+        {
+            // Generate a filename based on the current timestamp
+            Int64 currentTime = DateTime.Now.Ticks;
+            string frontFilePath = Path.Combine(Constant.CAPTURE_PATH, $"{currentTime}_front.jpg");
+            string backFilePath = Path.Combine(Constant.CAPTURE_PATH, $"{currentTime}_back.jpg");
+            Image captureFrontImage;
+            Image captureBackImage;
+            bool testing = true;
+            Random random = new Random();
+            // Generate a random number between 1 and 25 (inclusive)
+            int randomNumber = random.Next(1, 26);
+            if (entrance == Constant.ENTRANCE_1)
+            {
+                if (state == Constant.CHECKIN_STATE)
+                {
+                    captureFrontImage = pictureBoxCamEntrance1Out.Image;
+                    captureBackImage = testing ? Image.FromFile($"{Constant.TEST_PLATE_PATH}\\{randomNumber}.jpg"): pictureBoxCamEntrance1In.Image;
+                }
+                else
+                {
+                    captureFrontImage = pictureBoxCamEntrance1In.Image;
+                    captureBackImage = testing ? Image.FromFile($"{Constant.TEST_PLATE_PATH}\\{randomNumber}.jpg") : pictureBoxCamEntrance1Out.Image;
+                }
+            }
+            else
+            {
+                if (state == Constant.CHECKIN_STATE)
+                {
+                    captureFrontImage = pictureBoxCamEntrance2Out.Image;
+                    captureBackImage = testing ? Image.FromFile($"{Constant.TEST_PLATE_PATH}\\{randomNumber}.jpg") : pictureBoxCamEntrance2In.Image;
+                }
+                else
+                {
+                    captureFrontImage = pictureBoxCamEntrance2In.Image;
+                    captureBackImage = testing ? Image.FromFile($"{Constant.TEST_PLATE_PATH}\\{randomNumber}.jpg") : pictureBoxCamEntrance2Out.Image;
+                }
+            }
+            if (captureFrontImage != null)
+            {
+                captureFrontImage.Save(frontFilePath, ImageFormat.Jpeg);
+            }
+            if (captureBackImage != null)
+            {
+                captureBackImage.Save(backFilePath, ImageFormat.Jpeg);
+                DetectResponse res = await ScanPlate(backFilePath);
+                return res;
+            } 
+            else
+            {
+                return null;
+            }
+        }
+
+        private async void Checkin(string parkingCardId, string entrance)
         {
             // Get CardId data
             User usr = DB.GetUserByCardId(parkingCardId);
-            DetectResponse res = await ScanPlate();
+            DetectResponse res = await CapturePlateAsync(entrance, Constant.CHECKIN_STATE);
             if (usr.Plate != res.PlateText)
             {
                 MessageBox.Show("Invalid Plate");
                 return;
             }
+            UpdateEntranceLabelInfor(entrance, parkingCardId, res.PlateText, Constant.CHECKIN_STATE, DateTime.Now, usr.Name);
             // Trigger cardId Checkin {cardId}
-            Log l = new Log
+            _ = Task.Run(() =>
             {
-                UserID = usr.ID,
-                Type = Constant.CHECKIN_STATE,
-                Occurrence = DateTime.Now,
-            };
-            DB.CreateLog(l);
+                Log l = new Log
+                {
+                    UserID = usr.ID,
+                    Type = Constant.CHECKIN_STATE,
+                    Occurrence = DateTime.Now,
+                };
+                DB.CreateLog(l);
+            });
         }
 
-        private async void Checkout(string parkingCardId)
+        private async void Checkout(string parkingCardId, string entrance)
         {
             // Trigger cardId Checkout {tmpCardId}
             User usr = DB.GetUserByCardId(parkingCardId);
-            DetectResponse res = await ScanPlate();
+            DetectResponse res = await CapturePlateAsync(entrance, Constant.CHECKOUT_STATE);
             if (usr.Plate != res.PlateText)
             {
                 MessageBox.Show("Invalid Plate");
@@ -363,14 +402,19 @@ namespace WindowsFormsApp1
                 MessageBox.Show("This card didn't used for checkin before");
                 return;
             }
+            UpdateEntranceLabelInfor(entrance, parkingCardId, res.PlateText, Constant.CHECKOUT_STATE, DateTime.Now, usr.Name);
             // Trigger cardId Checkin {cardId}
-            Log l = new Log
+            _ = Task.Run(() =>
             {
-                UserID = usr.ID,
-                Type = Constant.CHECKOUT_STATE,
-                Occurrence = DateTime.Now,
-            };
-            DB.CreateLog(l);
+                Log l = new Log
+                {
+                    UserID = usr.ID,
+                    Type = Constant.CHECKOUT_STATE,
+                    Occurrence = DateTime.Now,
+                };
+                DB.CreateLog(l);
+            });
+            
         }
 
         public void EndTimer(object sender, ElapsedEventArgs e)
@@ -386,11 +430,11 @@ namespace WindowsFormsApp1
                     // Check current state of entrance
                     if (entranceState1.Value == Constant.CHECKIN_STATE)
                     {
-                        Checkin(parkingCardId);
+                        Checkin(parkingCardId, Constant.ENTRANCE_1);
                     }
                     else
                     {
-                        Checkout(parkingCardId);
+                        Checkout(parkingCardId, Constant.ENTRANCE_1);
                     }
                 }
                 if (lastChar == Constant.LAST_CHAR_ENTRANCE_2)
@@ -398,11 +442,11 @@ namespace WindowsFormsApp1
                     // Check current state of entrance
                     if (entranceState2.Value == Constant.CHECKIN_STATE)
                     {
-                        Checkin(parkingCardId);
+                        Checkin(parkingCardId, Constant.ENTRANCE_2);
                     }
                     else
                     {
-                        Checkout(parkingCardId);
+                        Checkout(parkingCardId, Constant.ENTRANCE_2);
                     }
                 }
             }

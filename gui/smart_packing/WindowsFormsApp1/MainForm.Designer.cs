@@ -66,7 +66,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCamEntrance2Out = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCamEntrance1Out = new System.Windows.Forms.PictureBox();
             this.timerListenBarierState = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -76,10 +80,18 @@
             this.labelNumberCheckin = new System.Windows.Forms.Label();
             this.labelInforDatetime = new System.Windows.Forms.Label();
             this.timerInforDatetime = new System.Windows.Forms.Timer(this.components);
-            this.pictureBoxCamEntrance1Out = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCamEntrance2Out = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.labelEntrance1CardID = new System.Windows.Forms.Label();
+            this.labelEntrance1PlateNumber = new System.Windows.Forms.Label();
+            this.labelEntrance1Type = new System.Windows.Forms.Label();
+            this.labelEntrance1Occurence = new System.Windows.Forms.Label();
+            this.labelEntrance1User = new System.Windows.Forms.Label();
+            this.labelEntrance2User = new System.Windows.Forms.Label();
+            this.labelEntrance2Occurence = new System.Windows.Forms.Label();
+            this.labelEntrance2Type = new System.Windows.Forms.Label();
+            this.labelEntrance2PlateNumber = new System.Windows.Forms.Label();
+            this.labelEntrance2CardID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageCheckin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlateImageCheckout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1In)).BeginInit();
@@ -87,12 +99,14 @@
             this.groupBoxCheckin.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1Out)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance2Out)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance2Out)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1Out)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonCaptureCheckin
@@ -190,7 +204,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1462, 15);
+            this.button1.Location = new System.Drawing.Point(1514, 15);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 68);
@@ -220,7 +234,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(443, 729);
+            this.label2.Location = new System.Drawing.Point(395, 883);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 16);
@@ -229,15 +243,15 @@
             // 
             // textBoxPlateEntrance2
             // 
-            this.textBoxPlateEntrance2.Location = new System.Drawing.Point(588, 753);
+            this.textBoxPlateEntrance2.Location = new System.Drawing.Point(540, 907);
             this.textBoxPlateEntrance2.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPlateEntrance2.Name = "textBoxPlateEntrance2";
-            this.textBoxPlateEntrance2.Size = new System.Drawing.Size(216, 22);
+            this.textBoxPlateEntrance2.Size = new System.Drawing.Size(200, 22);
             this.textBoxPlateEntrance2.TabIndex = 25;
             // 
             // buttonCaptureCheckout
             // 
-            this.buttonCaptureCheckout.Location = new System.Drawing.Point(444, 747);
+            this.buttonCaptureCheckout.Location = new System.Drawing.Point(396, 901);
             this.buttonCaptureCheckout.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCaptureCheckout.Name = "buttonCaptureCheckout";
             this.buttonCaptureCheckout.Size = new System.Drawing.Size(131, 35);
@@ -265,7 +279,7 @@
             this.groupBoxCheckin.Controls.Add(this.statusIndicatorBarier1);
             this.groupBoxCheckin.Location = new System.Drawing.Point(11, 617);
             this.groupBoxCheckin.Name = "groupBoxCheckin";
-            this.groupBoxCheckin.Size = new System.Drawing.Size(380, 93);
+            this.groupBoxCheckin.Size = new System.Drawing.Size(370, 93);
             this.groupBoxCheckin.TabIndex = 29;
             this.groupBoxCheckin.TabStop = false;
             this.groupBoxCheckin.Text = "Barier Control";
@@ -326,7 +340,7 @@
             this.groupBox1.Controls.Add(this.statusIndicatorBarier2);
             this.groupBox1.Location = new System.Drawing.Point(811, 617);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(740, 93);
+            this.groupBox1.Size = new System.Drawing.Size(409, 93);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Barier Control";
@@ -455,6 +469,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Entrance 2";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Location = new System.Drawing.Point(415, 309);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(376, 165);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 22;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBoxCamEntrance2Out
+            // 
+            this.pictureBoxCamEntrance2Out.Location = new System.Drawing.Point(415, 51);
+            this.pictureBoxCamEntrance2Out.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxCamEntrance2Out.Name = "pictureBoxCamEntrance2Out";
+            this.pictureBoxCamEntrance2Out.Size = new System.Drawing.Size(376, 250);
+            this.pictureBoxCamEntrance2Out.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCamEntrance2Out.TabIndex = 21;
+            this.pictureBoxCamEntrance2Out.TabStop = false;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pictureBox2);
@@ -468,6 +503,27 @@
             this.groupBox3.TabIndex = 39;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Entrance 1";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Location = new System.Drawing.Point(388, 307);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(357, 165);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBoxCamEntrance1Out
+            // 
+            this.pictureBoxCamEntrance1Out.Location = new System.Drawing.Point(388, 51);
+            this.pictureBoxCamEntrance1Out.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxCamEntrance1Out.Name = "pictureBoxCamEntrance1Out";
+            this.pictureBoxCamEntrance1Out.Size = new System.Drawing.Size(357, 250);
+            this.pictureBoxCamEntrance1Out.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCamEntrance1Out.TabIndex = 20;
+            this.pictureBoxCamEntrance1Out.TabStop = false;
             // 
             // timerListenBarierState
             // 
@@ -483,12 +539,12 @@
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.labelNumberCheckin);
             this.groupBox4.Controls.Add(this.labelInforDatetime);
-            this.groupBox4.Location = new System.Drawing.Point(444, 808);
+            this.groupBox4.Location = new System.Drawing.Point(833, 760);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(428, 203);
+            this.groupBox4.Size = new System.Drawing.Size(387, 202);
             this.groupBox4.TabIndex = 40;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Information";
+            this.groupBox4.Text = "Parking Information";
             // 
             // label9
             // 
@@ -551,53 +607,131 @@
             this.timerInforDatetime.Interval = 1000;
             this.timerInforDatetime.Tick += new System.EventHandler(this.timerInforDatetime_Tick);
             // 
-            // pictureBoxCamEntrance1Out
+            // groupBox5
             // 
-            this.pictureBoxCamEntrance1Out.Location = new System.Drawing.Point(388, 51);
-            this.pictureBoxCamEntrance1Out.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxCamEntrance1Out.Name = "pictureBoxCamEntrance1Out";
-            this.pictureBoxCamEntrance1Out.Size = new System.Drawing.Size(357, 250);
-            this.pictureBoxCamEntrance1Out.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCamEntrance1Out.TabIndex = 20;
-            this.pictureBoxCamEntrance1Out.TabStop = false;
+            this.groupBox5.Controls.Add(this.labelEntrance1User);
+            this.groupBox5.Controls.Add(this.labelEntrance1Occurence);
+            this.groupBox5.Controls.Add(this.labelEntrance1Type);
+            this.groupBox5.Controls.Add(this.labelEntrance1PlateNumber);
+            this.groupBox5.Controls.Add(this.labelEntrance1CardID);
+            this.groupBox5.Location = new System.Drawing.Point(398, 617);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(370, 174);
+            this.groupBox5.TabIndex = 41;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Last CheckIn/Out Information";
             // 
-            // pictureBox2
+            // groupBox6
             // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(388, 307);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(357, 165);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
+            this.groupBox6.Controls.Add(this.labelEntrance2User);
+            this.groupBox6.Controls.Add(this.labelEntrance2Occurence);
+            this.groupBox6.Controls.Add(this.labelEntrance2Type);
+            this.groupBox6.Controls.Add(this.labelEntrance2PlateNumber);
+            this.groupBox6.Controls.Add(this.labelEntrance2CardID);
+            this.groupBox6.Location = new System.Drawing.Point(1232, 617);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(370, 197);
+            this.groupBox6.TabIndex = 42;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Last CheckIn/Out Information";
             // 
-            // pictureBoxCamEntrance2Out
+            // labelEntrance1CardID
             // 
-            this.pictureBoxCamEntrance2Out.Location = new System.Drawing.Point(415, 51);
-            this.pictureBoxCamEntrance2Out.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxCamEntrance2Out.Name = "pictureBoxCamEntrance2Out";
-            this.pictureBoxCamEntrance2Out.Size = new System.Drawing.Size(376, 250);
-            this.pictureBoxCamEntrance2Out.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCamEntrance2Out.TabIndex = 21;
-            this.pictureBoxCamEntrance2Out.TabStop = false;
+            this.labelEntrance1CardID.AutoSize = true;
+            this.labelEntrance1CardID.Location = new System.Drawing.Point(17, 28);
+            this.labelEntrance1CardID.Name = "labelEntrance1CardID";
+            this.labelEntrance1CardID.Size = new System.Drawing.Size(58, 16);
+            this.labelEntrance1CardID.TabIndex = 0;
+            this.labelEntrance1CardID.Text = "Card ID: ";
             // 
-            // pictureBox3
+            // labelEntrance1PlateNumber
             // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(415, 309);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(376, 165);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 22;
-            this.pictureBox3.TabStop = false;
+            this.labelEntrance1PlateNumber.AutoSize = true;
+            this.labelEntrance1PlateNumber.Location = new System.Drawing.Point(17, 56);
+            this.labelEntrance1PlateNumber.Name = "labelEntrance1PlateNumber";
+            this.labelEntrance1PlateNumber.Size = new System.Drawing.Size(95, 16);
+            this.labelEntrance1PlateNumber.TabIndex = 1;
+            this.labelEntrance1PlateNumber.Text = "Plate Number: ";
+            // 
+            // labelEntrance1Type
+            // 
+            this.labelEntrance1Type.AutoSize = true;
+            this.labelEntrance1Type.Location = new System.Drawing.Point(17, 112);
+            this.labelEntrance1Type.Name = "labelEntrance1Type";
+            this.labelEntrance1Type.Size = new System.Drawing.Size(45, 16);
+            this.labelEntrance1Type.TabIndex = 2;
+            this.labelEntrance1Type.Text = "Type: ";
+            // 
+            // labelEntrance1Occurence
+            // 
+            this.labelEntrance1Occurence.AutoSize = true;
+            this.labelEntrance1Occurence.Location = new System.Drawing.Point(17, 143);
+            this.labelEntrance1Occurence.Name = "labelEntrance1Occurence";
+            this.labelEntrance1Occurence.Size = new System.Drawing.Size(78, 16);
+            this.labelEntrance1Occurence.TabIndex = 3;
+            this.labelEntrance1Occurence.Text = "Occurance: ";
+            // 
+            // labelEntrance1User
+            // 
+            this.labelEntrance1User.AutoSize = true;
+            this.labelEntrance1User.Location = new System.Drawing.Point(17, 86);
+            this.labelEntrance1User.Name = "labelEntrance1User";
+            this.labelEntrance1User.Size = new System.Drawing.Size(42, 16);
+            this.labelEntrance1User.TabIndex = 4;
+            this.labelEntrance1User.Text = "User: ";
+            // 
+            // labelEntrance2User
+            // 
+            this.labelEntrance2User.AutoSize = true;
+            this.labelEntrance2User.Location = new System.Drawing.Point(18, 95);
+            this.labelEntrance2User.Name = "labelEntrance2User";
+            this.labelEntrance2User.Size = new System.Drawing.Size(42, 16);
+            this.labelEntrance2User.TabIndex = 9;
+            this.labelEntrance2User.Text = "User: ";
+            // 
+            // labelEntrance2Occurence
+            // 
+            this.labelEntrance2Occurence.AutoSize = true;
+            this.labelEntrance2Occurence.Location = new System.Drawing.Point(18, 152);
+            this.labelEntrance2Occurence.Name = "labelEntrance2Occurence";
+            this.labelEntrance2Occurence.Size = new System.Drawing.Size(78, 16);
+            this.labelEntrance2Occurence.TabIndex = 8;
+            this.labelEntrance2Occurence.Text = "Occurance: ";
+            // 
+            // labelEntrance2Type
+            // 
+            this.labelEntrance2Type.AutoSize = true;
+            this.labelEntrance2Type.Location = new System.Drawing.Point(18, 121);
+            this.labelEntrance2Type.Name = "labelEntrance2Type";
+            this.labelEntrance2Type.Size = new System.Drawing.Size(45, 16);
+            this.labelEntrance2Type.TabIndex = 7;
+            this.labelEntrance2Type.Text = "Type: ";
+            // 
+            // labelEntrance2PlateNumber
+            // 
+            this.labelEntrance2PlateNumber.AutoSize = true;
+            this.labelEntrance2PlateNumber.Location = new System.Drawing.Point(18, 65);
+            this.labelEntrance2PlateNumber.Name = "labelEntrance2PlateNumber";
+            this.labelEntrance2PlateNumber.Size = new System.Drawing.Size(95, 16);
+            this.labelEntrance2PlateNumber.TabIndex = 6;
+            this.labelEntrance2PlateNumber.Text = "Plate Number: ";
+            // 
+            // labelEntrance2CardID
+            // 
+            this.labelEntrance2CardID.AutoSize = true;
+            this.labelEntrance2CardID.Location = new System.Drawing.Point(18, 37);
+            this.labelEntrance2CardID.Name = "labelEntrance2CardID";
+            this.labelEntrance2CardID.Size = new System.Drawing.Size(58, 16);
+            this.labelEntrance2CardID.TabIndex = 5;
+            this.labelEntrance2CardID.Text = "Card ID: ";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1668, 1015);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -637,14 +771,18 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance2Out)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1Out)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1Out)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance2Out)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -702,6 +840,18 @@
         private System.Windows.Forms.PictureBox pictureBoxCamEntrance1Out;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBoxCamEntrance2Out;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label labelEntrance1User;
+        private System.Windows.Forms.Label labelEntrance1Occurence;
+        private System.Windows.Forms.Label labelEntrance1Type;
+        private System.Windows.Forms.Label labelEntrance1PlateNumber;
+        private System.Windows.Forms.Label labelEntrance1CardID;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label labelEntrance2User;
+        private System.Windows.Forms.Label labelEntrance2Occurence;
+        private System.Windows.Forms.Label labelEntrance2Type;
+        private System.Windows.Forms.Label labelEntrance2PlateNumber;
+        private System.Windows.Forms.Label labelEntrance2CardID;
     }
 }
 

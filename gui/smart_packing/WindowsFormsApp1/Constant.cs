@@ -22,7 +22,13 @@ namespace WindowsFormsApp1
         public const string PORT_NAME = "COM1";
         public const string BAUD_RATE = "9600";
         public const int ACT_LOGICAL_STATION_NUMBER = 1;
+
+        public const string CAPTURE_PATH = "D:\\LV\\smart_parking\\detect_plate\\capture";
+        public const string TEST_PLATE_PATH = "D:\\LV\\smart_parking\\detect_plate\\test";
+        // 8no in D - last 3 bytes
+        //  User defined byte 0 
         public const char LAST_CHAR_ENTRANCE_1 = 'e';
+        //  User defined byte 1 
         public const char LAST_CHAR_ENTRANCE_2 = 'u';
 
     }
