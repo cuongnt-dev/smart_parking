@@ -29,8 +29,9 @@ namespace WindowsFormsApp1
 
         private readonly HttpClient httpClient;
         FilterInfoCollection listWebcamInfo;
-        VideoCaptureDevice videoCaptureDeviceCheckin;
-        VideoCaptureDevice videoCaptureDeviceCheckout;
+
+        private Dictionary<string, CameraData> camCaptureList = new Dictionary<string, CameraData>();
+
         List<Setting> settingsList;
         int filename = 111;
         private System.Timers.Timer debounceTimer;
@@ -41,6 +42,26 @@ namespace WindowsFormsApp1
             InitializeComponent();
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri("http://localhost:3000/");
+            camCaptureList.Add(Constant.ENTRANCE_1_CAM_IN, new CameraData
+            {
+                VideoCapture = null,
+                PictureBox = pictureBoxCamEntrance1In,
+            });
+            camCaptureList.Add(Constant.ENTRANCE_1_CAM_OUT, new CameraData
+            {
+                VideoCapture = null,
+                PictureBox = pictureBoxCamEntrance1Out
+            });
+            camCaptureList.Add(Constant.ENTRANCE_2_CAM_IN, new CameraData
+            {
+                VideoCapture = null,
+                PictureBox = pictureBoxCamEntrance2In
+            });
+            camCaptureList.Add(Constant.ENTRANCE_2_CAM_OUT, new CameraData
+            {
+                VideoCapture = null,
+                PictureBox = pictureBoxCamEntrance2Out
+            });
         }
 
         private void connectSerialPort()
@@ -61,28 +82,42 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void videoCaptureDeviceEntrance2Out_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            pictureBoxCamEntrance2In.Image = (Bitmap)eventArgs.Frame.Clone();
+        }
+
+
+
         private void LoadMainForm(object sender, EventArgs e)
         {
             listWebcamInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             // connectSerialPort();
-            PLC.Connect(Constant.ACT_LOGICAL_STATION_NUMBER);
+            if (!PLC.IsRunning())
+            {
+                PLC.Connect(Constant.ACT_LOGICAL_STATION_NUMBER);
+            }
             try
             {
-                DB.Connect();
-                settingsList = DB.GetAllSetting();
-                Setting entranceCamSetting1 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_CAM_1);
-                if (entranceCamSetting1 != null)
+                if (!DB.IsRunning())
                 {
-                    videoCaptureDeviceCheckin = new VideoCaptureDevice(listWebcamInfo.Cast<FilterInfo>().FirstOrDefault(info => info.Name == entranceCamSetting1.Value).MonikerString);
-                    videoCaptureDeviceCheckin.NewFrame += videoCaptureDeviceCheckin_NewFrame;
-                    videoCaptureDeviceCheckin.Start();
+                    DB.Connect();
                 }
-                Setting entranceCamSetting2 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_CAM_2);
-                if (entranceCamSetting2 != null)
+                settingsList = DB.GetAllSetting();
+                // Clean all Frame
+                foreach (var item in camCaptureList)
                 {
-                    videoCaptureDeviceCheckout = new VideoCaptureDevice(listWebcamInfo.Cast<FilterInfo>().FirstOrDefault(info => info.Name == entranceCamSetting2.Value).MonikerString);
-                    videoCaptureDeviceCheckout.NewFrame += videoCaptureDeviceCheckout_NewFrame;
-                    videoCaptureDeviceCheckout.Start();
+                    camCaptureList[item.Key].CleanFrame();
+                }
+
+                foreach (var item in camCaptureList)
+                {
+                    Setting st = settingsList.FirstOrDefault(setting => setting.Name == item.Key);
+                    if (st != null && st.Value != "")
+                    {
+                        VideoCaptureDevice vcd = new VideoCaptureDevice(listWebcamInfo.Cast<FilterInfo>().FirstOrDefault(info => info.Name == st.Value).MonikerString);
+                        camCaptureList[item.Key].StartFrame(vcd);
+                    }
                 }
                 entranceState1 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_1);
                 if (entranceState1 != null)
@@ -111,7 +146,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                pictureBoxSelectedImageCheckin.Image = pictureBoxWebcamCheckin.Image;
+                pictureBoxSelectedImageCheckin.Image = pictureBoxCamEntrance1In.Image;
                 // Generate a filename based on the current timestamp
                 string fileName = $"{DateTime.Now.Ticks}.jpg";
 
@@ -148,25 +183,19 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void videoCaptureDeviceCheckin_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        private void videoCaptureDeviceEntrance1In_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            pictureBoxWebcamCheckin.Image = (Bitmap)eventArgs.Frame.Clone();
-        }
-
-        private void videoCaptureDeviceCheckout_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            pictureBoxWebcamCheckout.Image = (Bitmap)eventArgs.Frame.Clone();
+            pictureBoxCamEntrance1In.Image = (Bitmap)eventArgs.Frame.Clone();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(videoCaptureDeviceCheckin.IsRunning == true)
+            foreach (var item in camCaptureList)
             {
-                videoCaptureDeviceCheckin.Stop();
-            }
-            if (videoCaptureDeviceCheckout.IsRunning == true)
-            {
-                videoCaptureDeviceCheckout.Stop();
+                if (item.Value.VideoCapture.IsRunning)
+                {
+                    item.Value.VideoCapture.Stop();
+                }
             }
         }
 
@@ -239,7 +268,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                pictureBoxSelectedImageCheckin.Image = pictureBoxWebcamCheckin.Image;
+                pictureBoxSelectedImageCheckin.Image = pictureBoxCamEntrance1In.Image;
                 // Generate a filename based on the current timestamp
                 string fileName = $"{DateTime.Now.Ticks}.jpg";
 

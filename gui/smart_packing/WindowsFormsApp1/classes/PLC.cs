@@ -20,8 +20,14 @@ namespace WindowsFormsApp1.classes
             }
             catch (Exception ex)
             {
+                plc = null;
                 System.Windows.Forms.MessageBox.Show($"Error when connect to PLC {ex}");
             }
+        }
+
+        static public bool IsRunning()
+        {
+            return plc != null;
         }
 
         static public int ReadFrom(string addr)

@@ -121,6 +121,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\CameraData.cs" />
     <Compile Include="classes\PLC.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="database\DB.cs" />

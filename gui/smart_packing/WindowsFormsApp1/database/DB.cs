@@ -26,6 +26,7 @@ namespace WindowsFormsApp1.database
             }
             catch (Exception ex)
             {
+                conn = null;
                 MessageBox.Show("Failed to connect to PostgreSQL. Error: " + ex.Message);
             }
             finally
@@ -38,6 +39,10 @@ namespace WindowsFormsApp1.database
             }
         }
 
+        static public bool IsRunning()
+        {
+            return conn != null;
+        }
         static public List<User> GetUserWithCondition(string cond)
         {
             string query = $"SELECT * FROM \"user\"";

@@ -34,8 +34,8 @@
             this.pictureBoxPlateImageCheckout = new System.Windows.Forms.PictureBox();
             this.textBoxPlateEntrance1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBoxWebcamCheckin = new System.Windows.Forms.PictureBox();
-            this.pictureBoxWebcamCheckout = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCamEntrance1In = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCamEntrance2In = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -51,11 +51,13 @@
             this.labelCheckinBarierStatus = new System.Windows.Forms.Label();
             this.buttonOpenBarier1 = new System.Windows.Forms.Button();
             this.labelBarierState1 = new System.Windows.Forms.Label();
+            this.statusIndicatorBarier1 = new WindowsFormsApp1.StatusIndicator();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonCloseBarier2 = new System.Windows.Forms.Button();
             this.buttonOpenBarier2 = new System.Windows.Forms.Button();
             this.labelBarierState2 = new System.Windows.Forms.Label();
+            this.statusIndicatorBarier2 = new WindowsFormsApp1.StatusIndicator();
             this.button6 = new System.Windows.Forms.Button();
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.textBoxValue = new System.Windows.Forms.TextBox();
@@ -67,24 +69,30 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.timerListenBarierState = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelNumberCheckin = new System.Windows.Forms.Label();
             this.labelInforDatetime = new System.Windows.Forms.Label();
             this.timerInforDatetime = new System.Windows.Forms.Timer(this.components);
-            this.labelNumberCheckin = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.statusIndicatorBarier2 = new WindowsFormsApp1.StatusIndicator();
-            this.statusIndicatorBarier1 = new WindowsFormsApp1.StatusIndicator();
+            this.pictureBoxCamEntrance1Out = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCamEntrance2Out = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageCheckin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlateImageCheckout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWebcamCheckin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWebcamCheckout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1In)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance2In)).BeginInit();
             this.groupBoxCheckin.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1Out)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance2Out)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCaptureCheckin
@@ -138,25 +146,25 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Plate Number";
             // 
-            // pictureBoxWebcamCheckin
+            // pictureBoxCamEntrance1In
             // 
-            this.pictureBoxWebcamCheckin.Location = new System.Drawing.Point(8, 51);
-            this.pictureBoxWebcamCheckin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxWebcamCheckin.Name = "pictureBoxWebcamCheckin";
-            this.pictureBoxWebcamCheckin.Size = new System.Drawing.Size(357, 250);
-            this.pictureBoxWebcamCheckin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxWebcamCheckin.TabIndex = 12;
-            this.pictureBoxWebcamCheckin.TabStop = false;
+            this.pictureBoxCamEntrance1In.Location = new System.Drawing.Point(8, 51);
+            this.pictureBoxCamEntrance1In.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxCamEntrance1In.Name = "pictureBoxCamEntrance1In";
+            this.pictureBoxCamEntrance1In.Size = new System.Drawing.Size(357, 250);
+            this.pictureBoxCamEntrance1In.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCamEntrance1In.TabIndex = 12;
+            this.pictureBoxCamEntrance1In.TabStop = false;
             // 
-            // pictureBoxWebcamCheckout
+            // pictureBoxCamEntrance2In
             // 
-            this.pictureBoxWebcamCheckout.Location = new System.Drawing.Point(18, 51);
-            this.pictureBoxWebcamCheckout.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBoxWebcamCheckout.Name = "pictureBoxWebcamCheckout";
-            this.pictureBoxWebcamCheckout.Size = new System.Drawing.Size(376, 250);
-            this.pictureBoxWebcamCheckout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxWebcamCheckout.TabIndex = 14;
-            this.pictureBoxWebcamCheckout.TabStop = false;
+            this.pictureBoxCamEntrance2In.Location = new System.Drawing.Point(18, 51);
+            this.pictureBoxCamEntrance2In.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxCamEntrance2In.Name = "pictureBoxCamEntrance2In";
+            this.pictureBoxCamEntrance2In.Size = new System.Drawing.Size(376, 250);
+            this.pictureBoxCamEntrance2In.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCamEntrance2In.TabIndex = 14;
+            this.pictureBoxCamEntrance2In.TabStop = false;
             // 
             // button3
             // 
@@ -182,7 +190,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(709, 15);
+            this.button1.Location = new System.Drawing.Point(1462, 15);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 68);
@@ -300,6 +308,15 @@
             this.labelBarierState1.TabIndex = 1;
             this.labelBarierState1.Text = "Close";
             // 
+            // statusIndicatorBarier1
+            // 
+            this.statusIndicatorBarier1.Location = new System.Drawing.Point(25, 45);
+            this.statusIndicatorBarier1.Name = "statusIndicatorBarier1";
+            this.statusIndicatorBarier1.Size = new System.Drawing.Size(16, 17);
+            this.statusIndicatorBarier1.StatusColor = System.Drawing.Color.Red;
+            this.statusIndicatorBarier1.TabIndex = 0;
+            this.statusIndicatorBarier1.Text = "statusIndicator1";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label5);
@@ -307,9 +324,9 @@
             this.groupBox1.Controls.Add(this.buttonOpenBarier2);
             this.groupBox1.Controls.Add(this.labelBarierState2);
             this.groupBox1.Controls.Add(this.statusIndicatorBarier2);
-            this.groupBox1.Location = new System.Drawing.Point(426, 617);
+            this.groupBox1.Location = new System.Drawing.Point(811, 617);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(409, 93);
+            this.groupBox1.Size = new System.Drawing.Size(740, 93);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Barier Control";
@@ -351,6 +368,15 @@
             this.labelBarierState2.Size = new System.Drawing.Size(42, 16);
             this.labelBarierState2.TabIndex = 1;
             this.labelBarierState2.Text = "Close";
+            // 
+            // statusIndicatorBarier2
+            // 
+            this.statusIndicatorBarier2.Location = new System.Drawing.Point(26, 45);
+            this.statusIndicatorBarier2.Name = "statusIndicatorBarier2";
+            this.statusIndicatorBarier2.Size = new System.Drawing.Size(16, 17);
+            this.statusIndicatorBarier2.StatusColor = System.Drawing.Color.Red;
+            this.statusIndicatorBarier2.TabIndex = 0;
+            this.statusIndicatorBarier2.Text = "statusIndicator2";
             // 
             // button6
             // 
@@ -417,24 +443,28 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pictureBox3);
+            this.groupBox2.Controls.Add(this.pictureBoxCamEntrance2Out);
             this.groupBox2.Controls.Add(this.labelEntranceState2);
-            this.groupBox2.Controls.Add(this.pictureBoxWebcamCheckout);
+            this.groupBox2.Controls.Add(this.pictureBoxCamEntrance2In);
             this.groupBox2.Controls.Add(this.pictureBoxPlateImageCheckout);
-            this.groupBox2.Location = new System.Drawing.Point(426, 102);
+            this.groupBox2.Location = new System.Drawing.Point(811, 102);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(409, 489);
+            this.groupBox2.Size = new System.Drawing.Size(814, 489);
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Entrance 2";
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.pictureBox2);
+            this.groupBox3.Controls.Add(this.pictureBoxCamEntrance1Out);
             this.groupBox3.Controls.Add(this.labelEntranceState1);
-            this.groupBox3.Controls.Add(this.pictureBoxWebcamCheckin);
+            this.groupBox3.Controls.Add(this.pictureBoxCamEntrance1In);
             this.groupBox3.Controls.Add(this.pictureBoxSelectedImageCheckin);
             this.groupBox3.Location = new System.Drawing.Point(8, 102);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(383, 489);
+            this.groupBox3.Size = new System.Drawing.Size(760, 489);
             this.groupBox3.TabIndex = 39;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Entrance 1";
@@ -460,6 +490,51 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Information";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(15, 82);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(166, 16);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Latest Checkout: Loading...";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 54);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(158, 16);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Latest Checkin: Loading...";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 110);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(151, 16);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Slot Avaiable: Loading...";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 165);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(221, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Number Checkout Today: Loading...";
+            // 
+            // labelNumberCheckin
+            // 
+            this.labelNumberCheckin.AutoSize = true;
+            this.labelNumberCheckin.Location = new System.Drawing.Point(14, 138);
+            this.labelNumberCheckin.Name = "labelNumberCheckin";
+            this.labelNumberCheckin.Size = new System.Drawing.Size(213, 16);
+            this.labelNumberCheckin.TabIndex = 1;
+            this.labelNumberCheckin.Text = "Number Checkin Today: Loading...";
+            // 
             // labelInforDatetime
             // 
             this.labelInforDatetime.AutoSize = true;
@@ -476,74 +551,53 @@
             this.timerInforDatetime.Interval = 1000;
             this.timerInforDatetime.Tick += new System.EventHandler(this.timerInforDatetime_Tick);
             // 
-            // labelNumberCheckin
+            // pictureBoxCamEntrance1Out
             // 
-            this.labelNumberCheckin.AutoSize = true;
-            this.labelNumberCheckin.Location = new System.Drawing.Point(14, 138);
-            this.labelNumberCheckin.Name = "labelNumberCheckin";
-            this.labelNumberCheckin.Size = new System.Drawing.Size(213, 16);
-            this.labelNumberCheckin.TabIndex = 1;
-            this.labelNumberCheckin.Text = "Number Checkin Today: Loading...";
+            this.pictureBoxCamEntrance1Out.Location = new System.Drawing.Point(388, 51);
+            this.pictureBoxCamEntrance1Out.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxCamEntrance1Out.Name = "pictureBoxCamEntrance1Out";
+            this.pictureBoxCamEntrance1Out.Size = new System.Drawing.Size(357, 250);
+            this.pictureBoxCamEntrance1Out.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCamEntrance1Out.TabIndex = 20;
+            this.pictureBoxCamEntrance1Out.TabStop = false;
             // 
-            // label3
+            // pictureBox2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 165);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(221, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Number Checkout Today: Loading...";
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Location = new System.Drawing.Point(388, 307);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(357, 165);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
             // 
-            // label4
+            // pictureBoxCamEntrance2Out
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(151, 16);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Slot Avaiable: Loading...";
+            this.pictureBoxCamEntrance2Out.Location = new System.Drawing.Point(415, 51);
+            this.pictureBoxCamEntrance2Out.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxCamEntrance2Out.Name = "pictureBoxCamEntrance2Out";
+            this.pictureBoxCamEntrance2Out.Size = new System.Drawing.Size(376, 250);
+            this.pictureBoxCamEntrance2Out.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCamEntrance2Out.TabIndex = 21;
+            this.pictureBoxCamEntrance2Out.TabStop = false;
             // 
-            // label8
+            // pictureBox3
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 54);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(158, 16);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Latest Checkin: Loading...";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 82);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(166, 16);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Latest Checkout: Loading...";
-            // 
-            // statusIndicatorBarier2
-            // 
-            this.statusIndicatorBarier2.Location = new System.Drawing.Point(26, 45);
-            this.statusIndicatorBarier2.Name = "statusIndicatorBarier2";
-            this.statusIndicatorBarier2.Size = new System.Drawing.Size(16, 17);
-            this.statusIndicatorBarier2.StatusColor = System.Drawing.Color.Red;
-            this.statusIndicatorBarier2.TabIndex = 0;
-            this.statusIndicatorBarier2.Text = "statusIndicator2";
-            // 
-            // statusIndicatorBarier1
-            // 
-            this.statusIndicatorBarier1.Location = new System.Drawing.Point(25, 45);
-            this.statusIndicatorBarier1.Name = "statusIndicatorBarier1";
-            this.statusIndicatorBarier1.Size = new System.Drawing.Size(16, 17);
-            this.statusIndicatorBarier1.StatusColor = System.Drawing.Color.Red;
-            this.statusIndicatorBarier1.TabIndex = 0;
-            this.statusIndicatorBarier1.Text = "statusIndicator1";
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Location = new System.Drawing.Point(415, 309);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(376, 165);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 22;
+            this.pictureBox3.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 1015);
+            this.ClientSize = new System.Drawing.Size(1668, 1015);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -575,8 +629,8 @@
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageCheckin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlateImageCheckout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWebcamCheckin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWebcamCheckout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1In)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance2In)).EndInit();
             this.groupBoxCheckin.ResumeLayout(false);
             this.groupBoxCheckin.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -587,6 +641,10 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1Out)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance2Out)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -598,8 +656,8 @@
         private System.Windows.Forms.PictureBox pictureBoxPlateImageCheckout;
         private System.Windows.Forms.TextBox textBoxPlateEntrance1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBoxWebcamCheckin;
-        private System.Windows.Forms.PictureBox pictureBoxWebcamCheckout;
+        private System.Windows.Forms.PictureBox pictureBoxCamEntrance1In;
+        private System.Windows.Forms.PictureBox pictureBoxCamEntrance2In;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button1;
@@ -640,6 +698,10 @@
         private System.Windows.Forms.Label labelNumberCheckin;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBoxCamEntrance1Out;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBoxCamEntrance2Out;
     }
 }
 
