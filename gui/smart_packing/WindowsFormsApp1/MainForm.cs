@@ -478,7 +478,7 @@ namespace WindowsFormsApp1
 
         private void button7_Click(object sender, EventArgs e)
         {
-            PLC.WriteTo(int.Parse(textBoxAddress.Text), Convert.ToInt16(textBoxValue.Text));
+            // PLC.WriteTo(int.Parse(textBoxAddress.Text), Convert.ToInt16(textBoxValue.Text));
         }
 
         private void buttonOpenBarier2_Click(object sender, EventArgs e)
