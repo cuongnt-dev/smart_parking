@@ -79,32 +79,34 @@ namespace WindowsFormsApp1
                     DB.Connect();
                 }
                 settingsList = DB.GetAllSetting();
-                // Clean all Frame
-                foreach (var item in camCaptureList)
+                if(settingsList != null)
                 {
-                    camCaptureList[item.Key].CleanFrame();
-                }
-
-                foreach (var item in camCaptureList)
-                {
-                    Setting st = settingsList.FirstOrDefault(setting => setting.Name == item.Key);
-                    if (st != null && st.Value != "")
+                    // Clean all Frame
+                    foreach (var item in camCaptureList)
                     {
-                        VideoCaptureDevice vcd = new VideoCaptureDevice(listWebcamInfo.Cast<FilterInfo>().FirstOrDefault(info => info.Name == st.Value).MonikerString);
-                        camCaptureList[item.Key].StartFrame(vcd);
+                        camCaptureList[item.Key].CleanFrame();
+                    }
+
+                    foreach (var item in camCaptureList)
+                    {
+                        Setting st = settingsList.FirstOrDefault(setting => setting.Name == item.Key);
+                        if (st != null && st.Value != "")
+                        {
+                            VideoCaptureDevice vcd = new VideoCaptureDevice(listWebcamInfo.Cast<FilterInfo>().FirstOrDefault(info => info.Name == st.Value).MonikerString);
+                            camCaptureList[item.Key].StartFrame(vcd);
+                        }
+                    }
+                    entranceState1 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_1);
+                    if (entranceState1 != null)
+                    {
+                        labelEntranceState1.Text = $"State: {entranceState1.Value}";
+                    }
+                    entranceState2 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_2);
+                    if (entranceState2 != null)
+                    {
+                        labelEntranceState2.Text = $"State: {entranceState2.Value}";
                     }
                 }
-                entranceState1 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_1);
-                if (entranceState1 != null)
-                {
-                    labelEntranceState1.Text = $"State: {entranceState1.Value}";
-                }
-                entranceState2 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_2);
-                if (entranceState2 != null)
-                {
-                    labelEntranceState2.Text = $"State: {entranceState2.Value}";
-                }
-
             }
             catch (Exception ex)
             {
