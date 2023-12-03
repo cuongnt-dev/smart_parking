@@ -34,15 +34,15 @@
             this.comboBoxEntrance1CamIn = new System.Windows.Forms.ComboBox();
             this.comboBoxEntrance2CamIn = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxEntrance1CamOut = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.comboBoxEntranceState1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBoxEntrance2CamOut = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.comboBoxEntranceState2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxEntrance1CamOut = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBoxEntrance2CamOut = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -106,6 +106,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Entrance 1";
             // 
+            // comboBoxEntrance1CamOut
+            // 
+            this.comboBoxEntrance1CamOut.FormattingEnabled = true;
+            this.comboBoxEntrance1CamOut.Location = new System.Drawing.Point(116, 119);
+            this.comboBoxEntrance1CamOut.Name = "comboBoxEntrance1CamOut";
+            this.comboBoxEntrance1CamOut.Size = new System.Drawing.Size(202, 24);
+            this.comboBoxEntrance1CamOut.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 119);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 16);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Camera Out";
+            // 
             // comboBoxEntranceState1
             // 
             this.comboBoxEntranceState1.FormattingEnabled = true;
@@ -139,6 +156,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Entrance 2";
             // 
+            // comboBoxEntrance2CamOut
+            // 
+            this.comboBoxEntrance2CamOut.FormattingEnabled = true;
+            this.comboBoxEntrance2CamOut.Location = new System.Drawing.Point(116, 117);
+            this.comboBoxEntrance2CamOut.Name = "comboBoxEntrance2CamOut";
+            this.comboBoxEntrance2CamOut.Size = new System.Drawing.Size(202, 24);
+            this.comboBoxEntrance2CamOut.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(27, 117);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 16);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Camera Out";
+            // 
             // comboBoxEntranceState2
             // 
             this.comboBoxEntranceState2.FormattingEnabled = true;
@@ -156,41 +190,6 @@
             this.label4.Size = new System.Drawing.Size(38, 16);
             this.label4.TabIndex = 5;
             this.label4.Text = "State";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 119);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 16);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Camera Out";
-            // 
-            // comboBoxEntrance1CamOut
-            // 
-            this.comboBoxEntrance1CamOut.FormattingEnabled = true;
-            this.comboBoxEntrance1CamOut.Location = new System.Drawing.Point(116, 119);
-            this.comboBoxEntrance1CamOut.Name = "comboBoxEntrance1CamOut";
-            this.comboBoxEntrance1CamOut.Size = new System.Drawing.Size(202, 24);
-            this.comboBoxEntrance1CamOut.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 117);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 16);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Camera Out";
-            // 
-            // comboBoxEntrance2CamOut
-            // 
-            this.comboBoxEntrance2CamOut.FormattingEnabled = true;
-            this.comboBoxEntrance2CamOut.Location = new System.Drawing.Point(116, 117);
-            this.comboBoxEntrance2CamOut.Name = "comboBoxEntrance2CamOut";
-            this.comboBoxEntrance2CamOut.Size = new System.Drawing.Size(202, 24);
-            this.comboBoxEntrance2CamOut.TabIndex = 8;
-
             // 
             // SystemManageForm
             // 
