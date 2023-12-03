@@ -31,5 +31,12 @@ namespace WindowsFormsApp1
         //  User defined byte 1 
         public const char LAST_CHAR_ENTRANCE_2 = 'u';
 
+
+        // PLC Communication
+        public const string ENTRANCE_1_BARIER_1_OPEN = "M2";
+        public const string ENTRANCE_1_BARIER_1_CLOSE = "M0";
+        public const string ENTRANCE_1_BARIER_2_OPEN = "M3";
+        public const string ENTRANCE_1_BARIER_2_CLOSE = "M1";
+
     }
 }

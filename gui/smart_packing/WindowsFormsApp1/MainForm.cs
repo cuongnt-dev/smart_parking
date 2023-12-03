@@ -462,12 +462,12 @@ namespace WindowsFormsApp1
 
         private void buttonToggleCheckinBarier_Click_1(object sender, EventArgs e)
         {
-            PLC.WriteTo("X0", 1);
+            PLC.WriteTo(Constant.ENTRANCE_1_BARIER_1_OPEN, 1);
         }
 
         private void buttonCloseCheckinBarier_Click(object sender, EventArgs e)
         {
-            PLC.WriteTo("X0", 0);
+            PLC.WriteTo(Constant.ENTRANCE_1_BARIER_1_CLOSE, 0);
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -520,6 +520,16 @@ namespace WindowsFormsApp1
         private void timerInforDatetime_Tick(object sender, EventArgs e)
         {
             labelInforDatetime.Text = $"Datetime: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            PLC.WriteTo(Constant.ENTRANCE_1_BARIER_2_OPEN, 1);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PLC.WriteTo(Constant.ENTRANCE_1_BARIER_2_CLOSE, 1);
         }
     }
 }
