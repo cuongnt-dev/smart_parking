@@ -15,18 +15,16 @@ namespace WindowsFormsApp1.classes
 
         private int DELAY = 10;
 
-        static public PLC()
+        /*static public PLC()
         {
             try
-            {
-                Console.WriteLine("PLC Establish Connection");
                 sp = new SerialPort(Constant.PLC_PORT_NAME, Constant.PLC_BAUD_RATE, Constant.PLC_PARITY, Constant.PLC_DATABIT, Constant.PLC_STOPBIT);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-        }
+        }*/
 
         // static public ActUtlType plc;
         static public CommunicationPLCMitsubishiFX.CommunicationPLCMitsubishiFX plc;
@@ -65,11 +63,14 @@ namespace WindowsFormsApp1.classes
         {
             try
             {
+                if(sp == null)
+                {
+                    sp = new SerialPort(Constant.PLC_PORT_NAME, Constant.PLC_BAUD_RATE, Constant.PLC_PARITY, Constant.PLC_DATABIT, Constant.PLC_STOPBIT);
+                }
                 if (sp.IsOpen)
                 {
                     sp.Close();
                 }
-
                 sp.Open();
             }
             catch (Exception ex)
