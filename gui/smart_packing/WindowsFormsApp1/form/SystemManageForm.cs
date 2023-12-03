@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,12 +41,15 @@ namespace WindowsFormsApp1.form
             comboBoxEntranceState1.SelectedIndexChanged -= comboBoxEntranceState1_SelectedIndexChanged;
             comboBoxEntranceState2.SelectedIndexChanged -= comboBoxEntranceState2_SelectedIndexChanged;
             listWebcamInfo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            
             foreach (var camSettingItem in entranceCamSettingList)
             {
                 camSettingItem.Value.Items.Add("-");
+                int index = 0;
                 foreach (FilterInfo item in listWebcamInfo)
                 {
-                    camSettingItem.Value.Items.Add(item.Name);
+                    camSettingItem.Value.Items.Add($"{item.Name} ({index})");
+                    index++;
                 }
             }
 
@@ -63,10 +67,12 @@ namespace WindowsFormsApp1.form
                 foreach (var camSettingItem in entranceCamSettingList)
                 {
                     Setting st = settingsList.FirstOrDefault(setting => setting.Name == camSettingItem.Key);
-                    if (st != null)
+                    int index = 0;
+                    if (st != null && st.Value != "")
                     {
-                        camSettingItem.Value.SelectedItem = st.Value;
+                        index = int.Parse(st.Value) + 1;
                     }
+                    camSettingItem.Value.SelectedIndex = index;
                 }
 
                 foreach (var entranceSettingItem in entranceStateSettingList)
@@ -88,11 +94,16 @@ namespace WindowsFormsApp1.form
             {
                 foreach (var camSettingItem in entranceCamSettingList)
                 {
-                    if (camSettingItem.Value.SelectedItem != null)
+                    if (camSettingItem.Value.SelectedIndex != -1)
                     {
-                        string value = camSettingItem.Value.SelectedItem.ToString();
-                        value = value == "-" ? "" : value;
-                        DB.UpsertSetting(camSettingItem.Key, value);
+                        int index = camSettingItem.Value.SelectedIndex;
+                        if(index == -1 || index == 0)
+                        {
+                            DB.UpsertSetting(camSettingItem.Key, "");
+                        } else
+                        {
+                            DB.UpsertSetting(camSettingItem.Key, (index - 1).ToString());
+                        }
                     }
                 }
 
@@ -111,35 +122,35 @@ namespace WindowsFormsApp1.form
         private void comboBoxEntranceState1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Console.WriteLine("Entrance 1 changed");
-            string tempItemCbIn = "-";
+            int tempItemCbIn = 0;
             if(comboBoxEntrance1CamIn.SelectedItem != null)
             {
-                tempItemCbIn = comboBoxEntrance1CamIn.SelectedItem.ToString();
+                tempItemCbIn = comboBoxEntrance1CamIn.SelectedIndex;
             }
-            string tempItemCbOut = "-";
+            int tempItemCbOut = 0;
             if (comboBoxEntrance1CamOut.SelectedItem != null)
             {
-                tempItemCbOut = comboBoxEntrance1CamOut.SelectedItem.ToString();
+                tempItemCbOut = comboBoxEntrance1CamOut.SelectedIndex;
             }
-            comboBoxEntrance1CamIn.SelectedItem = tempItemCbOut;
-            comboBoxEntrance1CamOut.SelectedItem = tempItemCbIn;
+            comboBoxEntrance1CamIn.SelectedIndex = tempItemCbOut;
+            comboBoxEntrance1CamOut.SelectedIndex = tempItemCbIn;
         }
 
         private void comboBoxEntranceState2_SelectedIndexChanged(object sender, EventArgs e)
         {
             Console.WriteLine("Entrance 2 changed");
-            string tempItemCbIn = "-";
+            int tempItemCbIn = 0;
             if (comboBoxEntrance2CamIn.SelectedItem != null)
             {
-                tempItemCbIn = comboBoxEntrance2CamIn.SelectedItem.ToString();
+                tempItemCbIn = comboBoxEntrance2CamIn.SelectedIndex;
             }
-            string tempItemCbOut = "-";
+            int tempItemCbOut = 0;
             if (comboBoxEntrance2CamOut.SelectedItem != null)
             {
-                tempItemCbOut = comboBoxEntrance2CamOut.SelectedItem.ToString();
+                tempItemCbOut = comboBoxEntrance2CamOut.SelectedIndex;
             }
-            comboBoxEntrance2CamIn.SelectedItem = tempItemCbOut;
-            comboBoxEntrance2CamOut.SelectedItem = tempItemCbIn;
+            comboBoxEntrance2CamIn.SelectedIndex = tempItemCbOut;
+            comboBoxEntrance2CamOut.SelectedIndex = tempItemCbIn;
         }
     }
 }

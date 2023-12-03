@@ -90,10 +90,14 @@ namespace WindowsFormsApp1
                     foreach (var item in camCaptureList)
                     {
                         Setting st = settingsList.FirstOrDefault(setting => setting.Name == item.Key);
-                        if (st != null && st.Value != "")
+                        if (st != null && st.Value != "" && st.Value != "-1")
                         {
-                            VideoCaptureDevice vcd = new VideoCaptureDevice(listWebcamInfo.Cast<FilterInfo>().FirstOrDefault(info => info.Name == st.Value).MonikerString);
-                            camCaptureList[item.Key].StartFrame(vcd);
+                            int index = int.Parse(st.Value);
+                            if(index < listWebcamInfo.Count)
+                            {
+                                VideoCaptureDevice vcd = new VideoCaptureDevice(listWebcamInfo[index].MonikerString);
+                                camCaptureList[item.Key].StartFrame(vcd);
+                            }
                         }
                     }
                     entranceState1 = settingsList.FirstOrDefault(setting => setting.Name == Constant.ENTRANCE_1);
