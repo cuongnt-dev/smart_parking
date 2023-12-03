@@ -50,14 +50,18 @@ namespace WindowsFormsApp1
         public const Int32 ENTRANCE_1_BARIER_2_CLOSE = 0x01;
 
 
-        // M0
-        public const Int32 ENTRANCE_2_BARIER_1_CLOSE = 0x00;
-        // M2
-        public const Int32 ENTRANCE_2_BARIER_1_OPEN = 0x02;
-        // M3
-        public const Int32 ENTRANCE_2_BARIER_2_OPEN = 0x03;
-        // M1
-        public const Int32 ENTRANCE_2_BARIER_2_CLOSE = 0x01;
+        // M4
+        public const Int32 ENTRANCE_2_BARIER_1_CLOSE = 0x04;
+        // M6
+        public const Int32 ENTRANCE_2_BARIER_1_OPEN = 0x06;
+        // M5
+        public const Int32 ENTRANCE_2_BARIER_2_OPEN = 0x05;
+        // M7
+        public const Int32 ENTRANCE_2_BARIER_2_CLOSE = 0x07;
 
+        // M8
+        public const Int32 ENTRANCE_1_BARIER_1_STATE = 0x08;
+        // M9
+        public const Int32 ENTRANCE_1_BARIER_2_STATE = 0x09;
     }
 }

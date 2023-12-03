@@ -100,7 +100,7 @@ namespace WindowsFormsApp1.classes
             return plc != null;
         }
 
-        static public int ReadFrom(string addr)
+        static public int ReadFrom(Int32 addr)
         {
             byte addrByte = Convert.ToByte(addr);
             byte[] data = new byte[2];
@@ -108,7 +108,7 @@ namespace WindowsFormsApp1.classes
             // Construct FXGP/WIN read command for M0
             byte[] readCommand = new byte[] {
                 0x03, // Read/Write command code
-                addrByte, // Starting address (MSB)
+                0x00, // Starting address (MSB)
                 addrByte, // Starting address (LSB)
                 0x02, // Data length (2 bytes)
                 0x02, // Memory area code (M-area)
