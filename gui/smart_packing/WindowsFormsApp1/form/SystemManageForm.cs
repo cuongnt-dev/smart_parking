@@ -58,21 +58,24 @@ namespace WindowsFormsApp1.form
             }
             
             List<Setting> settingsList = DB.GetAllSetting();
-            foreach (var camSettingItem in entranceCamSettingList)
+            if(settingsList != null)
             {
-                Setting st = settingsList.FirstOrDefault(setting => setting.Name == camSettingItem.Key);
-                if (st != null)
+                foreach (var camSettingItem in entranceCamSettingList)
                 {
-                    camSettingItem.Value.SelectedItem = st.Value;
+                    Setting st = settingsList.FirstOrDefault(setting => setting.Name == camSettingItem.Key);
+                    if (st != null)
+                    {
+                        camSettingItem.Value.SelectedItem = st.Value;
+                    }
                 }
-            }
 
-            foreach (var entranceSettingItem in entranceStateSettingList)
-            {
-                Setting st = settingsList.FirstOrDefault(setting => setting.Name == entranceSettingItem.Key);
-                if (st != null)
+                foreach (var entranceSettingItem in entranceStateSettingList)
                 {
-                    entranceSettingItem.Value.SelectedItem = st.Value;
+                    Setting st = settingsList.FirstOrDefault(setting => setting.Name == entranceSettingItem.Key);
+                    if (st != null)
+                    {
+                        entranceSettingItem.Value.SelectedItem = st.Value;
+                    }
                 }
             }
             comboBoxEntranceState1.SelectedIndexChanged += comboBoxEntranceState1_SelectedIndexChanged;
