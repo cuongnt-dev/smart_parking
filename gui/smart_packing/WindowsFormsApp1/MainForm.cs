@@ -70,7 +70,7 @@ namespace WindowsFormsApp1
             // connectSerialPort();
             if (!PLC.IsRunning())
             {
-                PLC.Connect(Constant.ACT_LOGICAL_STATION_NUMBER);
+                PLC.Connect();
             }
             try
             {
@@ -478,17 +478,17 @@ namespace WindowsFormsApp1
 
         private void button7_Click(object sender, EventArgs e)
         {
-            PLC.WriteTo(textBoxAddress.Text, Convert.ToInt16(textBoxValue.Text));
+            PLC.WriteTo(int.Parse(textBoxAddress.Text), Convert.ToInt16(textBoxValue.Text));
         }
 
         private void buttonOpenBarier2_Click(object sender, EventArgs e)
         {
-            PLC.WriteTo("X1", 1);
+            PLC.WriteTo(Constant.ENTRANCE_2_BARIER_1_OPEN, 1);
         }
 
         private void buttonCloseBarier2_Click(object sender, EventArgs e)
         {
-            PLC.WriteTo("X1", 0);
+            PLC.WriteTo(Constant.ENTRANCE_2_BARIER_1_CLOSE, 1);
         }
 
         private void timerListenBarierState_Tick_1(object sender, EventArgs e)

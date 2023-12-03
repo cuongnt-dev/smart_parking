@@ -196,3 +196,4 @@ D:\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsForms.cspro
 D:\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsForms.csproj.CopyComplete
 D:\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 D:\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+D:\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\CommunicationPLCMitsubishiFX.dll
