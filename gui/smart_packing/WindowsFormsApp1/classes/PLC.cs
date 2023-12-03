@@ -101,101 +101,43 @@ namespace WindowsFormsApp1.classes
             return plc != null;
         }
 
-        static public int ReadFrom(Int32 addr)
+        static public bool ReadFrom(Int32 addr)
         {
-            byte addrByte = Convert.ToByte(addr);
-            byte[] data = new byte[2];
-
-            // Construct FXGP/WIN read command for M0
             byte[] readCommand = new byte[] {
                 0x03, // Read/Write command code
                 0x00, // Starting address (MSB)
-                addrByte, // Starting address (LSB)
-                0x02, // Data length (2 bytes)
+                0x00, // Starting address (LSB)
+                (byte)addr, // Data length (1 byte)
                 0x02, // Memory area code (M-area)
             };
 
-            // Send FXGP/WIN read command to PLC
+            // Send the read command to the PLC
             sp.Write(readCommand, 0, readCommand.Length);
 
-            // Read data response from PLC
-            int bytesRead = sp.Read(data, 0, 2);
+            // Read data response from the PLC
+            byte[] data = new byte[1];
+            int bytesRead = sp.Read(data, 0, 1);
 
-            // Process received data
-            if (bytesRead == 2)
-            {
-                // Convert data to integer
-                int value = BitConverter.ToInt16(data, 0);
-                Console.WriteLine("Value at M0: " + value);
-                return value;
-            }
-            else
-            {
-                Console.WriteLine("Error reading data from M0");
-                return 0;
-            }
-
+            // Extract bit value from received data
+            bool bitValue = (data[0] & 0x01) == 1;
+            return bitValue;
 
         }
 
-        static public void WriteTo(byte address, byte bitValue)
+        static public void WriteTo(byte address, bool bitValue)
         {
-            // Validate address range
-            if (address < 0x00 || address > 0x09)
-            {
-                throw new ArgumentOutOfRangeException("address", "Address must be between 0x00 and 0x09");
-            }
-
-            // Validate bit value
-            if (bitValue != 0 && bitValue != 1)
-            {
-                throw new ArgumentOutOfRangeException("bitValue", "Bit value must be 0 or 1");
-            }
-
-            // Read the current value of the memory location
-            byte[] data = new byte[1];
-            byte[] readCommand = new byte[] {
-                0x03, // Read/Write command code
+            // Construct FXGP/WIN write command for M0
+            byte[] writeCommand = new byte[] {
+                0x03, // Write operation code
                 0x00, // Starting address (MSB)
-                        address, // Starting address (LSB)
+                address, // Starting address (LSB)
                 0x01, // Data length (1 byte)
                 0x02, // Memory area code (M-area)
+                bitValue ? (byte)0x01 : (byte)0x00 // Set bit value based on bitValue
             };
-            sp.Write(readCommand, 0, readCommand.Length);
-            int bytesRead = sp.Read(data, 0, 1);
 
-            // Modify the desired bit and construct the write command
-            if (bytesRead == 1)
-            {
-                // Modify the desired bit
-                if (bitValue == 1)
-                {
-                    byte bitMask = (byte)(1 << address); // Cast to byte
-                    data[0] |= bitMask; // Set bit at address to 1
-                }
-                else
-                {
-                    byte bitMask = (byte)(~(1 << address)); // Cast to byte
-                    data[0] &= bitMask; // Perform bitwise AND
-                }
-
-                // Construct write command
-                byte[] writeCommand = new byte[] {
-            0x03, // Write operation code
-            0x00, // Starting address (MSB)
-                    address, // Starting address (LSB)
-            0x01, // Data length (1 byte)
-            0x02, // Memory area code (M-area)
-            data[0] // Data byte
-        };
-
-                // Send write command to PLC
-                sp.Write(writeCommand, 0, writeCommand.Length);
-            }
-            else
-            {
-                Console.WriteLine("Error reading data from M" + address);
-            }
+            // Send the write command to the PLC
+            sp.Write(writeCommand, 0, writeCommand.Length);
         }
     }
 }

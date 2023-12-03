@@ -462,18 +462,18 @@ namespace WindowsFormsApp1
 
         private void buttonToggleCheckinBarier_Click_1(object sender, EventArgs e)
         {
-            PLC.WriteTo(Constant.ENTRANCE_1_BARIER_1_OPEN, 1);
+            PLC.WriteTo(Constant.ENTRANCE_1_BARIER_1_OPEN, true);
         }
 
         private void buttonCloseCheckinBarier_Click(object sender, EventArgs e)
         {
-            PLC.WriteTo(Constant.ENTRANCE_1_BARIER_1_CLOSE,  0);
+            PLC.WriteTo(Constant.ENTRANCE_1_BARIER_1_CLOSE,  false);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            int value = PLC.ReadFrom(int.Parse(textBoxAddress.Text));
-            textBoxValue.Text = value.ToString();
+            /*int value = PLC.ReadFrom(int.Parse(textBoxAddress.Text));
+            textBoxValue.Text = value.ToString();*/
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -483,18 +483,18 @@ namespace WindowsFormsApp1
 
         private void buttonOpenBarier2_Click(object sender, EventArgs e)
         {
-            PLC.WriteTo(Constant.ENTRANCE_2_BARIER_1_OPEN, 1);
+            PLC.WriteTo(Constant.ENTRANCE_2_BARIER_1_OPEN, true);
         }
 
         private void buttonCloseBarier2_Click(object sender, EventArgs e)
         {
-            PLC.WriteTo(Constant.ENTRANCE_2_BARIER_1_CLOSE, 1);
+            PLC.WriteTo(Constant.ENTRANCE_2_BARIER_1_CLOSE, true);
         }
 
         private void timerListenBarierState_Tick_1(object sender, EventArgs e)
         {
-            int state1 = PLC.ReadFrom(Constant.ENTRANCE_1_BARIER_1_STATE);
-            if (state1 == 0)
+            bool state1 = PLC.ReadFrom(Constant.ENTRANCE_1_BARIER_1_STATE);
+            if (!state1)
             {
                 statusIndicatorEntrance1Barier1.StatusColor = Color.Red;
                 labelBarierState1.Text = "Close";
@@ -504,8 +504,8 @@ namespace WindowsFormsApp1
                 statusIndicatorEntrance1Barier1.StatusColor = Color.Green;
                 labelBarierState1.Text = "Open";
             }
-            int state2 = PLC.ReadFrom(Constant.ENTRANCE_1_BARIER_2_STATE);
-            if (state2 == 0)
+            bool state2 = PLC.ReadFrom(Constant.ENTRANCE_1_BARIER_2_STATE);
+            if (!state2)
             {
                 statusIndicatorEntrance1Barier2.StatusColor = Color.Red;
                 labelBarierState2.Text = "Close";
@@ -524,12 +524,12 @@ namespace WindowsFormsApp1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            PLC.WriteTo(Constant.ENTRANCE_1_BARIER_2_OPEN, 1);
+            PLC.WriteTo(Constant.ENTRANCE_1_BARIER_2_OPEN, true);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PLC.WriteTo(Constant.ENTRANCE_1_BARIER_2_CLOSE, 1);
+            PLC.WriteTo(Constant.ENTRANCE_1_BARIER_2_CLOSE, true);
         }
     }
 }
