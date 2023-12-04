@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -29,6 +30,31 @@ namespace WindowsFormsApp1.utils
                     .Replace("-", String.Empty);
 
                 return hash;
+            }
+        }
+
+        static public (int, int) ExtractRegister(string input)
+        {
+            // Define the regular expression pattern
+            string pattern = @"(\d+)_(\d+)";
+
+            // Use Regex.Match to find the matches
+            Match match = Regex.Match(input, pattern);
+
+            // Check if the pattern is matched
+            if (match.Success)
+            {
+                // Extract the first and second numbers from the matched groups
+                int firstNumber = int.Parse(match.Groups[1].Value);
+                int secondNumber = int.Parse(match.Groups[2].Value);
+
+                // Return the numbers as a tuple
+                return (firstNumber, secondNumber);
+            }
+            else
+            {
+                // Return default values or handle the case where the pattern is not matched
+                return (0, 0);
             }
         }
     }

@@ -40,28 +40,30 @@ namespace WindowsFormsApp1
 
 
         // PLC Communication
-        // M0
-        public const Int32 ENTRANCE_1_BARIER_1_CLOSE = 0x00;
-        // M2
-        public const Int32 ENTRANCE_1_BARIER_1_OPEN = 0x02;
-        // M3
-        public const Int32 ENTRANCE_1_BARIER_2_OPEN = 0x03;
-        // M1
-        public const Int32 ENTRANCE_1_BARIER_2_CLOSE = 0x01;
+        public const string PLC_WRITE_ENTRANCE_1_CLOSE_BR1 = "D1_1";
+        public const string PLC_WRITE_ENTRANCE_1_OPEN_BR1 = "D1_2";
+        public const string PLC_WRITE_ENTRANCE_1_CLOSE_BR2 = "D1_3";
+        public const string PLC_WRITE_ENTRANCE_1_OPEN_BR2 = "D1_4";
+
+        public const string PLC_WRITE_ENTRANCE_2_CLOSE_BR1 = "D1_1";
+        public const string PLC_WRITE_ENTRANCE_2_OPEN_BR1 = "D1_2";
+        public const string PLC_WRITE_ENTRANCE_2_CLOSE_BR2 = "D1_3";
+        public const string PLC_WRITE_ENTRANCE_2_OPEN_BR2 = "D1_4";
+
+        public const int PLC_READ_ENTRANCE_1_BR_REGISTER = 0;
+        public const int PLC_READ_ENTRANCE_1_BR1C_BR2C = 6;
+        public const int PLC_READ_ENTRANCE_1_BR1O_BR2O = 12;
+        public const int PLC_READ_ENTRANCE_1_BR1O_BR2C = 11;
+        public const int PLC_READ_ENTRANCE_1_BR1C_BR2O = 7;
+
+        public const int PLC_READ_ENTRANCE_2_BR_REGISTER = 0;
+        public const int PLC_READ_ENTRANCE_2_BR1C_BR2C = 6;
+        public const int PLC_READ_ENTRANCE_2_BR1O_BR2O = 12;
+        public const int PLC_READ_ENTRANCE_2_BR1O_BR2C = 11;
+        public const int PLC_READ_ENTRANCE_2_BR1C_BR2O = 7;
 
 
-        // M4
-        public const Int32 ENTRANCE_2_BARIER_1_CLOSE = 0x04;
-        // M6
-        public const Int32 ENTRANCE_2_BARIER_1_OPEN = 0x06;
-        // M5
-        public const Int32 ENTRANCE_2_BARIER_2_OPEN = 0x05;
-        // M7
-        public const Int32 ENTRANCE_2_BARIER_2_CLOSE = 0x07;
 
-        // M8
-        public const Int32 ENTRANCE_1_BARIER_1_STATE = 0x08;
-        // M9
-        public const Int32 ENTRANCE_1_BARIER_2_STATE = 0x09;
+
     }
 }
