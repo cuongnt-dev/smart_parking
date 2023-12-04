@@ -11,5 +11,7 @@ namespace WindowsFormsApp1
         public string PlateExtractPath { get; set; }
         public string PlatePath { get; set; }
         public string PlateText { get; set; }
+
+        public string Error { get; set; }
     }
 }

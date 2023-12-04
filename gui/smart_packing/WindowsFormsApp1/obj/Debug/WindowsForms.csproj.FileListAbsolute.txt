@@ -199,3 +199,4 @@ D:\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.p
 D:\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\CommunicationPLCMitsubishiFX.dll
 E:\Project\MySelf\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.form.SystemManageForm.resources
 E:\Project\MySelf\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\CommunicationPLCMitsubishiFX.dll
+D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\CommunicationPLCMitsubishiFX.dll

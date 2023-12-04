@@ -27,7 +27,7 @@ namespace WindowsFormsApp1.classes
             }
             catch (Exception ex)
             {
-                throw ex;
+                Console.WriteLine("Connect to PLC Fail");
             }
         }
 
@@ -51,20 +51,35 @@ namespace WindowsFormsApp1.classes
 
         static public int ReadFrom(int register)
         {
-            int[] data = new int[4];
-            data = plc.Read();
-            if (data != null)
+            try
             {
-                return data[register];
+                int[] data = new int[4];
+                data = plc.Read();
+                if (data != null)
+                {
+                    return data[register];
+                }
+                return 0;
+            } catch(Exception ex)
+            {
+                Console.WriteLine("Read from PLC Fail");
+                return 0;
             }
-            return 0;
         }
 
         static public void WriteTo(string action)
         {
-            (int register , int value) = Hash.ExtractRegister(action);
-            datawrite[register] = value;
-            plc.Write(datawrite);
+            try
+            {
+                (int register, int value) = Hash.ExtractRegister(action);
+                datawrite[register] = value;
+                plc.Write(datawrite);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Write to PLC Fail");
+            }
+            
         }
     }
 }

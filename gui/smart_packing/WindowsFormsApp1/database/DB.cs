@@ -62,7 +62,11 @@ namespace WindowsFormsApp1.database
             {
                 CardID = cardID
             }).ToList();
-            return users[0];
+            if(users.Count > 0)
+            {
+                return users[0];
+            }
+            return null;
         }
 
         static public void AddUser(User usr)
@@ -80,7 +84,7 @@ namespace WindowsFormsApp1.database
 
         static public void CreateLog(Log log)
         {
-            string query = "INSERT INTO log (type, occurrence, plate) VALUES (@Type, @Occurrence, @Plate)";
+            string query = "INSERT INTO log (type, occurrence, userId) VALUES (@Type, @Occurrence, @UserID)";
             conn.Execute(query, log);
         }
 

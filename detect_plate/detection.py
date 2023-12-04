@@ -41,7 +41,7 @@ def detect_plate(image_path):
 
 
 def extract_number_plate_text(plate, image_file):
-    pattern = r'[^A-Za-z0-9\-]+'
+    pattern = r'[^A-Za-z0-9]+'
     plateResult = {}
     # Load the image of the number plate
     extract_path = f"{extract_dir_path}\{image_file}"

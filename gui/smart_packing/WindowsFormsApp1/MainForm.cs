@@ -20,6 +20,7 @@ using System.Timers;
 using WindowsFormsApp1.model;
 using Microsoft.Scripting.ComInterop;
 using WindowsFormsApp1.classes;
+using WindowsFormsApp1.utils;
 
 namespace WindowsFormsApp1
 {
@@ -126,7 +127,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                pictureBoxSelectedImageCheckin.Image = pictureBoxCamEntrance1In.Image;
+                pictureBoxSelectedImageEntrance1Cam1.Image = pictureBoxCamEntrance1In.Image;
                 // Generate a filename based on the current timestamp
                 string fileName = $"{DateTime.Now.Ticks}.jpg";
 
@@ -134,7 +135,7 @@ namespace WindowsFormsApp1
                 string filePath = Path.Combine("D:\\LV\\capture", fileName);
                 
                 // Save the image to the specified file
-                pictureBoxSelectedImageCheckin.Image.Save(filePath, ImageFormat.Jpeg);
+                pictureBoxSelectedImageEntrance1Cam1.Image.Save(filePath, ImageFormat.Jpeg);
                 // Make a GET request to an API endpoint
                 // string selectedPath = (listFile.SelectedItem as MediaFile).Path;
                 HttpResponseMessage response = await httpClient.GetAsync($"detect?image={filePath}");
@@ -203,7 +204,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                pictureBoxSelectedImageCheckin.Image = Image.FromFile($"{Constant.TEST_PLATE_PATH}\\{filename}.jpg");
+                pictureBoxSelectedImageEntrance1Cam1.Image = Image.FromFile($"{Constant.TEST_PLATE_PATH}\\{filename}.jpg");
                 filename = filename + 1;
                 // Generate a filename based on the current timestamp
                 string fileName = $"{DateTime.Now.Ticks}.jpg";
@@ -212,7 +213,7 @@ namespace WindowsFormsApp1
                 string filePath = Path.Combine(Constant.CAPTURE_PATH, fileName);
 
                 // Save the image to the specified file
-                pictureBoxSelectedImageCheckin.Image.Save(filePath, ImageFormat.Jpeg);
+                pictureBoxSelectedImageEntrance1Cam1.Image.Save(filePath, ImageFormat.Jpeg);
                 // Make a GET request to an API endpoint
                 // string selectedPath = (listFile.SelectedItem as MediaFile).Path;
                 HttpResponseMessage response = await httpClient.GetAsync($"detect?image={filePath}");
@@ -251,26 +252,20 @@ namespace WindowsFormsApp1
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     DetectResponse responseObj = JsonConvert.DeserializeObject<DetectResponse>(apiResponse);
-                    // Access individual properties
-                    string plateExtractPath = responseObj.PlateExtractPath;
-                    string platePath = responseObj.PlatePath;
-                    string plateText = responseObj.PlateText;
-                    // Process the API response here
-                    textBoxPlateEntrance1.Text = plateText;
-                    // pictureBoxPlateImageCheckout.Image = Image.FromFile(plateExtractPath);
                     return responseObj;
                 }
                 else
                 {
-                    textBoxPlateEntrance1.Text = "Error: " + response.ReasonPhrase;
                     return null;
                 }
             }
             catch (Exception ex)
             {
-                textBoxPlateEntrance1.Text = "Error: " + ex.Message;
                 MessageBox.Show($"Error: {ex.Message}");
-                return null;
+                return new DetectResponse
+                {
+                    Error = ex.Message
+                };
             }
         }
 
@@ -293,22 +288,39 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void UpdateEntranceLabelInfor(string entrance, string parkingCardId, string plate, string state, DateTime occurance, string userName)
+        private void UpdateEntranceLabelInfor(string entrance, string parkingCardId, DetectResponse res, string state, DateTime occurance, string userName)
         {
-            if(entrance == Constant.ENTRANCE_1)
+            if (entrance == Constant.ENTRANCE_1)
             {
                 labelEntrance1CardID.Text = $"Card ID: {parkingCardId}";
-                labelEntrance1PlateNumber.Text = $"Plate Number: {plate}";
+                labelEntrance1PlateNumber.Text = $"Plate Number: {res.PlateText}";
                 labelEntrance1Type.Text = $"Type: {state}";
                 labelEntrance1Occurence.Text = $"Occurance: {occurance}";
                 labelEntrance1User.Text = $"User: {userName}";
+                textBoxPlateEntrance1.Text = res.PlateText;
+                if(state == Constant.CHECKIN_STATE)
+                {
+                    pictureBoxSelectedImageEntrance1Cam1.Image = Image.FromFile(res.PlateExtractPath);
+                } else
+                {
+                    pictureBoxSelectedImageEntrance1Cam2.Image = Image.FromFile(res.PlateExtractPath);
+                }
             } else
             {
                 labelEntrance2CardID.Text = $"Card ID: {parkingCardId}";
-                labelEntrance2PlateNumber.Text = $"Plate Number: {plate}";
+                labelEntrance2PlateNumber.Text = $"Plate Number: {res.PlateText}";
                 labelEntrance2Type.Text = $"Type: {state}";
                 labelEntrance2Occurence.Text = $"Occurance: {occurance}";
                 labelEntrance2User.Text = $"User: {userName}";
+                textBoxPlateEntrance2.Text = res.PlateText;
+                if (state == Constant.CHECKIN_STATE)
+                {
+                    pictureBoxSelectedImageEntrance2Cam1.Image = Image.FromFile(res.PlateExtractPath);
+                }
+                else
+                {
+                    pictureBoxSelectedImageEntrance2Cam2.Image = Image.FromFile(res.PlateExtractPath);
+                }
             }
         }
 
@@ -323,7 +335,8 @@ namespace WindowsFormsApp1
             bool testing = true;
             Random random = new Random();
             // Generate a random number between 1 and 25 (inclusive)
-            int randomNumber = random.Next(1, 26);
+            int endRand = 2; //26
+            int randomNumber = random.Next(1, endRand);
             if (entrance == Constant.ENTRANCE_1)
             {
                 if (state == Constant.CHECKIN_STATE)
@@ -362,7 +375,10 @@ namespace WindowsFormsApp1
             } 
             else
             {
-                return null;
+                return new DetectResponse
+                {
+                    Error = "Didn't found capture plate image"
+                };
             }
         }
 
@@ -370,16 +386,30 @@ namespace WindowsFormsApp1
         {
             // Get CardId data
             User usr = DB.GetUserByCardId(parkingCardId);
+            if(usr == null)
+            {
+                MessageBox.Show("CardID invalid");
+                return;
+            }
             DetectResponse res = await CapturePlateAsync(entrance, Constant.CHECKIN_STATE);
+            if(Helper.HasValue(res.Error)){
+                MessageBox.Show($"Error when Checkin {res.Error}");
+                return;
+            }
             if (usr.Plate != res.PlateText)
             {
                 MessageBox.Show("Invalid Plate");
                 return;
             }
-            UpdateEntranceLabelInfor(entrance, parkingCardId, res.PlateText, Constant.CHECKIN_STATE, DateTime.Now, usr.Name);
+            
+            
             // Trigger cardId Checkin {cardId}
             _ = Task.Run(() =>
             {
+                this.Invoke(new Action(() =>
+                {
+                    UpdateEntranceLabelInfor(entrance, parkingCardId, res, Constant.CHECKIN_STATE, DateTime.Now, usr.Name);
+                }));
                 Log l = new Log
                 {
                     UserID = usr.ID,
@@ -407,10 +437,10 @@ namespace WindowsFormsApp1
                 MessageBox.Show("This card didn't used for checkin before");
                 return;
             }
-            UpdateEntranceLabelInfor(entrance, parkingCardId, res.PlateText, Constant.CHECKOUT_STATE, DateTime.Now, usr.Name);
             // Trigger cardId Checkin {cardId}
             _ = Task.Run(() =>
             {
+                UpdateEntranceLabelInfor(entrance, parkingCardId, res, Constant.CHECKOUT_STATE, DateTime.Now, usr.Name);
                 Log l = new Log
                 {
                     UserID = usr.ID,
@@ -493,13 +523,25 @@ namespace WindowsFormsApp1
         private void Entrance1Barier1Infor(Color c, string text)
         {
             statusIndicatorEntrance1Barier1.StatusColor = c;
-            labelBarierState1.Text = text;
+            labelEntrance1Barier1State.Text = text;
         }
 
         private void Entrance1Barier2Infor(Color c, string text)
         {
             statusIndicatorEntrance1Barier2.StatusColor = c;
-            labelBarierState2.Text = text;
+            labelEntrance1Barier2State.Text = text;
+        }
+
+        private void Entrance2Barier1Infor(Color c, string text)
+        {
+            statusIndicatorEntrance2Barier1.StatusColor = c;
+            labelEntrance2Barier1State.Text = text;
+        }
+
+        private void Entrance2Barier2Infor(Color c, string text)
+        {
+            statusIndicatorEntrance2Barier2.StatusColor = c;
+            labelEntrance2Barier2State.Text = text;
         }
 
         private void timerListenBarierState_Tick_1(object sender, EventArgs e)
@@ -524,6 +566,28 @@ namespace WindowsFormsApp1
                 Entrance1Barier1Infor(Color.Red, "Close");
                 Entrance1Barier2Infor(Color.Green, "Open");
             }
+
+            int state_2 = PLC.ReadFrom(Constant.PLC_READ_ENTRANCE_2_BR_REGISTER);
+            if (state_2 == Constant.PLC_READ_ENTRANCE_2_BR1C_BR2C)
+            {
+                Entrance2Barier1Infor(Color.Red, "Close");
+                Entrance2Barier2Infor(Color.Red, "Close");
+            }
+            if (state_2 == Constant.PLC_READ_ENTRANCE_2_BR1O_BR2O)
+            {
+                Entrance2Barier1Infor(Color.Green, "Open");
+                Entrance2Barier2Infor(Color.Green, "Open");
+            }
+            if (state_2 == Constant.PLC_READ_ENTRANCE_2_BR1O_BR2C)
+            {
+                Entrance2Barier1Infor(Color.Green, "Open");
+                Entrance2Barier2Infor(Color.Red, "Close");
+            }
+            if (state_2 == Constant.PLC_READ_ENTRANCE_2_BR1C_BR2O)
+            {
+                Entrance2Barier1Infor(Color.Red, "Close");
+                Entrance2Barier2Infor(Color.Green, "Open");
+            }
         }
 
         private void timerInforDatetime_Tick(object sender, EventArgs e)
@@ -539,6 +603,16 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR2);
+        }
+
+        private void buttonOpenEntrance2Barier2_Click(object sender, EventArgs e)
+        {
+            PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR2);
+        }
+
+        private void buttonCloseEntrance2Barier2_Click(object sender, EventArgs e)
+        {
+            PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR2);
         }
     }
 }
