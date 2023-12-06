@@ -132,6 +132,7 @@ namespace WindowsFormsApp1
                 return;
             }
             UpdateEntranceLabelInfor(Constant.ENTRANCE_1, "No Parking cardId", res, Constant.CHECKIN_STATE ,DateTime.Now, "Testing");
+            PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR1);
             Helper.PlaySound(Constant.CHECKIN_STATE);
         }
 
