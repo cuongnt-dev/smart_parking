@@ -125,43 +125,14 @@ namespace WindowsFormsApp1
 
         private async void buttonCaptureCheckin_Click(object sender, EventArgs e)
         {
-            try
+            DetectResponse res = await CapturePlateAsync(Constant.ENTRANCE_1, Constant.CHECKIN_STATE);
+            if (Helper.HasValue(res.Error))
             {
-                pictureBoxSelectedImageEntrance1Cam1.Image = pictureBoxCamEntrance1In.Image;
-                // Generate a filename based on the current timestamp
-                string fileName = $"{DateTime.Now.Ticks}.jpg";
-
-                // Combine the filename with the directory where you want to save the image
-                string filePath = Path.Combine("D:\\LV\\capture", fileName);
-                
-                // Save the image to the specified file
-                pictureBoxSelectedImageEntrance1Cam1.Image.Save(filePath, ImageFormat.Jpeg);
-                // Make a GET request to an API endpoint
-                // string selectedPath = (listFile.SelectedItem as MediaFile).Path;
-                HttpResponseMessage response = await httpClient.GetAsync($"detect?image={filePath}");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    DetectResponse responseObj = JsonConvert.DeserializeObject<DetectResponse>(apiResponse);
-                    Console.WriteLine("Current Time Calling API: " + DateTime.Now.ToString("HH:mm:ss"));
-                    // Access individual properties
-                    string plateExtractPath = responseObj.PlateExtractPath;
-                    string platePath = responseObj.PlatePath;
-                    string plateText = responseObj.PlateText;
-                    // Process the API response here
-                    textBoxPlateEntrance1.Text = plateText;
-                    // pictureBoxPlateImageCheckout.Image = Image.FromFile(plateExtractPath);
-                }
-                else
-                {
-                    textBoxPlateEntrance1.Text = "Error: " + response.ReasonPhrase;
-                }
+                MessageBox.Show($"Error when Checkin {res.Error}");
+                return;
             }
-            catch (Exception ex)
-            {
-                textBoxPlateEntrance1.Text = "Error: " + ex.Message;
-            }
+            UpdateEntranceLabelInfor(Constant.ENTRANCE_1, "No Parking cardId", res, Constant.CHECKIN_STATE ,DateTime.Now, "Testing");
+            Helper.PlaySound(Constant.CHECKIN_STATE);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -197,47 +168,6 @@ namespace WindowsFormsApp1
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-        }
-
-
-        private async void buttonTestCapture_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                pictureBoxSelectedImageEntrance1Cam1.Image = Image.FromFile($"{Constant.TEST_PLATE_PATH}\\{filename}.jpg");
-                filename = filename + 1;
-                // Generate a filename based on the current timestamp
-                string fileName = $"{DateTime.Now.Ticks}.jpg";
-
-                // Combine the filename with the directory where you want to save the image
-                string filePath = Path.Combine(Constant.CAPTURE_PATH, fileName);
-
-                // Save the image to the specified file
-                pictureBoxSelectedImageEntrance1Cam1.Image.Save(filePath, ImageFormat.Jpeg);
-                // Make a GET request to an API endpoint
-                // string selectedPath = (listFile.SelectedItem as MediaFile).Path;
-                HttpResponseMessage response = await httpClient.GetAsync($"detect?image={filePath}");
-                if (response.IsSuccessStatusCode)
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    DetectResponse responseObj = JsonConvert.DeserializeObject<DetectResponse>(apiResponse);
-                    // Access individual properties
-                    string plateExtractPath = responseObj.PlateExtractPath;
-                    string platePath = responseObj.PlatePath;
-                    string plateText = responseObj.PlateText;
-                    // Process the API response here
-                    textBoxPlateEntrance1.Text = plateText;
-                    // pictureBoxPlateImageCheckout.Image = Image.FromFile(plateExtractPath);
-                }
-                else
-                {
-                    textBoxPlateEntrance1.Text = "Error: " + response.ReasonPhrase;
-                }
-            }
-            catch (Exception ex)
-            {
-                textBoxPlateEntrance1.Text = "Error: " + ex.Message;
-            }
         }
 
         private async Task<DetectResponse> ScanPlate(string filePath)
@@ -335,7 +265,7 @@ namespace WindowsFormsApp1
             bool testing = true;
             Random random = new Random();
             // Generate a random number between 1 and 25 (inclusive)
-            int endRand = 2; //26
+            int endRand = 26; //26
             int randomNumber = random.Next(1, endRand);
             if (entrance == Constant.ENTRANCE_1)
             {
@@ -401,7 +331,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Invalid Plate");
                 return;
             }
-            
+            Helper.PlaySound(Constant.CHECKIN_STATE);
             
             // Trigger cardId Checkin {cardId}
             _ = Task.Run(() =>
@@ -437,6 +367,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("This card didn't used for checkin before");
                 return;
             }
+            Helper.PlaySound(Constant.CHECKOUT_STATE);
             // Trigger cardId Checkin {cardId}
             _ = Task.Run(() =>
             {
@@ -613,6 +544,11 @@ namespace WindowsFormsApp1
         private void buttonCloseEntrance2Barier2_Click(object sender, EventArgs e)
         {
             PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR2);
+        }
+
+        private void buttonCaptureCheckout_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

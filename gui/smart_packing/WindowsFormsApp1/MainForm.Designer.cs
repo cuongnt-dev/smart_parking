@@ -50,15 +50,23 @@
             this.label10 = new System.Windows.Forms.Label();
             this.buttonOpenEntrance1Barier2 = new System.Windows.Forms.Button();
             this.labelEntrance1Barier2State = new System.Windows.Forms.Label();
+            this.statusIndicatorEntrance1Barier2 = new WindowsFormsApp1.StatusIndicator();
             this.buttonCloseEntrance1Barier1 = new System.Windows.Forms.Button();
             this.labelCheckinBarierStatus = new System.Windows.Forms.Label();
             this.buttonOpenEntrance1Barier1 = new System.Windows.Forms.Button();
             this.labelEntrance1Barier1State = new System.Windows.Forms.Label();
+            this.statusIndicatorEntrance1Barier1 = new WindowsFormsApp1.StatusIndicator();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.buttonCloseEntrance2Barier2 = new System.Windows.Forms.Button();
+            this.buttonOpenEntrance2Barier2 = new System.Windows.Forms.Button();
+            this.labelEntrance2Barier2State = new System.Windows.Forms.Label();
+            this.statusIndicatorEntrance2Barier2 = new WindowsFormsApp1.StatusIndicator();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonCloseEntrance2Barier1 = new System.Windows.Forms.Button();
             this.buttonOpenEntrance2Barier1 = new System.Windows.Forms.Button();
             this.labelEntrance2Barier1State = new System.Windows.Forms.Label();
+            this.statusIndicatorEntrance2Barier1 = new WindowsFormsApp1.StatusIndicator();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBoxSelectedImageEntrance2Cam2 = new System.Windows.Forms.PictureBox();
@@ -87,14 +95,6 @@
             this.labelEntrance2Type = new System.Windows.Forms.Label();
             this.labelEntrance2PlateNumber = new System.Windows.Forms.Label();
             this.labelEntrance2CardID = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.buttonCloseEntrance2Barier2 = new System.Windows.Forms.Button();
-            this.buttonOpenEntrance2Barier2 = new System.Windows.Forms.Button();
-            this.labelEntrance2Barier2State = new System.Windows.Forms.Label();
-            this.statusIndicatorEntrance2Barier2 = new WindowsFormsApp1.StatusIndicator();
-            this.statusIndicatorEntrance2Barier1 = new WindowsFormsApp1.StatusIndicator();
-            this.statusIndicatorEntrance1Barier2 = new WindowsFormsApp1.StatusIndicator();
-            this.statusIndicatorEntrance1Barier1 = new WindowsFormsApp1.StatusIndicator();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageEntrance1Cam1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageEntrance2Cam1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1In)).BeginInit();
@@ -262,6 +262,7 @@
             this.buttonCaptureCheckout.TabIndex = 24;
             this.buttonCaptureCheckout.Text = "Capture";
             this.buttonCaptureCheckout.UseVisualStyleBackColor = true;
+            this.buttonCaptureCheckout.Click += new System.EventHandler(this.buttonCaptureCheckout_Click);
             // 
             // groupBoxCheckin
             // 
@@ -320,6 +321,15 @@
             this.labelEntrance1Barier2State.TabIndex = 6;
             this.labelEntrance1Barier2State.Text = "Close";
             // 
+            // statusIndicatorEntrance1Barier2
+            // 
+            this.statusIndicatorEntrance1Barier2.Location = new System.Drawing.Point(25, 95);
+            this.statusIndicatorEntrance1Barier2.Name = "statusIndicatorEntrance1Barier2";
+            this.statusIndicatorEntrance1Barier2.Size = new System.Drawing.Size(16, 17);
+            this.statusIndicatorEntrance1Barier2.StatusColor = System.Drawing.Color.Red;
+            this.statusIndicatorEntrance1Barier2.TabIndex = 5;
+            this.statusIndicatorEntrance1Barier2.Text = "statusIndicator1";
+            // 
             // buttonCloseEntrance1Barier1
             // 
             this.buttonCloseEntrance1Barier1.Location = new System.Drawing.Point(253, 26);
@@ -358,6 +368,15 @@
             this.labelEntrance1Barier1State.TabIndex = 1;
             this.labelEntrance1Barier1State.Text = "Close";
             // 
+            // statusIndicatorEntrance1Barier1
+            // 
+            this.statusIndicatorEntrance1Barier1.Location = new System.Drawing.Point(25, 45);
+            this.statusIndicatorEntrance1Barier1.Name = "statusIndicatorEntrance1Barier1";
+            this.statusIndicatorEntrance1Barier1.Size = new System.Drawing.Size(16, 17);
+            this.statusIndicatorEntrance1Barier1.StatusColor = System.Drawing.Color.Red;
+            this.statusIndicatorEntrance1Barier1.TabIndex = 0;
+            this.statusIndicatorEntrance1Barier1.Text = "statusIndicator1";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label12);
@@ -376,6 +395,53 @@
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Barier Control";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(23, 76);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 16);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Barier 2 Normal";
+            // 
+            // buttonCloseEntrance2Barier2
+            // 
+            this.buttonCloseEntrance2Barier2.Location = new System.Drawing.Point(281, 76);
+            this.buttonCloseEntrance2Barier2.Name = "buttonCloseEntrance2Barier2";
+            this.buttonCloseEntrance2Barier2.Size = new System.Drawing.Size(77, 36);
+            this.buttonCloseEntrance2Barier2.TabIndex = 10;
+            this.buttonCloseEntrance2Barier2.Text = "Close";
+            this.buttonCloseEntrance2Barier2.UseVisualStyleBackColor = true;
+            this.buttonCloseEntrance2Barier2.Click += new System.EventHandler(this.buttonCloseEntrance2Barier2_Click);
+            // 
+            // buttonOpenEntrance2Barier2
+            // 
+            this.buttonOpenEntrance2Barier2.Location = new System.Drawing.Point(178, 78);
+            this.buttonOpenEntrance2Barier2.Name = "buttonOpenEntrance2Barier2";
+            this.buttonOpenEntrance2Barier2.Size = new System.Drawing.Size(80, 34);
+            this.buttonOpenEntrance2Barier2.TabIndex = 9;
+            this.buttonOpenEntrance2Barier2.Text = "Open";
+            this.buttonOpenEntrance2Barier2.UseVisualStyleBackColor = true;
+            this.buttonOpenEntrance2Barier2.Click += new System.EventHandler(this.buttonOpenEntrance2Barier2_Click);
+            // 
+            // labelEntrance2Barier2State
+            // 
+            this.labelEntrance2Barier2State.AutoSize = true;
+            this.labelEntrance2Barier2State.Location = new System.Drawing.Point(48, 95);
+            this.labelEntrance2Barier2State.Name = "labelEntrance2Barier2State";
+            this.labelEntrance2Barier2State.Size = new System.Drawing.Size(42, 16);
+            this.labelEntrance2Barier2State.TabIndex = 8;
+            this.labelEntrance2Barier2State.Text = "Close";
+            // 
+            // statusIndicatorEntrance2Barier2
+            // 
+            this.statusIndicatorEntrance2Barier2.Location = new System.Drawing.Point(26, 95);
+            this.statusIndicatorEntrance2Barier2.Name = "statusIndicatorEntrance2Barier2";
+            this.statusIndicatorEntrance2Barier2.Size = new System.Drawing.Size(16, 17);
+            this.statusIndicatorEntrance2Barier2.StatusColor = System.Drawing.Color.Red;
+            this.statusIndicatorEntrance2Barier2.TabIndex = 7;
+            this.statusIndicatorEntrance2Barier2.Text = "statusIndicator2";
             // 
             // label5
             // 
@@ -414,6 +480,15 @@
             this.labelEntrance2Barier1State.Size = new System.Drawing.Size(42, 16);
             this.labelEntrance2Barier1State.TabIndex = 1;
             this.labelEntrance2Barier1State.Text = "Close";
+            // 
+            // statusIndicatorEntrance2Barier1
+            // 
+            this.statusIndicatorEntrance2Barier1.Location = new System.Drawing.Point(26, 45);
+            this.statusIndicatorEntrance2Barier1.Name = "statusIndicatorEntrance2Barier1";
+            this.statusIndicatorEntrance2Barier1.Size = new System.Drawing.Size(16, 17);
+            this.statusIndicatorEntrance2Barier1.StatusColor = System.Drawing.Color.Red;
+            this.statusIndicatorEntrance2Barier1.TabIndex = 0;
+            this.statusIndicatorEntrance2Barier1.Text = "statusIndicator2";
             // 
             // button6
             // 
@@ -695,80 +770,6 @@
             this.labelEntrance2CardID.Size = new System.Drawing.Size(58, 16);
             this.labelEntrance2CardID.TabIndex = 5;
             this.labelEntrance2CardID.Text = "Card ID: ";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(23, 76);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 16);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Barier 2 Normal";
-            // 
-            // buttonCloseEntrance2Barier2
-            // 
-            this.buttonCloseEntrance2Barier2.Location = new System.Drawing.Point(281, 76);
-            this.buttonCloseEntrance2Barier2.Name = "buttonCloseEntrance2Barier2";
-            this.buttonCloseEntrance2Barier2.Size = new System.Drawing.Size(77, 36);
-            this.buttonCloseEntrance2Barier2.TabIndex = 10;
-            this.buttonCloseEntrance2Barier2.Text = "Close";
-            this.buttonCloseEntrance2Barier2.UseVisualStyleBackColor = true;
-            this.buttonCloseEntrance2Barier2.Click += new System.EventHandler(this.buttonCloseEntrance2Barier2_Click);
-            // 
-            // buttonOpenEntrance2Barier2
-            // 
-            this.buttonOpenEntrance2Barier2.Location = new System.Drawing.Point(178, 78);
-            this.buttonOpenEntrance2Barier2.Name = "buttonOpenEntrance2Barier2";
-            this.buttonOpenEntrance2Barier2.Size = new System.Drawing.Size(80, 34);
-            this.buttonOpenEntrance2Barier2.TabIndex = 9;
-            this.buttonOpenEntrance2Barier2.Text = "Open";
-            this.buttonOpenEntrance2Barier2.UseVisualStyleBackColor = true;
-            this.buttonOpenEntrance2Barier2.Click += new System.EventHandler(this.buttonOpenEntrance2Barier2_Click);
-            // 
-            // labelEntrance2Barier2State
-            // 
-            this.labelEntrance2Barier2State.AutoSize = true;
-            this.labelEntrance2Barier2State.Location = new System.Drawing.Point(48, 95);
-            this.labelEntrance2Barier2State.Name = "labelEntrance2Barier2State";
-            this.labelEntrance2Barier2State.Size = new System.Drawing.Size(42, 16);
-            this.labelEntrance2Barier2State.TabIndex = 8;
-            this.labelEntrance2Barier2State.Text = "Close";
-            // 
-            // statusIndicatorEntrance2Barier2
-            // 
-            this.statusIndicatorEntrance2Barier2.Location = new System.Drawing.Point(26, 95);
-            this.statusIndicatorEntrance2Barier2.Name = "statusIndicatorEntrance2Barier2";
-            this.statusIndicatorEntrance2Barier2.Size = new System.Drawing.Size(16, 17);
-            this.statusIndicatorEntrance2Barier2.StatusColor = System.Drawing.Color.Red;
-            this.statusIndicatorEntrance2Barier2.TabIndex = 7;
-            this.statusIndicatorEntrance2Barier2.Text = "statusIndicator2";
-            // 
-            // statusIndicatorEntrance2Barier1
-            // 
-            this.statusIndicatorEntrance2Barier1.Location = new System.Drawing.Point(26, 45);
-            this.statusIndicatorEntrance2Barier1.Name = "statusIndicatorEntrance2Barier1";
-            this.statusIndicatorEntrance2Barier1.Size = new System.Drawing.Size(16, 17);
-            this.statusIndicatorEntrance2Barier1.StatusColor = System.Drawing.Color.Red;
-            this.statusIndicatorEntrance2Barier1.TabIndex = 0;
-            this.statusIndicatorEntrance2Barier1.Text = "statusIndicator2";
-            // 
-            // statusIndicatorEntrance1Barier2
-            // 
-            this.statusIndicatorEntrance1Barier2.Location = new System.Drawing.Point(25, 95);
-            this.statusIndicatorEntrance1Barier2.Name = "statusIndicatorEntrance1Barier2";
-            this.statusIndicatorEntrance1Barier2.Size = new System.Drawing.Size(16, 17);
-            this.statusIndicatorEntrance1Barier2.StatusColor = System.Drawing.Color.Red;
-            this.statusIndicatorEntrance1Barier2.TabIndex = 5;
-            this.statusIndicatorEntrance1Barier2.Text = "statusIndicator1";
-            // 
-            // statusIndicatorEntrance1Barier1
-            // 
-            this.statusIndicatorEntrance1Barier1.Location = new System.Drawing.Point(25, 45);
-            this.statusIndicatorEntrance1Barier1.Name = "statusIndicatorEntrance1Barier1";
-            this.statusIndicatorEntrance1Barier1.Size = new System.Drawing.Size(16, 17);
-            this.statusIndicatorEntrance1Barier1.StatusColor = System.Drawing.Color.Red;
-            this.statusIndicatorEntrance1Barier1.TabIndex = 0;
-            this.statusIndicatorEntrance1Barier1.Text = "statusIndicator1";
             // 
             // MainForm
             // 

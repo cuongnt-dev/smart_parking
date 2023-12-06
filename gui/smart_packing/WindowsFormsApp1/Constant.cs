@@ -32,6 +32,7 @@ namespace WindowsFormsApp1
 
         public const string CAPTURE_PATH = "D:\\LV\\smart_parking\\detect_plate\\capture";
         public const string TEST_PLATE_PATH = "D:\\LV\\smart_parking\\detect_plate\\test";
+        public const string SOUND_PATH = "D:\\LV\\smart_parking\\gui\\smart_packing\\sound";
         // 8no in D - last 3 bytes
         //  User defined byte 0 
         public const char LAST_CHAR_ENTRANCE_1 = 'e';
