@@ -21,6 +21,7 @@ using WindowsFormsApp1.model;
 using Microsoft.Scripting.ComInterop;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.utils;
+using ZXing;
 
 namespace WindowsFormsApp1
 {
@@ -61,6 +62,11 @@ namespace WindowsFormsApp1
             {
                 VideoCapture = null,
                 PictureBox = pictureBoxCamEntrance2Out
+            });
+            camCaptureList.Add(Constant.ENTRANCE_1_CAM_QR, new CameraData
+            {
+                VideoCapture = null,
+                PictureBox = pictureBoxEntrance1QRCode
             });
         }
 
@@ -547,9 +553,42 @@ namespace WindowsFormsApp1
             PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR2);
         }
 
-        private void buttonCaptureCheckout_Click(object sender, EventArgs e)
+        private void timerEntrancd1QRCode_Tick(object sender, EventArgs e)
         {
+            try
+            {
+                // Load the image
+                Bitmap bitmap = (Bitmap)pictureBoxEntrance1QRCode.Image;
 
+                // Create a BarcodeReader instance
+                BarcodeReader barcodeReader = new BarcodeReader();
+
+                // Decode the QR code
+                var result = barcodeReader.Decode(bitmap);
+
+                // Check if a QR code was found
+                if (result != null)
+                {
+                    Helper.PlaySound(Constant.RECOGNIZE_QR_STATE);
+                    // Check current state of entrance
+                    if (entranceState1.Value == Constant.CHECKIN_STATE)
+                    {
+                        Checkin(result.Text, Constant.ENTRANCE_1);
+                    }
+                    else
+                    {
+                        Checkout(result.Text, Constant.ENTRANCE_1);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No QR code found in the image.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
     }
 }

@@ -57,7 +57,7 @@ namespace WindowsFormsApp1.database
 
         static public User GetUserByCardId(string cardID)
         {
-            string query = "SELECT * FROM \"user\" WHERE parking_card_id = @CardID";
+            string query = "SELECT * FROM \"user\" WHERE card = @CardID";
             var users = conn.Query<User>(query, new
             {
                 CardID = cardID

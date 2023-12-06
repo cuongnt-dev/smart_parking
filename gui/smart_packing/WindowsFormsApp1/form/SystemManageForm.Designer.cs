@@ -43,6 +43,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxEntranceState2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBoxEntrance1QRCode = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +69,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(170, 359);
+            this.button1.Location = new System.Drawing.Point(168, 418);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 55);
             this.button1.TabIndex = 2;
@@ -191,11 +193,30 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "State";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(47, 381);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 16);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "QR Code";
+            // 
+            // comboBoxEntrance1QRCode
+            // 
+            this.comboBoxEntrance1QRCode.FormattingEnabled = true;
+            this.comboBoxEntrance1QRCode.Location = new System.Drawing.Point(136, 373);
+            this.comboBoxEntrance1QRCode.Name = "comboBoxEntrance1QRCode";
+            this.comboBoxEntrance1QRCode.Size = new System.Drawing.Size(202, 24);
+            this.comboBoxEntrance1QRCode.TabIndex = 14;
+            // 
             // SystemManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 439);
+            this.ClientSize = new System.Drawing.Size(479, 496);
+            this.Controls.Add(this.comboBoxEntrance1QRCode);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
@@ -207,6 +228,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -227,5 +249,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxEntrance2CamOut;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBoxEntrance1QRCode;
     }
 }

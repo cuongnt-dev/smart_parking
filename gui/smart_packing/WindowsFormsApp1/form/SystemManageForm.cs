@@ -32,6 +32,8 @@ namespace WindowsFormsApp1.form
             entranceCamSettingList.Add(Constant.ENTRANCE_2_CAM_IN, comboBoxEntrance2CamIn);
             entranceCamSettingList.Add(Constant.ENTRANCE_2_CAM_OUT, comboBoxEntrance2CamOut);
 
+            entranceCamSettingList.Add(Constant.ENTRANCE_1_CAM_QR, comboBoxEntrance1QRCode);
+
             entranceStateSettingList.Add(Constant.ENTRANCE_1, comboBoxEntranceState1);
             entranceStateSettingList.Add(Constant.ENTRANCE_2, comboBoxEntranceState2);
         }

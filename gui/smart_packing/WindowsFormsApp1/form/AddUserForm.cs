@@ -26,7 +26,7 @@ namespace WindowsFormsApp1.form
             {
                 Name = textBoxUserName.Text,
                 Company = textBoxCompanyName.Text,
-                ParkingCardId = textBoxCardID.Text,
+                Card = textBoxCardID.Text,
                 Status = "Enable",
                 Role = "User",
             };

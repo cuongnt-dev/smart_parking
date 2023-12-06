@@ -26,12 +26,14 @@ namespace WindowsFormsApp1.utils
                 if(state == Constant.CHECKIN_STATE)
                 {
                     path = $"{Constant.SOUND_PATH}\\checkin.wav";
-                } else
+                } else if (state == Constant.CHECKOUT_STATE)
                 {
                     path = $"{Constant.SOUND_PATH}\\checkout.wav";
+                } else if (state == Constant.RECOGNIZE_QR_STATE) {
+                    path = $"{Constant.SOUND_PATH}\\recognize_qr_code.wav";
                 }
-                // Create a SoundPlayer instance with the path to the audio file
-                using (SoundPlayer player = new SoundPlayer(path))
+                    // Create a SoundPlayer instance with the path to the audio file
+                    using (SoundPlayer player = new SoundPlayer(path))
                 {
                     // Play the audio
                     player.Play();

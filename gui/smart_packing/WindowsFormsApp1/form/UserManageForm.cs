@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using WindowsFormsApp1.database;
 using WindowsFormsApp1.form;
 using WindowsFormsApp1.model;
+using ZXing.QrCode;
+using ZXing;
 
 namespace WindowsFormsApp1
 {
@@ -45,6 +47,35 @@ namespace WindowsFormsApp1
             dataGridViewUser.Columns["Plate"].Visible = false;
         }
 
+        private void ExportQRCode(string data)
+        {
+            // Generate QR code
+            Bitmap qrCode = GenerateQRCode(data);
+
+            // Save or display the QR code image as needed
+            qrCode.Save($"{Constant.QR_PATH}\\QRCode_User_{data}.png", System.Drawing.Imaging.ImageFormat.Png);
+
+            MessageBox.Show($"QR Code for User ID '{data}' exported successfully.", "QR Code Exported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private Bitmap GenerateQRCode(string data)
+        {
+            QrCodeEncodingOptions options = new QrCodeEncodingOptions()
+            {
+                DisableECI = true,
+                CharacterSet = "UTF-8",
+                Width = 500,
+                Height = 500
+            };
+
+            BarcodeWriter writer = new BarcodeWriter()
+            {
+                Format = BarcodeFormat.QR_CODE,
+                Options = options
+            };
+            Bitmap qrCodeBitmap = writer.Write(data);
+            return qrCodeBitmap;
+        }
         private void dataGridViewUser_SelectionChanged(object sender, EventArgs e)
         {
             
@@ -75,6 +106,22 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Delete User Successfully");
                 LoadUserList(this, null);
             } catch(Exception ex)
+            {
+                MessageBox.Show($"Delete User fail {ex.Message}");
+            }
+        }
+
+        private void buttonExportQRCode_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                User usr = users.FirstOrDefault<User>(us => us.ID == selectedUserIndex);
+                if(usr != null && usr.Card != "")
+                {
+                    ExportQRCode(usr.Card);
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show($"Delete User fail {ex.Message}");
             }

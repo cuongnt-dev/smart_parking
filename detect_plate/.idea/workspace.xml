@@ -5,12 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="270b494f-e149-4dcb-a58a-f3ebab1ca775" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/Constant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/Constant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.resx" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/WindowsForms.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/WindowsForms.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/form/SystemManageForm.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/form/SystemManageForm.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/form/SystemManageForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/form/SystemManageForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/DesignTimeResolveAssemblyReferences.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/DesignTimeResolveAssemblyReferences.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsForms.csproj.GenerateResource.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/packages.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,23 +98,12 @@
       <workItem from="1701537286167" duration="400000" />
       <workItem from="1701537698851" duration="74000" />
       <workItem from="1701708348999" duration="2280000" />
-      <workItem from="1701875518728" duration="637000" />
+      <workItem from="1701875518728" duration="2401000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/detection.py</url>
-          <line>64</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/detect_plate$main.coverage" NAME="main Coverage Results" MODIFIED="1701876155239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:\LV\smart_parking\detect_plate" />

@@ -19,12 +19,14 @@ namespace WindowsFormsApp1
         public const string ENTRANCE_1_CAM_OUT = "ENTRANCE_1_CAM_OUT";
         public const string ENTRANCE_2_CAM_IN = "ENTRANCE_2_CAM_IN";
         public const string ENTRANCE_2_CAM_OUT = "ENTRANCE_2_CAM_OUT";
+        public const string ENTRANCE_1_CAM_QR = "ENTRANCE_1_CAM_QR";
 
         public const string ENTRANCE_1 = "ENTRANCE_1";
         public const string ENTRANCE_2 = "ENTRANCE_2";
 
         public const string CHECKIN_STATE = "Checkin";
         public const string CHECKOUT_STATE = "Checkout";
+        public const string RECOGNIZE_QR_STATE = "RecognizeQRCode";
 
         public const string PORT_NAME = "COM1";
         public const int BAUD_RATE = 9600;
@@ -33,6 +35,7 @@ namespace WindowsFormsApp1
         public const string CAPTURE_PATH = "D:\\LV\\smart_parking\\detect_plate\\capture";
         public const string TEST_PLATE_PATH = "D:\\LV\\smart_parking\\detect_plate\\test";
         public const string SOUND_PATH = "D:\\LV\\smart_parking\\gui\\smart_packing\\sound";
+        public const string QR_PATH = "D:\\LV\\smart_parking\\gui\\smart_packing\\qr_code";
         // 8no in D - last 3 bytes
         //  User defined byte 0 
         public const char LAST_CHAR_ENTRANCE_1 = 'e';
