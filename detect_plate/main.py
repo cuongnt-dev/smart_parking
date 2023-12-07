@@ -8,11 +8,18 @@ from datetime import datetime
 @app.get("/detect")
 def detect():
     image_path = request.args.get('image')
-    plate,image_file = detect_plate(image_path)
+    plate,image_file, err = detect_plate(image_path)
+    if err is not None:
+        return jsonify({
+            "PlateText": "",
+            "PlateExtractPath": "",
+            "Error": err,
+        })
     plate_text, plate_extract_path = extract_number_plate_text(plate, image_file)
     return jsonify({
         "PlateText": plate_text,
-        "PlateExtractPath": plate_extract_path
+        "PlateExtractPath": plate_extract_path,
+        "Error": None,
     })
 
 
