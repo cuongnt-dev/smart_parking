@@ -22,6 +22,7 @@ using Microsoft.Scripting.ComInterop;
 using WindowsFormsApp1.classes;
 using WindowsFormsApp1.utils;
 using ZXing;
+using WindowsFormsApp1.form;
 
 namespace WindowsFormsApp1
 {
@@ -38,6 +39,7 @@ namespace WindowsFormsApp1
         private System.Timers.Timer debounceTimer;
         Setting entranceState1;
         Setting entranceState2;
+        User authenticateUser = null;
         public MainForm()
         {
             InitializeComponent();
@@ -67,6 +69,11 @@ namespace WindowsFormsApp1
             {
                 VideoCapture = null,
                 PictureBox = pictureBoxEntrance1QRCode
+            });
+            camCaptureList.Add(Constant.ENTRANCE_2_CAM_QR, new CameraData
+            {
+                VideoCapture = null,
+                PictureBox = pictureBoxEntrance2QRCode
             });
         }
 
@@ -153,23 +160,57 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void UpdateAuthenticateUser(User usr)
+        {
+            authenticateUser = usr;
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            AuthenicationForm authenicationForm = new AuthenicationForm("UserManageForm");
-            authenicationForm.ShowDialog();
+            if (authenticateUser != null)
+            {
+                UserManageForm form = new UserManageForm(authenticateUser);
+                form.Show();
+            } else
+            {
+                AuthenicationForm authenicationForm = new AuthenicationForm("UserManageForm");
+                authenicationForm.UpdateAuthenticateUser += UpdateAuthenticateUser;
+                authenicationForm.ShowDialog();
+            }
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AuthenicationForm authenicationForm = new AuthenicationForm("ParkingManageForm");
-            authenicationForm.ShowDialog();
+            if (authenticateUser != null)
+            {
+                ParkingManageForm form = new ParkingManageForm();
+                form.Show();
+            }
+            else
+            {
+                AuthenicationForm authenicationForm = new AuthenicationForm("ParkingManageForm");
+                authenicationForm.UpdateAuthenticateUser += UpdateAuthenticateUser;
+                authenicationForm.ShowDialog();
+            }
+                
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            AuthenicationForm authenicationForm = new AuthenicationForm("SystemManageForm");
-            authenicationForm.LoadMainForm += LoadMainForm;
-            authenicationForm.ShowDialog();
+            if (authenticateUser != null)
+            {
+                SystemManageForm form = new SystemManageForm();
+                form.ReloadMainForm += LoadMainForm;
+                form.Show();
+            }
+            else
+            {
+                AuthenicationForm authenicationForm = new AuthenicationForm("SystemManageForm");
+                authenicationForm.UpdateAuthenticateUser += UpdateAuthenticateUser;
+                authenicationForm.LoadMainForm += LoadMainForm;
+                authenicationForm.ShowDialog();
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -272,8 +313,8 @@ namespace WindowsFormsApp1
             bool testing = true;
             Random random = new Random();
             // Generate a random number between 1 and 25 (inclusive)
-            int endRand = 26; //26
-            int randomNumber = random.Next(1, endRand);
+            int endRand = 23; //26
+            int randomNumber = random.Next(21, endRand);
             if (entrance == Constant.ENTRANCE_1)
             {
                 if (state == Constant.CHECKIN_STATE)
@@ -319,7 +360,9 @@ namespace WindowsFormsApp1
             }
         }
 
-        private async void Checkin(string parkingCardId, string entrance)
+        private async 
+        Task
+Checkin(string parkingCardId, string entrance)
         {
             // Get CardId data
             User usr = DB.GetUserByCardId(parkingCardId);
@@ -333,6 +376,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show($"Error when Checkin {res.Error}");
                 return;
             }
+            Console.WriteLine(res.PlateText);
             /*if (usr.Plate != res.PlateText)
             {
                 MessageBox.Show("Invalid Plate");
@@ -357,7 +401,9 @@ namespace WindowsFormsApp1
             });
         }
 
-        private async void Checkout(string parkingCardId, string entrance)
+        private async 
+        Task
+Checkout(string parkingCardId, string entrance)
         {
             // Trigger cardId Checkout {tmpCardId}
             User usr = DB.GetUserByCardId(parkingCardId);
@@ -403,11 +449,11 @@ namespace WindowsFormsApp1
                     // Check current state of entrance
                     if (entranceState1.Value == Constant.CHECKIN_STATE)
                     {
-                        Checkin(parkingCardId, Constant.ENTRANCE_1);
+                        _ = Checkin(parkingCardId, Constant.ENTRANCE_1);
                     }
                     else
                     {
-                        Checkout(parkingCardId, Constant.ENTRANCE_1);
+                        _ = Checkout(parkingCardId, Constant.ENTRANCE_1);
                     }
                 }
                 if (lastChar == Constant.LAST_CHAR_ENTRANCE_2)
@@ -553,10 +599,11 @@ namespace WindowsFormsApp1
             PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR2);
         }
 
-        private void timerEntrancd1QRCode_Tick(object sender, EventArgs e)
+        private async void timerEntrancd1QRCode_Tick(object sender, EventArgs e)
         {
             try
             {
+                Console.WriteLine("Start");
                 // Load the image
                 Bitmap bitmap = (Bitmap)pictureBoxEntrance1QRCode.Image;
 
@@ -569,16 +616,62 @@ namespace WindowsFormsApp1
                 // Check if a QR code was found
                 if (result != null)
                 {
+                    Console.WriteLine("Has Value");
+                    timerEntrancd1QRCode.Enabled = false;
                     Helper.PlaySound(Constant.RECOGNIZE_QR_STATE);
                     // Check current state of entrance
                     if (entranceState1.Value == Constant.CHECKIN_STATE)
                     {
-                        Checkin(result.Text, Constant.ENTRANCE_1);
+                        await Checkin(result.Text, Constant.ENTRANCE_1);
                     }
                     else
                     {
-                        Checkout(result.Text, Constant.ENTRANCE_1);
+                        await Checkout(result.Text, Constant.ENTRANCE_1);
                     }
+                    timerEntrancd1QRCode.Enabled = true;
+                    Console.WriteLine("end");
+                }
+                else
+                {
+                    Console.WriteLine("No QR code found in the image.");
+                }
+            }
+            catch (Exception ex)
+            {
+                timerEntrancd1QRCode.Enabled = true;
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+
+
+        private void timerEntrancd2QRCode_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                // Load the image
+                Bitmap bitmap = (Bitmap)pictureBoxEntrance2QRCode.Image;
+
+                // Create a BarcodeReader instance
+                BarcodeReader barcodeReader = new BarcodeReader();
+
+                // Decode the QR code
+                var result = barcodeReader.Decode(bitmap);
+
+                // Check if a QR code was found
+                if (result != null)
+                {
+                    timerEntrancd2QRCode.Enabled = false;
+                    Helper.PlaySound(Constant.RECOGNIZE_QR_STATE);
+                    // Check current state of entrance
+                    if (entranceState2.Value == Constant.CHECKIN_STATE)
+                    {
+                        Checkin(result.Text, Constant.ENTRANCE_2);
+                    }
+                    else
+                    {
+                        Checkout(result.Text, Constant.ENTRANCE_2);
+                    }
+                    timerEntrancd2QRCode.Enabled = true;
                 }
                 else
                 {
@@ -588,6 +681,7 @@ namespace WindowsFormsApp1
             catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
+                timerEntrancd2QRCode.Enabled = true;
             }
         }
     }

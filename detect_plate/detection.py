@@ -5,7 +5,7 @@ import easyocr
 import numpy as np
 import re
 
-from util import normalize_image, replace_with_dict, current_milli_time
+from util import normalize_image, replace_with_dict, current_milli_time, remove_special_characters
 
 root = os.path.dirname(os.path.abspath(__file__))
 extract_dir_path = f"{root}\extract"
@@ -94,8 +94,8 @@ def extract_number_plate_text(plate, image_file):
     for index, value in enumerate(sorted_items):
         temp_str = re.sub(pattern, '', str(value))
         if index == 0:
-            temp_str = temp_str[:-1] + replace_with_dict(temp_str[-1], None)
+            temp_str = remove_special_characters(temp_str[:-1]) + replace_with_dict(temp_str[-1], None)
             concatenated_string = f"{temp_str}"
         elif index == 1:
-            concatenated_string += f" {replace_with_dict(value, None)}"
+            concatenated_string += f" {remove_special_characters(value)}"
     return concatenated_string, extract_path

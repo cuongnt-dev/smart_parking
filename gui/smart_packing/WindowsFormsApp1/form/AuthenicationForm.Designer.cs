@@ -98,6 +98,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AuthenicationForm";
             this.Text = "Authenication";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.AuthenicationForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

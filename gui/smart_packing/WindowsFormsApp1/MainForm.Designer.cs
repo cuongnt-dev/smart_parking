@@ -93,10 +93,14 @@
             this.labelEntrance2CardID = new System.Windows.Forms.Label();
             this.pictureBoxEntrance1QRCode = new System.Windows.Forms.PictureBox();
             this.timerEntrancd1QRCode = new System.Windows.Forms.Timer(this.components);
+            this.pictureBoxEntrance2QRCode = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.statusIndicatorEntrance2Barier2 = new WindowsFormsApp1.StatusIndicator();
             this.statusIndicatorEntrance2Barier1 = new WindowsFormsApp1.StatusIndicator();
             this.statusIndicatorEntrance1Barier2 = new WindowsFormsApp1.StatusIndicator();
             this.statusIndicatorEntrance1Barier1 = new WindowsFormsApp1.StatusIndicator();
+            this.timerEntrancd2QRCode = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageEntrance1Cam1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageEntrance2Cam1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1In)).BeginInit();
@@ -113,6 +117,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEntrance1QRCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEntrance2QRCode)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCaptureCheckin
@@ -739,7 +744,7 @@
             // 
             // pictureBoxEntrance1QRCode
             // 
-            this.pictureBoxEntrance1QRCode.Location = new System.Drawing.Point(811, 829);
+            this.pictureBoxEntrance1QRCode.Location = new System.Drawing.Point(825, 848);
             this.pictureBoxEntrance1QRCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxEntrance1QRCode.Name = "pictureBoxEntrance1QRCode";
             this.pictureBoxEntrance1QRCode.Size = new System.Drawing.Size(258, 202);
@@ -752,6 +757,36 @@
             this.timerEntrancd1QRCode.Enabled = true;
             this.timerEntrancd1QRCode.Interval = 1500;
             this.timerEntrancd1QRCode.Tick += new System.EventHandler(this.timerEntrancd1QRCode_Tick);
+            // 
+            // pictureBoxEntrance2QRCode
+            // 
+            this.pictureBoxEntrance2QRCode.Location = new System.Drawing.Point(1146, 848);
+            this.pictureBoxEntrance2QRCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxEntrance2QRCode.Name = "pictureBoxEntrance2QRCode";
+            this.pictureBoxEntrance2QRCode.Size = new System.Drawing.Size(258, 202);
+            this.pictureBoxEntrance2QRCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxEntrance2QRCode.TabIndex = 44;
+            this.pictureBoxEntrance2QRCode.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(824, 829);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 16);
+            this.label6.TabIndex = 45;
+            this.label6.Text = "QR Entrance 1";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1143, 829);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 16);
+            this.label7.TabIndex = 46;
+            this.label7.Text = "QR Entrance 2";
             // 
             // statusIndicatorEntrance2Barier2
             // 
@@ -789,11 +824,20 @@
             this.statusIndicatorEntrance1Barier1.TabIndex = 0;
             this.statusIndicatorEntrance1Barier1.Text = "statusIndicator1";
             // 
+            // timerEntrancd2QRCode
+            // 
+            this.timerEntrancd2QRCode.Enabled = true;
+            this.timerEntrancd2QRCode.Interval = 1500;
+            this.timerEntrancd2QRCode.Tick += new System.EventHandler(this.timerEntrancd2QRCode_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1658, 1053);
+            this.ClientSize = new System.Drawing.Size(1658, 1187);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.pictureBoxEntrance2QRCode);
             this.Controls.Add(this.pictureBoxEntrance1QRCode);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -842,6 +886,7 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEntrance1QRCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEntrance2QRCode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -916,6 +961,10 @@
         private StatusIndicator statusIndicatorEntrance2Barier2;
         private System.Windows.Forms.PictureBox pictureBoxEntrance1QRCode;
         private System.Windows.Forms.Timer timerEntrancd1QRCode;
+        private System.Windows.Forms.PictureBox pictureBoxEntrance2QRCode;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer timerEntrancd2QRCode;
     }
 }
 

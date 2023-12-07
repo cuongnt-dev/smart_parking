@@ -33,6 +33,7 @@ namespace WindowsFormsApp1.form
             entranceCamSettingList.Add(Constant.ENTRANCE_2_CAM_OUT, comboBoxEntrance2CamOut);
 
             entranceCamSettingList.Add(Constant.ENTRANCE_1_CAM_QR, comboBoxEntrance1QRCode);
+            entranceCamSettingList.Add(Constant.ENTRANCE_2_CAM_QR, comboBoxEntrance2QRCode);
 
             entranceStateSettingList.Add(Constant.ENTRANCE_1, comboBoxEntranceState1);
             entranceStateSettingList.Add(Constant.ENTRANCE_2, comboBoxEntranceState2);
@@ -123,7 +124,6 @@ namespace WindowsFormsApp1.form
         }
         private void comboBoxEntranceState1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("Entrance 1 changed");
             int tempItemCbIn = 0;
             if(comboBoxEntrance1CamIn.SelectedItem != null)
             {

@@ -20,6 +20,7 @@ namespace WindowsFormsApp1
         public const string ENTRANCE_2_CAM_IN = "ENTRANCE_2_CAM_IN";
         public const string ENTRANCE_2_CAM_OUT = "ENTRANCE_2_CAM_OUT";
         public const string ENTRANCE_1_CAM_QR = "ENTRANCE_1_CAM_QR";
+        public const string ENTRANCE_2_CAM_QR = "ENTRANCE_2_CAM_QR";
 
         public const string ENTRANCE_1 = "ENTRANCE_1";
         public const string ENTRANCE_2 = "ENTRANCE_2";

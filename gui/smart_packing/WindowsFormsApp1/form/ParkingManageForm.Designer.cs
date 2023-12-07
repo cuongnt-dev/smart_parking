@@ -38,16 +38,19 @@
             // 
             this.dataGridViewListLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListLog.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridViewListLog.Location = new System.Drawing.Point(0, 155);
+            this.dataGridViewListLog.Location = new System.Drawing.Point(0, 190);
+            this.dataGridViewListLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewListLog.Name = "dataGridViewListLog";
-            this.dataGridViewListLog.Size = new System.Drawing.Size(483, 150);
+            this.dataGridViewListLog.RowHeadersWidth = 51;
+            this.dataGridViewListLog.Size = new System.Drawing.Size(644, 185);
             this.dataGridViewListLog.TabIndex = 0;
             // 
             // buttonCheckin
             // 
-            this.buttonCheckin.Location = new System.Drawing.Point(33, 21);
+            this.buttonCheckin.Location = new System.Drawing.Point(44, 26);
+            this.buttonCheckin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCheckin.Name = "buttonCheckin";
-            this.buttonCheckin.Size = new System.Drawing.Size(75, 44);
+            this.buttonCheckin.Size = new System.Drawing.Size(100, 54);
             this.buttonCheckin.TabIndex = 1;
             this.buttonCheckin.Text = "Checkin";
             this.buttonCheckin.UseVisualStyleBackColor = true;
@@ -55,9 +58,10 @@
             // 
             // buttonCheckout
             // 
-            this.buttonCheckout.Location = new System.Drawing.Point(33, 81);
+            this.buttonCheckout.Location = new System.Drawing.Point(44, 100);
+            this.buttonCheckout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCheckout.Name = "buttonCheckout";
-            this.buttonCheckout.Size = new System.Drawing.Size(75, 42);
+            this.buttonCheckout.Size = new System.Drawing.Size(100, 52);
             this.buttonCheckout.TabIndex = 2;
             this.buttonCheckout.Text = "Checkout";
             this.buttonCheckout.UseVisualStyleBackColor = true;
@@ -65,14 +69,16 @@
             // 
             // ParkingManageForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 305);
+            this.ClientSize = new System.Drawing.Size(644, 375);
             this.Controls.Add(this.buttonCheckout);
             this.Controls.Add(this.buttonCheckin);
             this.Controls.Add(this.dataGridViewListLog);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ParkingManageForm";
             this.Text = "Parking Management";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.ParkingManageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListLog)).EndInit();
             this.ResumeLayout(false);

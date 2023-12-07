@@ -31,9 +31,9 @@
             this.buttonAddUser = new System.Windows.Forms.Button();
             this.dataGridViewUser = new System.Windows.Forms.DataGridView();
             this.groupBoxSelectedUser = new System.Windows.Forms.GroupBox();
+            this.buttonExportQRCode = new System.Windows.Forms.Button();
             this.labelSelectedUser = new System.Windows.Forms.Label();
             this.buttonDeleteSelectedUser = new System.Windows.Forms.Button();
-            this.buttonExportQRCode = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).BeginInit();
             this.groupBoxSelectedUser.SuspendLayout();
             this.SuspendLayout();
@@ -69,13 +69,24 @@
             this.groupBoxSelectedUser.Controls.Add(this.labelSelectedUser);
             this.groupBoxSelectedUser.Controls.Add(this.buttonDeleteSelectedUser);
             this.groupBoxSelectedUser.Location = new System.Drawing.Point(623, 15);
-            this.groupBoxSelectedUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxSelectedUser.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxSelectedUser.Name = "groupBoxSelectedUser";
-            this.groupBoxSelectedUser.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxSelectedUser.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxSelectedUser.Size = new System.Drawing.Size(267, 123);
             this.groupBoxSelectedUser.TabIndex = 2;
             this.groupBoxSelectedUser.TabStop = false;
             this.groupBoxSelectedUser.Text = "Selected User";
+            // 
+            // buttonExportQRCode
+            // 
+            this.buttonExportQRCode.Location = new System.Drawing.Point(24, 73);
+            this.buttonExportQRCode.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonExportQRCode.Name = "buttonExportQRCode";
+            this.buttonExportQRCode.Size = new System.Drawing.Size(104, 42);
+            this.buttonExportQRCode.TabIndex = 2;
+            this.buttonExportQRCode.Text = "Export QRCode";
+            this.buttonExportQRCode.UseVisualStyleBackColor = true;
+            this.buttonExportQRCode.Click += new System.EventHandler(this.buttonExportQRCode_Click);
             // 
             // labelSelectedUser
             // 
@@ -89,24 +100,13 @@
             // buttonDeleteSelectedUser
             // 
             this.buttonDeleteSelectedUser.Location = new System.Drawing.Point(147, 73);
-            this.buttonDeleteSelectedUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDeleteSelectedUser.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeleteSelectedUser.Name = "buttonDeleteSelectedUser";
             this.buttonDeleteSelectedUser.Size = new System.Drawing.Size(112, 42);
             this.buttonDeleteSelectedUser.TabIndex = 0;
             this.buttonDeleteSelectedUser.Text = "Delete";
             this.buttonDeleteSelectedUser.UseVisualStyleBackColor = true;
             this.buttonDeleteSelectedUser.Click += new System.EventHandler(this.buttonDeleteSelectedUser_Click);
-            // 
-            // buttonExportQRCode
-            // 
-            this.buttonExportQRCode.Location = new System.Drawing.Point(24, 73);
-            this.buttonExportQRCode.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonExportQRCode.Name = "buttonExportQRCode";
-            this.buttonExportQRCode.Size = new System.Drawing.Size(104, 42);
-            this.buttonExportQRCode.TabIndex = 2;
-            this.buttonExportQRCode.Text = "Export QRCode";
-            this.buttonExportQRCode.UseVisualStyleBackColor = true;
-            this.buttonExportQRCode.Click += new System.EventHandler(this.buttonExportQRCode_Click);
             // 
             // UserManageForm
             // 
@@ -116,9 +116,10 @@
             this.Controls.Add(this.groupBoxSelectedUser);
             this.Controls.Add(this.dataGridViewUser);
             this.Controls.Add(this.buttonAddUser);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserManageForm";
             this.Text = "User Management";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.UserManageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).EndInit();
             this.groupBoxSelectedUser.ResumeLayout(false);

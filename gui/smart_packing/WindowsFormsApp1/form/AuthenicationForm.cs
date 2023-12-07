@@ -18,6 +18,8 @@ namespace WindowsFormsApp1
     {
         private string authenticationFor;
         public event EventHandler LoadMainForm;
+        public delegate void UpdateAuthenticateUserDelegate(User usr);
+        public event UpdateAuthenticateUserDelegate UpdateAuthenticateUser;
         public AuthenicationForm(string authFor)
         {
             InitializeComponent();
@@ -35,7 +37,8 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Username Or Password wrong. Please try again");
                 return;
             }
-            if(authenticationFor == "UserManageForm")
+            UpdateAuthenticateUser.Invoke(usrs[0]);
+            if (authenticationFor == "UserManageForm")
             {
                 UserManageForm form = new UserManageForm(usrs[0]);
                 form.Show();
