@@ -333,11 +333,11 @@ namespace WindowsFormsApp1
                 MessageBox.Show($"Error when Checkin {res.Error}");
                 return;
             }
-            if (usr.Plate != res.PlateText)
+            /*if (usr.Plate != res.PlateText)
             {
                 MessageBox.Show("Invalid Plate");
                 return;
-            }
+            }*/
             Helper.PlaySound(Constant.CHECKIN_STATE);
             
             // Trigger cardId Checkin {cardId}
