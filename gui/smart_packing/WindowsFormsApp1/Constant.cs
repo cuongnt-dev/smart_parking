@@ -67,6 +67,9 @@ namespace WindowsFormsApp1
         public const int PLC_READ_ENTRANCE_1_BR1O_BR2C = 11;
         public const int PLC_READ_ENTRANCE_1_BR1C_BR2O = 7;
 
+        public const int PLC_READ_ENTRANCE_1_SENSOR_REGISTER = 2;
+        public const int PLC_READ_ENTRANCE_1_HAS_BIKE = 7;
+
         public const int PLC_READ_ENTRANCE_2_BR_REGISTER = 0;
         public const int PLC_READ_ENTRANCE_2_BR1C_BR2C = 6;
         public const int PLC_READ_ENTRANCE_2_BR1O_BR2O = 12;

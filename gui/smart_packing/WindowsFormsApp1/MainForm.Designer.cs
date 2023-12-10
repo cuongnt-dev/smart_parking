@@ -102,6 +102,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.timerEntrancd2QRCode = new System.Windows.Forms.Timer(this.components);
             this.labelControlMode = new System.Windows.Forms.Label();
+            this.timerEntrance1CheckBike = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageEntrance1Cam1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageEntrance2Cam1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1In)).BeginInit();
@@ -841,6 +842,12 @@
             this.labelControlMode.TabIndex = 49;
             this.labelControlMode.Text = "Control Mode: Loading...";
             // 
+            // timerEntrance1CheckBike
+            // 
+            this.timerEntrance1CheckBike.Enabled = true;
+            this.timerEntrance1CheckBike.Interval = 500;
+            this.timerEntrance1CheckBike.Tick += new System.EventHandler(this.timerEntrance1CheckBike_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -978,6 +985,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer timerEntrancd2QRCode;
         private System.Windows.Forms.Label labelControlMode;
+        private System.Windows.Forms.Timer timerEntrance1CheckBike;
     }
 }
 

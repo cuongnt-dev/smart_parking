@@ -485,6 +485,7 @@ Checkin(string parkingCardId, string entrance)
             
             Helper.PlaySound(Constant.CHECKIN_STATE);
             
+
             // Trigger cardId Checkin {cardId}
             _ = Task.Run(() =>
             {
@@ -780,6 +781,23 @@ Checkout(string parkingCardId, string entrance)
             {
                 Console.WriteLine($"Error: {ex.Message}");
                 timerEntrancd2QRCode.Enabled = true;
+            }
+        }
+
+        private void timerEntrance1CheckBike_Tick(object sender, EventArgs e)
+        {
+            int sensor_data = PLC.ReadFrom(Constant.PLC_READ_ENTRANCE_1_SENSOR_REGISTER);
+            Console.WriteLine($"Read from PLC_READ_ENTRANCE_1_SENSOR_REGISTER {sensor_data}");
+            if(sensor_data == 0)
+            {
+                int br_data = PLC.ReadFrom(Constant.PLC_READ_ENTRANCE_1_BR_REGISTER);
+                if(br_data == Constant.PLC_READ_ENTRANCE_1_BR1O_BR2C)
+                {
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR1);
+                    Thread.Sleep(1000);
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR2);
+                    Thread.Sleep(1000);
+                }
             }
         }
     }
