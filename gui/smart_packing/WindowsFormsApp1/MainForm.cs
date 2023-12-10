@@ -791,12 +791,24 @@ Checkout(string parkingCardId, string entrance)
             if(sensor_data == 0)
             {
                 int br_data = PLC.ReadFrom(Constant.PLC_READ_ENTRANCE_1_BR_REGISTER);
-                if(br_data == Constant.PLC_READ_ENTRANCE_1_BR1O_BR2C)
+                if (entranceState1.Value == Constant.CHECKIN_STATE)
                 {
-                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR1);
-                    Thread.Sleep(1000);
-                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR2);
-                    Thread.Sleep(1000);
+                    if (br_data == Constant.PLC_READ_ENTRANCE_1_BR1O_BR2C)
+                    {
+                        PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR1);
+                        Thread.Sleep(1000);
+                        PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR2);
+                        Thread.Sleep(1000);
+                    }
+                } else
+                {
+                    if (br_data == Constant.PLC_READ_ENTRANCE_1_BR1C_BR2O)
+                    {
+                        PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR2);
+                        Thread.Sleep(1000);
+                        PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR1);
+                        Thread.Sleep(1000);
+                    }
                 }
             }
         }
