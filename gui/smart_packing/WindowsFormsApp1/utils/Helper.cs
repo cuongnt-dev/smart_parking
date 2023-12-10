@@ -18,6 +18,12 @@ namespace WindowsFormsApp1.utils
             return false;
         }
 
+        public static string GetCurrentDay()
+        {
+            DateTime currentDay = DateTime.Today;
+            return currentDay.ToString("MMddyyyy");
+        }
+
         public static void PlaySound(string state)
         {
             try

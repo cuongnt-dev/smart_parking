@@ -32,3 +32,29 @@ def remove_special_characters(text):
 
 def current_milli_time():
     return round(time.time() * 1000)
+
+
+import hashlib
+
+
+def hash_string(text):
+    if not text:
+        return ""
+
+    # Use SHA256 to create the hash
+    sha = hashlib.sha256()
+
+    # Convert the string to a byte array first, to be processed
+    text_bytes = text.encode('utf-8')
+    sha.update(text_bytes)
+
+    # Convert the hash to a hexadecimal representation
+    hash_result = sha.hexdigest().upper()
+
+    return hash_result
+
+from datetime import datetime
+def get_current_day():
+    current_day = datetime.today()
+    formatted_date = current_day.strftime("%m%d%Y")
+    return formatted_date

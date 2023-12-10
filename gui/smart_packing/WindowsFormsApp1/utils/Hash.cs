@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -30,6 +31,38 @@ namespace WindowsFormsApp1.utils
                     .Replace("-", String.Empty);
 
                 return hash;
+            }
+        }
+
+        static public string EncryptData(string data)
+        {
+            using (var aes = new AesManaged())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(Constant.SECRET_KEY);
+                aes.Mode = CipherMode.ECB; // Use appropriate mode and padding in a real-world scenario
+
+                using (var encryptor = aes.CreateEncryptor())
+                {
+                    byte[] dataBytes = Encoding.UTF8.GetBytes(data);
+                    byte[] encryptedBytes = encryptor.TransformFinalBlock(dataBytes, 0, dataBytes.Length);
+                    return Convert.ToBase64String(encryptedBytes);
+                }
+            }
+        }
+
+        static public string DecryptData(string data)
+        {
+            using (var aes = new AesManaged())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(Constant.SECRET_KEY);
+                aes.Mode = CipherMode.ECB; // Use appropriate mode and padding in a real-world scenario
+
+                using (var decryptor = aes.CreateDecryptor())
+                {
+                    byte[] encryptedBytes = Convert.FromBase64String(data);
+                    byte[] decryptedBytes = decryptor.TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
+                    return Encoding.UTF8.GetString(decryptedBytes);
+                }
             }
         }
 

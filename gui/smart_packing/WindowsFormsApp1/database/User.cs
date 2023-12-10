@@ -11,7 +11,7 @@ namespace WindowsFormsApp1.model
         public int ID { get; set; }
         public string Name { get; set; }
         public string Company { get; set; }
-
+            
         public string Card { get; set; }
         public string Status { get; set; }
         public string Role { get; set; }

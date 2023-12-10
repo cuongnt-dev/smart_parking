@@ -12,6 +12,7 @@ using WindowsFormsApp1.form;
 using WindowsFormsApp1.model;
 using ZXing.QrCode;
 using ZXing;
+using WindowsFormsApp1.utils;
 
 namespace WindowsFormsApp1
 {
@@ -47,18 +48,21 @@ namespace WindowsFormsApp1
             dataGridViewUser.Columns["Plate"].Visible = false;
         }
 
-        private void ExportQRCode(string data)
+        public static void ExportQRCode(string data, bool showMessageBox = true)
         {
+            string hashedData = Hash.EncryptData(data);
             // Generate QR code
-            Bitmap qrCode = GenerateQRCode(data);
+            Bitmap qrCode = GenerateQRCode(hashedData);
 
             // Save or display the QR code image as needed
-            qrCode.Save($"{Constant.QR_PATH}\\QRCode_User_{data}.png", System.Drawing.Imaging.ImageFormat.Png);
-
-            MessageBox.Show($"QR Code for User ID '{data}' exported successfully.", "QR Code Exported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            qrCode.Save($"{Constant.QR_PATH}\\{data}.png", System.Drawing.Imaging.ImageFormat.Png);
+            if (showMessageBox)
+            {
+                MessageBox.Show($"QR Code exported successfully.", "QR Code Exported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-        private Bitmap GenerateQRCode(string data)
+        public static Bitmap GenerateQRCode(string data)
         {
             QrCodeEncodingOptions options = new QrCodeEncodingOptions()
             {
@@ -118,12 +122,13 @@ namespace WindowsFormsApp1
                 User usr = users.FirstOrDefault<User>(us => us.ID == selectedUserIndex);
                 if(usr != null && usr.Card != "")
                 {
-                    ExportQRCode(usr.Card);
+                    string data = $"{usr.Card}_{Helper.GetCurrentDay()}";
+                    ExportQRCode(data);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Delete User fail {ex.Message}");
+                MessageBox.Show($"Export QR Code fail {ex.Message}");
             }
         }
     }

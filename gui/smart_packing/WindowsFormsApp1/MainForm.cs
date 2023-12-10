@@ -193,9 +193,20 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void CreateQRCodeToday()
+        {
+            List<User> usrs = DB.GetUserWithCondition("");
+            foreach (var usr in usrs)
+            {
+                string data = $"{usr.Card}_{Helper.GetCurrentDay()}";
+                UserManageForm.ExportQRCode(data, false);
+            }
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoadMainForm(sender, e);
+            CreateQRCodeToday();
         }
 
         private async void buttonCaptureCheckin_Click(object sender, EventArgs e)
@@ -718,15 +729,29 @@ Checkout(string parkingCardId, string entrance)
                 if (result != null)
                 {
                     timerEntrancd1QRCode.Enabled = false;
+                    string data = Hash.DecryptData(result.Text);
+                    if(data == "")
+                    {
+                        MessageBox.Show("Error when checkin");
+                        return;
+                    }
+                    string[] parts = data.Split('_');
+                    string plate = parts[0];
+                    string day = parts[1];
+                    if(day != Helper.GetCurrentDay())
+                    {
+                        MessageBox.Show("QR Code Expired");
+                        return;
+                    }
                     Helper.PlaySound(Constant.RECOGNIZE_QR_STATE);
                     // Check current state of entrance
                     if (entranceState1.Value == Constant.CHECKIN_STATE)
                     {
-                        await Checkin(result.Text, Constant.ENTRANCE_1);
+                        await Checkin(plate, Constant.ENTRANCE_1);
                     }
                     else
                     {
-                        await Checkout(result.Text, Constant.ENTRANCE_1);
+                        await Checkout(plate, Constant.ENTRANCE_1);
                     }
                     timerEntrancd1QRCode.Enabled = true;
                 }
@@ -743,7 +768,7 @@ Checkout(string parkingCardId, string entrance)
         }
 
 
-        private void timerEntrancd2QRCode_Tick(object sender, EventArgs e)
+        private async void timerEntrancd2QRCode_Tick(object sender, EventArgs e)
         {
             try
             {
@@ -760,15 +785,29 @@ Checkout(string parkingCardId, string entrance)
                 if (result != null)
                 {
                     timerEntrancd2QRCode.Enabled = false;
+                    string data = Hash.DecryptData(result.Text);
+                    if (data == "")
+                    {
+                        MessageBox.Show("Error when checkin");
+                        return;
+                    }
+                    string[] parts = data.Split('_');
+                    string plate = parts[0];
+                    string day = parts[1];
+                    if (day != Helper.GetCurrentDay())
+                    {
+                        MessageBox.Show("QR Code Expired");
+                        return;
+                    }
                     Helper.PlaySound(Constant.RECOGNIZE_QR_STATE);
                     // Check current state of entrance
                     if (entranceState2.Value == Constant.CHECKIN_STATE)
                     {
-                        Checkin(result.Text, Constant.ENTRANCE_2);
+                        await Checkin(plate, Constant.ENTRANCE_2);
                     }
                     else
                     {
-                        Checkout(result.Text, Constant.ENTRANCE_2);
+                        await Checkout(plate, Constant.ENTRANCE_2);
                     }
                     timerEntrancd2QRCode.Enabled = true;
                 }
@@ -784,7 +823,7 @@ Checkout(string parkingCardId, string entrance)
             }
         }
 
-        private void timerEntrance1CheckBike_Tick(object sender, EventArgs e)
+        private  void timerEntrance1CheckBike_Tick(object sender, EventArgs e)
         {
             int sensor_data = PLC.ReadFrom(Constant.PLC_READ_ENTRANCE_1_SENSOR_REGISTER);
             Console.WriteLine($"Read from PLC_READ_ENTRANCE_1_SENSOR_REGISTER {sensor_data}");

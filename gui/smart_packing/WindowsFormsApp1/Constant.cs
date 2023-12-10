@@ -15,6 +15,8 @@ namespace WindowsFormsApp1
         public const StopBits PLC_STOPBIT = StopBits.One;
         public const Parity PLC_PARITY = Parity.Even;
 
+        public const string SECRET_KEY = "2B7E151628AED2A6ABF7158809CF4F3C";
+
         public const string CONTROL_MODE = "CONTROL_MODE";
         public const string CONTROL_MODE_MANUAL = "MANUAL";
         public const string CONTROL_MODE_AUTOMATION = "AUTOMATION";
@@ -41,7 +43,8 @@ namespace WindowsFormsApp1
         public const string CAPTURE_PATH = MAIN_PATH + "\\detect_plate\\capture";
         public const string TEST_PLATE_PATH = MAIN_PATH + "\\detect_plate\\test";
         public const string SOUND_PATH = MAIN_PATH + "\\gui\\smart_packing\\sound";
-        public const string QR_PATH = MAIN_PATH + "\\gui\\smart_packing\\qr_code";
+        // Put qr folder in detect dir
+        public const string QR_PATH = MAIN_PATH + "\\detect_plate\\static";
 
         // 8no in D - last 3 bytes
         //  User defined byte 0 
