@@ -15,6 +15,10 @@ namespace WindowsFormsApp1
         public const StopBits PLC_STOPBIT = StopBits.One;
         public const Parity PLC_PARITY = Parity.Even;
 
+        public const string CONTROL_MODE = "CONTROL_MODE";
+        public const string CONTROL_MODE_MANUAL = "MANUAL";
+        public const string CONTROL_MODE_AUTOMATION = "AUTOMATION";
+
         public const string ENTRANCE_1_CAM_IN = "ENTRANCE_1_CAM_IN";
         public const string ENTRANCE_1_CAM_OUT = "ENTRANCE_1_CAM_OUT";
         public const string ENTRANCE_2_CAM_IN = "ENTRANCE_2_CAM_IN";

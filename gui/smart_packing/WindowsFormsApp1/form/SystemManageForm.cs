@@ -21,6 +21,8 @@ namespace WindowsFormsApp1.form
         public event EventHandler ReloadMainForm;
 
         private List<string> barierState = new List<string>{Constant.CHECKIN_STATE, Constant.CHECKOUT_STATE};
+        private List<string> controlMode = new List<string> { Constant.CONTROL_MODE_MANUAL, Constant.CONTROL_MODE_AUTOMATION };
+
         private Dictionary<string, ComboBox> entranceCamSettingList = new Dictionary<string, ComboBox> {};
         private Dictionary<string, ComboBox> entranceStateSettingList = new Dictionary<string, ComboBox> { };
 
@@ -63,7 +65,12 @@ namespace WindowsFormsApp1.form
                     entranceSettingItem.Value.Items.Add(state);
                 }
             }
-            
+
+            foreach (var item in controlMode)
+            {
+                comboBoxControlMode.Items.Add(item);
+            }
+
             List<Setting> settingsList = DB.GetAllSetting();
             if(settingsList != null)
             {
@@ -75,7 +82,9 @@ namespace WindowsFormsApp1.form
                     {
                         index = int.Parse(st.Value) + 1;
                     }
-                    camSettingItem.Value.SelectedIndex = index;
+                    if(index < camSettingItem.Value.Items.Count) {
+                        camSettingItem.Value.SelectedIndex = index;
+                    }
                 }
 
                 foreach (var entranceSettingItem in entranceStateSettingList)
@@ -85,6 +94,11 @@ namespace WindowsFormsApp1.form
                     {
                         entranceSettingItem.Value.SelectedItem = st.Value;
                     }
+                }
+                Setting controlModeSt = settingsList.FirstOrDefault(setting => setting.Name == Constant.CONTROL_MODE);
+                if(controlModeSt != null)
+                {
+                    comboBoxControlMode.SelectedItem = controlModeSt.Value;
                 }
             }
             comboBoxEntranceState1.SelectedIndexChanged += comboBoxEntranceState1_SelectedIndexChanged;
@@ -115,6 +129,8 @@ namespace WindowsFormsApp1.form
                     string state = entranceSettingItem.Value.SelectedItem.ToString();
                     DB.UpsertSetting(entranceSettingItem.Key, state);
                 }
+
+                DB.UpsertSetting(Constant.CONTROL_MODE, comboBoxControlMode.SelectedItem.ToString());
                 ReloadMainForm.Invoke(this, null);
                 this.Close();
             } catch(Exception ex)

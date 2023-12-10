@@ -204,3 +204,7 @@ D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\zxing.dll
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\zxing.presentation.dll
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\zxing.xml
 D:\LV\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\zxing.presentation.xml
+D:\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\zxing.dll
+D:\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\zxing.presentation.dll
+D:\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\zxing.xml
+D:\smart_parking\gui\smart_packing\WindowsFormsApp1\bin\Debug\zxing.presentation.xml

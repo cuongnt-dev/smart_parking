@@ -50,19 +50,23 @@
             this.label10 = new System.Windows.Forms.Label();
             this.buttonOpenEntrance1Barier2 = new System.Windows.Forms.Button();
             this.labelEntrance1Barier2State = new System.Windows.Forms.Label();
+            this.statusIndicatorEntrance1Barier2 = new WindowsFormsApp1.StatusIndicator();
             this.buttonCloseEntrance1Barier1 = new System.Windows.Forms.Button();
             this.labelCheckinBarierStatus = new System.Windows.Forms.Label();
             this.buttonOpenEntrance1Barier1 = new System.Windows.Forms.Button();
             this.labelEntrance1Barier1State = new System.Windows.Forms.Label();
+            this.statusIndicatorEntrance1Barier1 = new WindowsFormsApp1.StatusIndicator();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.buttonCloseEntrance2Barier2 = new System.Windows.Forms.Button();
             this.buttonOpenEntrance2Barier2 = new System.Windows.Forms.Button();
             this.labelEntrance2Barier2State = new System.Windows.Forms.Label();
+            this.statusIndicatorEntrance2Barier2 = new WindowsFormsApp1.StatusIndicator();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonCloseEntrance2Barier1 = new System.Windows.Forms.Button();
             this.buttonOpenEntrance2Barier1 = new System.Windows.Forms.Button();
             this.labelEntrance2Barier1State = new System.Windows.Forms.Label();
+            this.statusIndicatorEntrance2Barier1 = new WindowsFormsApp1.StatusIndicator();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBoxSelectedImageEntrance2Cam2 = new System.Windows.Forms.PictureBox();
@@ -96,11 +100,8 @@
             this.pictureBoxEntrance2QRCode = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.statusIndicatorEntrance2Barier2 = new WindowsFormsApp1.StatusIndicator();
-            this.statusIndicatorEntrance2Barier1 = new WindowsFormsApp1.StatusIndicator();
-            this.statusIndicatorEntrance1Barier2 = new WindowsFormsApp1.StatusIndicator();
-            this.statusIndicatorEntrance1Barier1 = new WindowsFormsApp1.StatusIndicator();
             this.timerEntrancd2QRCode = new System.Windows.Forms.Timer(this.components);
+            this.labelControlMode = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageEntrance1Cam1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageEntrance2Cam1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1In)).BeginInit();
@@ -328,6 +329,15 @@
             this.labelEntrance1Barier2State.TabIndex = 6;
             this.labelEntrance1Barier2State.Text = "Close";
             // 
+            // statusIndicatorEntrance1Barier2
+            // 
+            this.statusIndicatorEntrance1Barier2.Location = new System.Drawing.Point(25, 95);
+            this.statusIndicatorEntrance1Barier2.Name = "statusIndicatorEntrance1Barier2";
+            this.statusIndicatorEntrance1Barier2.Size = new System.Drawing.Size(16, 17);
+            this.statusIndicatorEntrance1Barier2.StatusColor = System.Drawing.Color.Red;
+            this.statusIndicatorEntrance1Barier2.TabIndex = 5;
+            this.statusIndicatorEntrance1Barier2.Text = "statusIndicator1";
+            // 
             // buttonCloseEntrance1Barier1
             // 
             this.buttonCloseEntrance1Barier1.Location = new System.Drawing.Point(253, 26);
@@ -365,6 +375,15 @@
             this.labelEntrance1Barier1State.Size = new System.Drawing.Size(42, 16);
             this.labelEntrance1Barier1State.TabIndex = 1;
             this.labelEntrance1Barier1State.Text = "Close";
+            // 
+            // statusIndicatorEntrance1Barier1
+            // 
+            this.statusIndicatorEntrance1Barier1.Location = new System.Drawing.Point(25, 45);
+            this.statusIndicatorEntrance1Barier1.Name = "statusIndicatorEntrance1Barier1";
+            this.statusIndicatorEntrance1Barier1.Size = new System.Drawing.Size(16, 17);
+            this.statusIndicatorEntrance1Barier1.StatusColor = System.Drawing.Color.Red;
+            this.statusIndicatorEntrance1Barier1.TabIndex = 0;
+            this.statusIndicatorEntrance1Barier1.Text = "statusIndicator1";
             // 
             // groupBox1
             // 
@@ -423,6 +442,15 @@
             this.labelEntrance2Barier2State.TabIndex = 8;
             this.labelEntrance2Barier2State.Text = "Close";
             // 
+            // statusIndicatorEntrance2Barier2
+            // 
+            this.statusIndicatorEntrance2Barier2.Location = new System.Drawing.Point(26, 95);
+            this.statusIndicatorEntrance2Barier2.Name = "statusIndicatorEntrance2Barier2";
+            this.statusIndicatorEntrance2Barier2.Size = new System.Drawing.Size(16, 17);
+            this.statusIndicatorEntrance2Barier2.StatusColor = System.Drawing.Color.Red;
+            this.statusIndicatorEntrance2Barier2.TabIndex = 7;
+            this.statusIndicatorEntrance2Barier2.Text = "statusIndicator2";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -460,6 +488,15 @@
             this.labelEntrance2Barier1State.Size = new System.Drawing.Size(42, 16);
             this.labelEntrance2Barier1State.TabIndex = 1;
             this.labelEntrance2Barier1State.Text = "Close";
+            // 
+            // statusIndicatorEntrance2Barier1
+            // 
+            this.statusIndicatorEntrance2Barier1.Location = new System.Drawing.Point(26, 45);
+            this.statusIndicatorEntrance2Barier1.Name = "statusIndicatorEntrance2Barier1";
+            this.statusIndicatorEntrance2Barier1.Size = new System.Drawing.Size(16, 17);
+            this.statusIndicatorEntrance2Barier1.StatusColor = System.Drawing.Color.Red;
+            this.statusIndicatorEntrance2Barier1.TabIndex = 0;
+            this.statusIndicatorEntrance2Barier1.Text = "statusIndicator2";
             // 
             // button6
             // 
@@ -550,15 +587,17 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox4.Controls.Add(this.labelControlMode);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.labelNumberCheckin);
             this.groupBox4.Controls.Add(this.labelInforDatetime);
-            this.groupBox4.Location = new System.Drawing.Point(19, 829);
+            this.groupBox4.Location = new System.Drawing.Point(12, 829);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(749, 202);
+            this.groupBox4.Size = new System.Drawing.Size(481, 221);
             this.groupBox4.TabIndex = 40;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Parking Information";
@@ -566,7 +605,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 82);
+            this.label9.Location = new System.Drawing.Point(21, 107);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(166, 16);
             this.label9.TabIndex = 5;
@@ -575,7 +614,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 54);
+            this.label8.Location = new System.Drawing.Point(21, 79);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(158, 16);
             this.label8.TabIndex = 4;
@@ -584,7 +623,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 110);
+            this.label4.Location = new System.Drawing.Point(20, 135);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(151, 16);
             this.label4.TabIndex = 3;
@@ -593,7 +632,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 165);
+            this.label3.Location = new System.Drawing.Point(21, 190);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(221, 16);
             this.label3.TabIndex = 2;
@@ -602,7 +641,7 @@
             // labelNumberCheckin
             // 
             this.labelNumberCheckin.AutoSize = true;
-            this.labelNumberCheckin.Location = new System.Drawing.Point(14, 138);
+            this.labelNumberCheckin.Location = new System.Drawing.Point(20, 163);
             this.labelNumberCheckin.Name = "labelNumberCheckin";
             this.labelNumberCheckin.Size = new System.Drawing.Size(213, 16);
             this.labelNumberCheckin.TabIndex = 1;
@@ -612,7 +651,7 @@
             // 
             this.labelInforDatetime.AutoSize = true;
             this.labelInforDatetime.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInforDatetime.Location = new System.Drawing.Point(15, 31);
+            this.labelInforDatetime.Location = new System.Drawing.Point(21, 56);
             this.labelInforDatetime.Name = "labelInforDatetime";
             this.labelInforDatetime.Size = new System.Drawing.Size(125, 16);
             this.labelInforDatetime.TabIndex = 0;
@@ -788,53 +827,26 @@
             this.label7.TabIndex = 46;
             this.label7.Text = "QR Entrance 2";
             // 
-            // statusIndicatorEntrance2Barier2
-            // 
-            this.statusIndicatorEntrance2Barier2.Location = new System.Drawing.Point(26, 95);
-            this.statusIndicatorEntrance2Barier2.Name = "statusIndicatorEntrance2Barier2";
-            this.statusIndicatorEntrance2Barier2.Size = new System.Drawing.Size(16, 17);
-            this.statusIndicatorEntrance2Barier2.StatusColor = System.Drawing.Color.Red;
-            this.statusIndicatorEntrance2Barier2.TabIndex = 7;
-            this.statusIndicatorEntrance2Barier2.Text = "statusIndicator2";
-            // 
-            // statusIndicatorEntrance2Barier1
-            // 
-            this.statusIndicatorEntrance2Barier1.Location = new System.Drawing.Point(26, 45);
-            this.statusIndicatorEntrance2Barier1.Name = "statusIndicatorEntrance2Barier1";
-            this.statusIndicatorEntrance2Barier1.Size = new System.Drawing.Size(16, 17);
-            this.statusIndicatorEntrance2Barier1.StatusColor = System.Drawing.Color.Red;
-            this.statusIndicatorEntrance2Barier1.TabIndex = 0;
-            this.statusIndicatorEntrance2Barier1.Text = "statusIndicator2";
-            // 
-            // statusIndicatorEntrance1Barier2
-            // 
-            this.statusIndicatorEntrance1Barier2.Location = new System.Drawing.Point(25, 95);
-            this.statusIndicatorEntrance1Barier2.Name = "statusIndicatorEntrance1Barier2";
-            this.statusIndicatorEntrance1Barier2.Size = new System.Drawing.Size(16, 17);
-            this.statusIndicatorEntrance1Barier2.StatusColor = System.Drawing.Color.Red;
-            this.statusIndicatorEntrance1Barier2.TabIndex = 5;
-            this.statusIndicatorEntrance1Barier2.Text = "statusIndicator1";
-            // 
-            // statusIndicatorEntrance1Barier1
-            // 
-            this.statusIndicatorEntrance1Barier1.Location = new System.Drawing.Point(25, 45);
-            this.statusIndicatorEntrance1Barier1.Name = "statusIndicatorEntrance1Barier1";
-            this.statusIndicatorEntrance1Barier1.Size = new System.Drawing.Size(16, 17);
-            this.statusIndicatorEntrance1Barier1.StatusColor = System.Drawing.Color.Red;
-            this.statusIndicatorEntrance1Barier1.TabIndex = 0;
-            this.statusIndicatorEntrance1Barier1.Text = "statusIndicator1";
-            // 
             // timerEntrancd2QRCode
             // 
             this.timerEntrancd2QRCode.Enabled = true;
             this.timerEntrancd2QRCode.Interval = 1500;
             this.timerEntrancd2QRCode.Tick += new System.EventHandler(this.timerEntrancd2QRCode_Tick);
             // 
+            // labelControlMode
+            // 
+            this.labelControlMode.AutoSize = true;
+            this.labelControlMode.Location = new System.Drawing.Point(21, 29);
+            this.labelControlMode.Name = "labelControlMode";
+            this.labelControlMode.Size = new System.Drawing.Size(151, 16);
+            this.labelControlMode.TabIndex = 48;
+            this.labelControlMode.Text = "Control Mode: Loading...";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1658, 1187);
+            this.ClientSize = new System.Drawing.Size(1658, 1055);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBoxEntrance2QRCode);
@@ -965,6 +977,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer timerEntrancd2QRCode;
+        private System.Windows.Forms.Label labelControlMode;
     }
 }
 

@@ -23,6 +23,7 @@ using WindowsFormsApp1.classes;
 using WindowsFormsApp1.utils;
 using ZXing;
 using WindowsFormsApp1.form;
+using System.Drawing.Text;
 
 namespace WindowsFormsApp1
 {
@@ -35,11 +36,13 @@ namespace WindowsFormsApp1
         private Dictionary<string, CameraData> camCaptureList = new Dictionary<string, CameraData>();
 
         List<Setting> settingsList;
+        private List<Button> buttonControlList = new List<Button>();
         int filename = 111;
         private System.Timers.Timer debounceTimer;
         Setting entranceState1;
         Setting entranceState2;
         User authenticateUser = null;
+        string controlMode = Constant.CONTROL_MODE_MANUAL;
         public MainForm()
         {
             InitializeComponent();
@@ -75,6 +78,44 @@ namespace WindowsFormsApp1
                 VideoCapture = null,
                 PictureBox = pictureBoxEntrance2QRCode
             });
+            buttonControlList.Add(buttonOpenEntrance1Barier1);
+            buttonControlList.Add(buttonCloseEntrance1Barier1);
+            buttonControlList.Add(buttonOpenEntrance1Barier2);
+            buttonControlList.Add(buttonCloseEntrance1Barier2);
+            buttonControlList.Add(buttonOpenEntrance2Barier1);
+            buttonControlList.Add(buttonCloseEntrance2Barier1);
+            buttonControlList.Add(buttonOpenEntrance2Barier2);
+            buttonControlList.Add(buttonCloseEntrance2Barier2);
+        }
+
+        private void UpdateControlItemMode()
+        {
+            foreach (var item in buttonControlList)
+            {
+                item.Enabled = controlMode == Constant.CONTROL_MODE_MANUAL;
+            }
+            if (PLC.IsRunning())
+            {
+                if(entranceState1.Value == Constant.CHECKIN_STATE)
+                {
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR1);
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR2);
+                } else if(entranceState1.Value == Constant.CHECKOUT_STATE)
+                {
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR1);
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR2);
+                }
+                if (entranceState2.Value == Constant.CHECKIN_STATE)
+                {
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR1);
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR2);
+                }
+                else if (entranceState2.Value == Constant.CHECKOUT_STATE)
+                {
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR1);
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR2);
+                }
+            }
         }
 
         private void LoadMainForm(object sender, EventArgs e)
@@ -123,6 +164,16 @@ namespace WindowsFormsApp1
                     {
                         labelEntranceState2.Text = $"State: {entranceState2.Value}";
                     }
+                    Setting stControl = settingsList.FirstOrDefault(setting => setting.Name == Constant.CONTROL_MODE);
+                    if(stControl == null)
+                    {
+                        controlMode = Constant.CONTROL_MODE_MANUAL;
+                    } else
+                    {
+                        controlMode = stControl.Value;
+                    }
+                    labelControlMode.Text = controlMode;
+                    UpdateControlItemMode();
                 }
             }
             catch (Exception ex)
