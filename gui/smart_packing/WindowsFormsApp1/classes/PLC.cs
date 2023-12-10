@@ -54,8 +54,10 @@ namespace WindowsFormsApp1.classes
         {
             try
             {
+                Connect();
                 int[] data = new int[4];
                 data = plc.Read();
+                Disconnect();
                 if (data != null)
                 {
                     Console.WriteLine($"Read from {register} Value: {data[register]}");
@@ -73,21 +75,16 @@ namespace WindowsFormsApp1.classes
         {
             try
             {
+                Connect();
                 (int register, int value) = Hash.ExtractRegister(action);
                 datawrite[register] = value;
                 plc.Write(datawrite);
-                // Introduce a delay of 1 second asynchronously
-                await Task.Delay(1000);
-
-                if (register == 1)
-                {
-                    datawrite[1] = 0;
-                    plc.Write(datawrite);
-                }
+                Disconnect();
             }
             catch (Exception)
             {
                 Console.WriteLine("Write to PLC Fail");
+                Disconnect();
             }
             
         }
