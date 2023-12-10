@@ -24,6 +24,7 @@ namespace WindowsFormsApp1.classes
                     plc = new CommunicationPLCMitsubishiFX.CommunicationPLCMitsubishiFX(Constant.PLC_PORT_NAME, Constant.PLC_BAUD_RATE, Constant.PLC_DATABIT , Constant.PLC_STOPBIT , Constant.PLC_PARITY);
                 }
                 plc.Connect();
+                Console.WriteLine("Connect to PLC Successfully");
             }
             catch (Exception ex)
             {

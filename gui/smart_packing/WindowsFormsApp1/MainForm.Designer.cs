@@ -582,7 +582,7 @@
             // timerListenBarierState
             // 
             this.timerListenBarierState.Enabled = true;
-            this.timerListenBarierState.Interval = 2000;
+            this.timerListenBarierState.Interval = 1000;
             this.timerListenBarierState.Tick += new System.EventHandler(this.timerListenBarierState_Tick_1);
             // 
             // groupBox4
