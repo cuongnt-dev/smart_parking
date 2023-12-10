@@ -37,10 +37,12 @@ namespace WindowsFormsApp1
         public const int BAUD_RATE = 9600;
         public const int ACT_LOGICAL_STATION_NUMBER = 1;
 
-        public const string CAPTURE_PATH = "D:\\LV\\smart_parking\\detect_plate\\capture";
-        public const string TEST_PLATE_PATH = "D:\\LV\\smart_parking\\detect_plate\\test";
-        public const string SOUND_PATH = "D:\\LV\\smart_parking\\gui\\smart_packing\\sound";
-        public const string QR_PATH = "D:\\LV\\smart_parking\\gui\\smart_packing\\qr_code";
+        public const string MAIN_PATH = "D:\\LV\\smart_parking";
+        public const string CAPTURE_PATH = MAIN_PATH + "\\detect_plate\\capture";
+        public const string TEST_PLATE_PATH = MAIN_PATH + "\\detect_plate\\test";
+        public const string SOUND_PATH = MAIN_PATH + "\\gui\\smart_packing\\sound";
+        public const string QR_PATH = MAIN_PATH + "\\gui\\smart_packing\\qr_code";
+
         // 8no in D - last 3 bytes
         //  User defined byte 0 
         public const char LAST_CHAR_ENTRANCE_1 = 'e';
@@ -54,10 +56,10 @@ namespace WindowsFormsApp1
         public const string PLC_WRITE_ENTRANCE_1_CLOSE_BR2 = "D1_3";
         public const string PLC_WRITE_ENTRANCE_1_OPEN_BR2 = "D1_4";
 
-        public const string PLC_WRITE_ENTRANCE_2_CLOSE_BR1 = "D1_1";
-        public const string PLC_WRITE_ENTRANCE_2_OPEN_BR1 = "D1_2";
-        public const string PLC_WRITE_ENTRANCE_2_CLOSE_BR2 = "D1_3";
-        public const string PLC_WRITE_ENTRANCE_2_OPEN_BR2 = "D1_4";
+        public const string PLC_WRITE_ENTRANCE_2_CLOSE_BR1 = "D1_5";
+        public const string PLC_WRITE_ENTRANCE_2_OPEN_BR1 = "D1_6";
+        public const string PLC_WRITE_ENTRANCE_2_CLOSE_BR2 = "D1_7";
+        public const string PLC_WRITE_ENTRANCE_2_OPEN_BR2 = "D1_8";
 
         public const int PLC_READ_ENTRANCE_1_BR_REGISTER = 0;
         public const int PLC_READ_ENTRANCE_1_BR1C_BR2C = 6;
