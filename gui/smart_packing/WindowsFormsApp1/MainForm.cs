@@ -24,6 +24,7 @@ using WindowsFormsApp1.utils;
 using ZXing;
 using WindowsFormsApp1.form;
 using System.Drawing.Text;
+using System.Threading;
 
 namespace WindowsFormsApp1
 {
@@ -148,32 +149,36 @@ namespace WindowsFormsApp1
                         controlMode = Constant.CONTROL_MODE_MANUAL;
                     } else
                     {
-                        if(authenticateUser != null && stControl.Value == Constant.CONTROL_MODE_MANUAL && controlMode != stControl.Value)
+                        /*if(authenticateUser != null && stControl.Value == Constant.CONTROL_MODE_MANUAL && controlMode != stControl.Value)
                         {
                             if (PLC.IsRunning())
                             {
                                 if (entranceState1.Value == Constant.CHECKIN_STATE)
                                 {
                                     PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR1);
+                                    Thread.Sleep(1000);
                                     PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR2);
                                 }
                                 else if (entranceState1.Value == Constant.CHECKOUT_STATE)
                                 {
                                     PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR1);
+                                    Thread.Sleep(1000);
                                     PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR2);
                                 }
                                 if (entranceState2.Value == Constant.CHECKIN_STATE)
                                 {
                                     PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR1);
+                                    Thread.Sleep(1000);
                                     PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR2);
                                 }
                                 else if (entranceState2.Value == Constant.CHECKOUT_STATE)
                                 {
                                     PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR1);
+                                    Thread.Sleep(1000);
                                     PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR2);
                                 }
                             }
-                        }
+                        }*/
                         controlMode = stControl.Value;
                     }
                     labelControlMode.Text = controlMode;

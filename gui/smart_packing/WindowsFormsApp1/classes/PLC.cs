@@ -58,12 +58,13 @@ namespace WindowsFormsApp1.classes
                 data = plc.Read();
                 if (data != null)
                 {
+                    Console.WriteLine($"Read from {register} Value: {data[register]}");
                     return data[register];
                 }
                 return 0;
             } catch(Exception ex)
             {
-                Console.WriteLine("Read from PLC Fail");
+                Console.WriteLine($"Read from PLC register {register} Fail");
                 return 0;
             }
         }
