@@ -588,7 +588,6 @@
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox4.Controls.Add(this.labelControlMode);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label4);
@@ -836,10 +835,10 @@
             // labelControlMode
             // 
             this.labelControlMode.AutoSize = true;
-            this.labelControlMode.Location = new System.Drawing.Point(21, 29);
+            this.labelControlMode.Location = new System.Drawing.Point(486, 41);
             this.labelControlMode.Name = "labelControlMode";
             this.labelControlMode.Size = new System.Drawing.Size(151, 16);
-            this.labelControlMode.TabIndex = 48;
+            this.labelControlMode.TabIndex = 49;
             this.labelControlMode.Text = "Control Mode: Loading...";
             // 
             // MainForm
@@ -847,6 +846,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1658, 1055);
+            this.Controls.Add(this.labelControlMode);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBoxEntrance2QRCode);

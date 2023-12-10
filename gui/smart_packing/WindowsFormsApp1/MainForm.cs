@@ -43,7 +43,7 @@ namespace WindowsFormsApp1
         Setting entranceState1;
         Setting entranceState2;
         User authenticateUser = null;
-        string controlMode = Constant.CONTROL_MODE_MANUAL;
+        private string controlMode;
         public MainForm()
         {
             InitializeComponent();
@@ -87,6 +87,9 @@ namespace WindowsFormsApp1
             buttonControlList.Add(buttonCloseEntrance2Barier1);
             buttonControlList.Add(buttonOpenEntrance2Barier2);
             buttonControlList.Add(buttonCloseEntrance2Barier2);
+            controlMode = Constant.CONTROL_MODE_MANUAL;
+            labelControlMode.Text = $"Control Mode: {controlMode}";
+            UpdateControlItemMode();
         }
 
         private void UpdateControlItemMode()
@@ -143,15 +146,12 @@ namespace WindowsFormsApp1
                     {
                         labelEntranceState2.Text = $"State: {entranceState2.Value}";
                     }
-        
                     if(controlMode == null)
                     {
                         controlMode = Constant.CONTROL_MODE_MANUAL;
                     } else
                     {
-                        if(authenticateUser != null &&
-                            controlMode == Constant.CONTROL_MODE_AUTOMATION
-                            )
+                        if(authenticateUser != null && controlMode == Constant.CONTROL_MODE_AUTOMATION)
                         {
                             if(entranceState1.Value == Constant.CHECKIN_STATE)
                             {
@@ -183,7 +183,7 @@ namespace WindowsFormsApp1
                             }
                         }
                     }
-                    labelControlMode.Text = controlMode;
+                    labelControlMode.Text = $"Control Mode: {controlMode}";
                     UpdateControlItemMode();
                 }
             }
@@ -267,6 +267,7 @@ namespace WindowsFormsApp1
             if (authenticateUser != null)
             {
                 SystemManageForm form = new SystemManageForm(controlMode);
+                form.UpdateControlMode += UpdateControlMode;
                 form.ReloadMainForm += LoadMainForm;
                 form.Show();
             }
@@ -670,7 +671,6 @@ Checkout(string parkingCardId, string entrance)
         {
             try
             {
-                Console.WriteLine("Start");
                 // Load the image
                 Bitmap bitmap = (Bitmap)pictureBoxEntrance1QRCode.Image;
 
@@ -683,7 +683,6 @@ Checkout(string parkingCardId, string entrance)
                 // Check if a QR code was found
                 if (result != null)
                 {
-                    Console.WriteLine("Has Value");
                     timerEntrancd1QRCode.Enabled = false;
                     Helper.PlaySound(Constant.RECOGNIZE_QR_STATE);
                     // Check current state of entrance
@@ -696,11 +695,10 @@ Checkout(string parkingCardId, string entrance)
                         await Checkout(result.Text, Constant.ENTRANCE_1);
                     }
                     timerEntrancd1QRCode.Enabled = true;
-                    Console.WriteLine("end");
                 }
                 else
                 {
-                    Console.WriteLine("No QR code found in the image.");
+                    Console.WriteLine("-------- No QR code found in the image. ----------");
                 }
             }
             catch (Exception ex)

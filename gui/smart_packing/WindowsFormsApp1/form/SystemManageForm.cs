@@ -134,9 +134,8 @@ namespace WindowsFormsApp1.form
                     DB.UpsertSetting(entranceSettingItem.Key, state);
                 }
 
-                DB.UpsertSetting(Constant.CONTROL_MODE, comboBoxControlMode.SelectedItem.ToString());
-                ReloadMainForm.Invoke(this, null);
                 UpdateControlMode.Invoke(comboBoxControlMode.SelectedItem.ToString());
+                ReloadMainForm.Invoke(this, null);
                 this.Close();
             } catch(Exception ex)
             {
@@ -161,7 +160,6 @@ namespace WindowsFormsApp1.form
 
         private void comboBoxEntranceState2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("Entrance 2 changed");
             int tempItemCbIn = 0;
             if (comboBoxEntrance2CamIn.SelectedItem != null)
             {
