@@ -149,36 +149,32 @@ namespace WindowsFormsApp1
                         controlMode = Constant.CONTROL_MODE_MANUAL;
                     } else
                     {
-                        /*if(authenticateUser != null && stControl.Value == Constant.CONTROL_MODE_MANUAL && controlMode != stControl.Value)
+                        if(authenticateUser != null && 
+                            stControl.Value == Constant.CONTROL_MODE_AUTOMATION && 
+                            stControl.Value != controlMode
+                            )
                         {
-                            if (PLC.IsRunning())
+                            if(entranceState1.Value == Constant.CHECKIN_STATE)
                             {
-                                if (entranceState1.Value == Constant.CHECKIN_STATE)
-                                {
-                                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR1);
-                                    Thread.Sleep(1000);
-                                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR2);
-                                }
-                                else if (entranceState1.Value == Constant.CHECKOUT_STATE)
-                                {
-                                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR1);
-                                    Thread.Sleep(1000);
-                                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR2);
-                                }
-                                if (entranceState2.Value == Constant.CHECKIN_STATE)
-                                {
-                                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR1);
-                                    Thread.Sleep(1000);
-                                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR2);
-                                }
-                                else if (entranceState2.Value == Constant.CHECKOUT_STATE)
-                                {
-                                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR1);
-                                    Thread.Sleep(1000);
-                                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR2);
-                                }
+                                PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR2);
+                                Thread.Sleep(2000);
+                            } else if(entranceState1.Value == Constant.CHECKOUT_STATE)
+                            {
+                                PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR1);
+                                Thread.Sleep(2000);
                             }
-                        }*/
+
+                            if (entranceState2.Value == Constant.CHECKIN_STATE)
+                            {
+                                PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR2);
+                                Thread.Sleep(2000);
+                            }
+                            else if (entranceState2.Value == Constant.CHECKOUT_STATE)
+                            {
+                                PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR1);
+                                Thread.Sleep(2000);
+                            }
+                        }
                         controlMode = stControl.Value;
                     }
                     labelControlMode.Text = controlMode;
