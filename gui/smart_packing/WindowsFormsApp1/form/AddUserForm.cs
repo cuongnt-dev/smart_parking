@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.database;
 using WindowsFormsApp1.model;
+using WindowsFormsApp1.utils;
 
 namespace WindowsFormsApp1.form
 {
@@ -29,6 +30,8 @@ namespace WindowsFormsApp1.form
                 Card = textBoxCardID.Text,
                 Status = "Enable",
                 Role = "User",
+                Plate = "",
+                Password = Hash.HashString(textBoxPassword.Text)
             };
             try
             {

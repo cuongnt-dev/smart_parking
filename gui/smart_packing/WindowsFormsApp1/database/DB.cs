@@ -71,8 +71,8 @@ namespace WindowsFormsApp1.database
 
         static public void AddUser(User usr)
         {
-            string insertQuery = "INSERT INTO \"user\" (Name, Company, ParkingCardId, Status, Role, Plate, Password) " +
-                         "VALUES (@Name, @Company, @ParkingCardId, @Status, @Role, @Plate, @Password)";
+            string insertQuery = "INSERT INTO \"user\" (Name, Company, Card, Status, Role, Password) " +
+                         "VALUES (@Name, @Company, @Card, @Status, @Role, @Password)";
             conn.Execute(insertQuery, usr);
         }
 

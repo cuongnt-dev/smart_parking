@@ -109,39 +109,11 @@ namespace WindowsFormsApp1.form
             comboBoxEntranceState2.SelectedIndexChanged += comboBoxEntranceState2_SelectedIndexChanged;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private InternalEvent.UpdateControlModeDelegate GetUpdateControlMode()
         {
-            try
-            {
-                foreach (var camSettingItem in entranceCamSettingList)
-                {
-                    if (camSettingItem.Value.SelectedIndex != -1)
-                    {
-                        int index = camSettingItem.Value.SelectedIndex;
-                        if(index == -1 || index == 0)
-                        {
-                            DB.UpsertSetting(camSettingItem.Key, "");
-                        } else
-                        {
-                            DB.UpsertSetting(camSettingItem.Key, (index - 1).ToString());
-                        }
-                    }
-                }
-
-                foreach (var entranceSettingItem in entranceStateSettingList)
-                {
-                    string state = entranceSettingItem.Value.SelectedItem.ToString();
-                    DB.UpsertSetting(entranceSettingItem.Key, state);
-                }
-
-                UpdateControlMode.Invoke(comboBoxControlMode.SelectedItem.ToString());
-                ReloadMainForm.Invoke(this, null);
-                this.Close();
-            } catch(Exception ex)
-            {
-                MessageBox.Show($"Config successfully {ex}");
-            }
+            return UpdateControlMode;
         }
+
         private void comboBoxEntranceState1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int tempItemCbIn = 0;
@@ -172,6 +144,42 @@ namespace WindowsFormsApp1.form
             }
             comboBoxEntrance2CamIn.SelectedIndex = tempItemCbOut;
             comboBoxEntrance2CamOut.SelectedIndex = tempItemCbIn;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (var camSettingItem in entranceCamSettingList)
+                {
+                    if (camSettingItem.Value.SelectedIndex != -1)
+                    {
+                        int index = camSettingItem.Value.SelectedIndex;
+                        if (index == -1 || index == 0)
+                        {
+                            DB.UpsertSetting(camSettingItem.Key, "");
+                        }
+                        else
+                        {
+                            DB.UpsertSetting(camSettingItem.Key, (index - 1).ToString());
+                        }
+                    }
+                }
+
+                foreach (var entranceSettingItem in entranceStateSettingList)
+                {
+                    string state = entranceSettingItem.Value.SelectedItem.ToString();
+                    DB.UpsertSetting(entranceSettingItem.Key, state);
+                }
+
+                UpdateControlMode.Invoke(comboBoxControlMode.SelectedItem.ToString());
+                ReloadMainForm.Invoke(this, null);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Config successfully {ex}");
+            }
         }
     }
 }
