@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.database;
 using WindowsFormsApp1.form;
 using WindowsFormsApp1.model;
+using WindowsFormsApp1.type;
 using WindowsFormsApp1.utils;
 
 namespace WindowsFormsApp1
@@ -17,13 +18,18 @@ namespace WindowsFormsApp1
     public partial class AuthenicationForm : Form
     {
         private string authenticationFor;
+        private string controlMode;
+
         public event EventHandler LoadMainForm;
         public delegate void UpdateAuthenticateUserDelegate(User usr);
+        
         public event UpdateAuthenticateUserDelegate UpdateAuthenticateUser;
-        public AuthenicationForm(string authFor)
+        public event InternalEvent.UpdateControlModeDelegate UpdateControlMode;
+        public AuthenicationForm(string authFor, string mode)
         {
             InitializeComponent();
             authenticationFor = authFor;
+            controlMode = mode;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,8 +55,9 @@ namespace WindowsFormsApp1
             }
             else if (authenticationFor == "SystemManageForm")
             {
-                SystemManageForm form = new SystemManageForm();
+                SystemManageForm form = new SystemManageForm(controlMode);
                 form.ReloadMainForm += LoadMainForm;
+                form.UpdateControlMode += UpdateControlMode;
                 form.Show();
             }
             this.Hide();

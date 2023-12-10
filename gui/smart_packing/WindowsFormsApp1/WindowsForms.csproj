@@ -180,6 +180,7 @@
     <Compile Include="StatusIndicator.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="type\InternalEvent.cs" />
     <Compile Include="utils\Hash.cs" />
     <Compile Include="utils\Helper.cs" />
     <EmbeddedResource Include="form\AddUserForm.resx">

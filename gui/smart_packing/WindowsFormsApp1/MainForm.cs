@@ -143,39 +143,45 @@ namespace WindowsFormsApp1
                     {
                         labelEntranceState2.Text = $"State: {entranceState2.Value}";
                     }
-                    Setting stControl = settingsList.FirstOrDefault(setting => setting.Name == Constant.CONTROL_MODE);
-                    if(stControl == null)
+        
+                    if(controlMode == null)
                     {
                         controlMode = Constant.CONTROL_MODE_MANUAL;
                     } else
                     {
-                        if(authenticateUser != null && 
-                            stControl.Value == Constant.CONTROL_MODE_AUTOMATION && 
-                            stControl.Value != controlMode
+                        if(authenticateUser != null &&
+                            controlMode == Constant.CONTROL_MODE_AUTOMATION
                             )
                         {
                             if(entranceState1.Value == Constant.CHECKIN_STATE)
                             {
                                 PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR2);
-                                Thread.Sleep(2000);
+                                Thread.Sleep(1000);
+                                PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR1);
+                                Thread.Sleep(1000);
                             } else if(entranceState1.Value == Constant.CHECKOUT_STATE)
                             {
                                 PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR1);
-                                Thread.Sleep(2000);
+                                Thread.Sleep(1000);
+                                PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR2);
+                                Thread.Sleep(1000);
                             }
 
                             if (entranceState2.Value == Constant.CHECKIN_STATE)
                             {
                                 PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR2);
-                                Thread.Sleep(2000);
+                                Thread.Sleep(1000);
+                                PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR1);
+                                Thread.Sleep(1000);
                             }
                             else if (entranceState2.Value == Constant.CHECKOUT_STATE)
                             {
                                 PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR1);
-                                Thread.Sleep(2000);
+                                Thread.Sleep(1000);
+                                PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR2);
+                                Thread.Sleep(1000);
                             }
                         }
-                        controlMode = stControl.Value;
                     }
                     labelControlMode.Text = controlMode;
                     UpdateControlItemMode();
@@ -220,6 +226,10 @@ namespace WindowsFormsApp1
         {
             authenticateUser = usr;
         }
+        private void UpdateControlMode(string mode)
+        {
+            controlMode = mode;
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -229,7 +239,7 @@ namespace WindowsFormsApp1
                 form.Show();
             } else
             {
-                AuthenicationForm authenicationForm = new AuthenicationForm("UserManageForm");
+                AuthenicationForm authenicationForm = new AuthenicationForm("UserManageForm", controlMode);
                 authenicationForm.UpdateAuthenticateUser += UpdateAuthenticateUser;
                 authenicationForm.ShowDialog();
             }
@@ -245,7 +255,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                AuthenicationForm authenicationForm = new AuthenicationForm("ParkingManageForm");
+                AuthenicationForm authenicationForm = new AuthenicationForm("ParkingManageForm", controlMode);
                 authenicationForm.UpdateAuthenticateUser += UpdateAuthenticateUser;
                 authenicationForm.ShowDialog();
             }
@@ -256,14 +266,15 @@ namespace WindowsFormsApp1
         {
             if (authenticateUser != null)
             {
-                SystemManageForm form = new SystemManageForm();
+                SystemManageForm form = new SystemManageForm(controlMode);
                 form.ReloadMainForm += LoadMainForm;
                 form.Show();
             }
             else
             {
-                AuthenicationForm authenicationForm = new AuthenicationForm("SystemManageForm");
+                AuthenicationForm authenicationForm = new AuthenicationForm("SystemManageForm", controlMode);
                 authenicationForm.UpdateAuthenticateUser += UpdateAuthenticateUser;
+                authenicationForm.UpdateControlMode += UpdateControlMode;
                 authenicationForm.LoadMainForm += LoadMainForm;
                 authenicationForm.ShowDialog();
             }

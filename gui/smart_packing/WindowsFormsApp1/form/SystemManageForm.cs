@@ -1,4 +1,5 @@
 ﻿using AForge.Video.DirectShow;
+using Microsoft.Scripting.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.database;
+using WindowsFormsApp1.type;
 using static System.Windows.Forms.AxHost;
 
 
@@ -17,8 +19,10 @@ namespace WindowsFormsApp1.form
 {
     public partial class SystemManageForm : Form
     {
+        public string controlModeStatus;
         private FilterInfoCollection listWebcamInfo;
         public event EventHandler ReloadMainForm;
+        public event InternalEvent.UpdateControlModeDelegate UpdateControlMode;
 
         private List<string> barierState = new List<string>{Constant.CHECKIN_STATE, Constant.CHECKOUT_STATE};
         private List<string> controlMode = new List<string> { Constant.CONTROL_MODE_MANUAL, Constant.CONTROL_MODE_AUTOMATION };
@@ -26,7 +30,7 @@ namespace WindowsFormsApp1.form
         private Dictionary<string, ComboBox> entranceCamSettingList = new Dictionary<string, ComboBox> {};
         private Dictionary<string, ComboBox> entranceStateSettingList = new Dictionary<string, ComboBox> { };
 
-        public SystemManageForm()
+        public SystemManageForm(string mode)
         {
             InitializeComponent();
             entranceCamSettingList.Add(Constant.ENTRANCE_1_CAM_IN, comboBoxEntrance1CamIn);
@@ -39,6 +43,9 @@ namespace WindowsFormsApp1.form
 
             entranceStateSettingList.Add(Constant.ENTRANCE_1, comboBoxEntranceState1);
             entranceStateSettingList.Add(Constant.ENTRANCE_2, comboBoxEntranceState2);
+
+
+            controlModeStatus = mode;
         }
 
         private void SystemManageForm_Load(object sender, EventArgs e)
@@ -95,12 +102,9 @@ namespace WindowsFormsApp1.form
                         entranceSettingItem.Value.SelectedItem = st.Value;
                     }
                 }
-                Setting controlModeSt = settingsList.FirstOrDefault(setting => setting.Name == Constant.CONTROL_MODE);
-                if(controlModeSt != null)
-                {
-                    comboBoxControlMode.SelectedItem = controlModeSt.Value;
-                }
             }
+            comboBoxControlMode.SelectedItem = controlModeStatus;
+
             comboBoxEntranceState1.SelectedIndexChanged += comboBoxEntranceState1_SelectedIndexChanged;
             comboBoxEntranceState2.SelectedIndexChanged += comboBoxEntranceState2_SelectedIndexChanged;
         }
@@ -132,6 +136,7 @@ namespace WindowsFormsApp1.form
 
                 DB.UpsertSetting(Constant.CONTROL_MODE, comboBoxControlMode.SelectedItem.ToString());
                 ReloadMainForm.Invoke(this, null);
+                UpdateControlMode.Invoke(comboBoxControlMode.SelectedItem.ToString());
                 this.Close();
             } catch(Exception ex)
             {
