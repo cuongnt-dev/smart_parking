@@ -70,7 +70,7 @@ namespace WindowsFormsApp1.form
                 return;
             }
             // Check the latest log - Is checkin out checkout
-            Log log = DB.GetLatestLog(usrs[0].ID);
+            Log log = DB.GetLatestLog(detectedPlate);
             if (log == null)
             {
                 MessageBox.Show("Can't get checkin data");
