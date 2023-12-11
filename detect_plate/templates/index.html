@@ -62,7 +62,7 @@
     {% endif %}
 
     {% if not username %}
-        <form method="POST" action="{{ url_for('index') }}">
+        <form method="POST" action="{{ url_for('card') }}">
             <h2>Login</h2>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
