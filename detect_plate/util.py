@@ -12,7 +12,7 @@ def normalize_image(image):
 
 def replace_with_dict(val, d):
     if d is None:
-        d = {'I': '1', 'J': '1', ".": "", "-": "", "|": ""}
+        d = {'I': '1', 'J': '1', ".": "", "-": "", "|": "", "i": '1'}
     return val.translate(str.maketrans(d))
 
 

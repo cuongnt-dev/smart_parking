@@ -5,8 +5,277 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="270b494f-e149-4dcb-a58a-f3ebab1ca775" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/detect_plate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/detect_plate.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/398356746_1096367558447399_2081177772629897655_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373313066896830_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373314779884643_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373319689415691_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373323255452510_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373324565415650_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373325827874474_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373327619631246_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373328160688572_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373328489847345_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373328725970336_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373329713261271_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373331773949997_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373332993076745_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373333709698152_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373335619303564_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373337146919501_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638373337642889831_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638374981513670221_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638374981693578757_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638374981871371491_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638374982466861178_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638374984376877499_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638374986167498195_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375074763166008_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375075002798264_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375075017805505_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375075047896291_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375075077872616_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375075738125822_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375077722361393_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375869811209305_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375869885988940_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375869991553372_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375871526316971_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375871721769750_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375872338608508_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375877336579186_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375880973025356_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375880996546927_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375883471335201_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375884314641943_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375885098179326_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375888623664275_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375888834234284_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375888849224425_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375888909163356_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375889059747945_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375889120004154_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375889195231347_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375889255258702_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375889451234602_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375889511504693_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375895164427303_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375896219224423_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375896505531079_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375897032275156_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375897047154261_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375897062163079_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375897077161449_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375897092275384_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375897107317791_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375899263831251_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375899474505447_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375899489502880_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375899504785191_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375899519715755_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375900038504414_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375900053154862_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375900068084000_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375900083189143_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901087244485_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901162281349_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901177262331_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901192305881_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901207182960_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901222184759_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901237192990_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901252445911_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901267354850_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901282333681_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901650135910_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901665099683_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901680033603_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901695214959_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901710123406_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375901725234385_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375903916776323_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375903932128463_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375903947129777_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375903962143551_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375903977180602_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375903992092822_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375905441480193_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375906793330009_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375907014432505_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375907048080291_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375907081365341_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375907116009442_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375907150186446_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375907183627168_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375907216692683_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375907250924041_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375907284321648_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375907317499156_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375908258600080_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375908312699350_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375908345761282_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375908379267294_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375908578426292_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375908626982320_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375908690594290_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375908784303969_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375908862952005_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375908897726801_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375911689699374_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375912021791717_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/638375912264614947_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop_grizenn.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/1699526485871.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/1699527501644.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/1699527506916.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/1699527517537.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/1699527523704.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/1699528193580.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/1699528199623.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/1699583187345.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/1699583194983.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/1699803289751.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/398356746_1096367558447399_2081177772629897655_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361173403256674.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361174254880497.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361175773322569.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361176113119123.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361176700078075.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361177323023168.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361178275391017.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361191956426854.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361192080993325.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361192127874974.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361192187724602.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361192232450351.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361192277725148.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361196717853128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361196779341509.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361196819426549.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361196848788606.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361196891038311.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361196924873365.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361196968165481.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638361197013126740.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638362053979097630.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638362055005882151.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638362056027538874.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638362058214530472.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638362058309563663.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373313066896830_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373314779884643_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373319689415691_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373323255452510_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373324565415650_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373325827874474_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373327619631246_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373328160688572_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373328489847345_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373328725970336_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373329713261271_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373331773949997_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373332993076745_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373333709698152_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373335619303564_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373337146919501_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373337642889831_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638374981871371491_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638374982466861178_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638374984376877499_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638374986167498195_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375074763166008_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375075002798264_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375075017805505_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375075047896291_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375075077872616_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375075738125822_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375077722361393_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375883471335201_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375884314641943_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375885098179326_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375888623664275_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375888834234284_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375888849224425_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375888909163356_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375889059747945_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375889120004154_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375889195231347_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375889255258702_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375889451234602_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375889511504693_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375895164427303_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375896219224423_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375896505531079_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375897032275156_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375897047154261_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375897062163079_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375897077161449_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375897092275384_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375897107317791_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375899263831251_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375899474505447_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375899489502880_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375899504785191_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375899519715755_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375900038504414_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375900053154862_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375900068084000_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375900083189143_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901087244485_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901162281349_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901177262331_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901192305881_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901207182960_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901222184759_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901237192990_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901252445911_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901267354850_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901282333681_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901650135910_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901665099683_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901680033603_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901695214959_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901710123406_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375901725234385_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375903916776323_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375903932128463_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375903947129777_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375903962143551_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375903977180602_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375903992092822_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375905441480193_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375906793330009_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375907014432505_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375907048080291_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375907081365341_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375907116009442_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375907150186446_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375907183627168_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375907216692683_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375907250924041_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375907284321648_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375907317499156_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375908258600080_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375908312699350_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375908345761282_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375908379267294_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375908578426292_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375908626982320_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375908690594290_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375908784303969_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375908862952005_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375908897726801_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375911689699374_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375912021791717_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638375912264614947_back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/test.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plate.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/plate.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resize.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing_crop_20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/util.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +367,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Flask server.detect_plate" />
       <item itemvalue="Python.main" />
     </list>
   </component>
@@ -115,6 +385,7 @@
       <workItem from="1701875518728" duration="2401000" />
       <workItem from="1701965025378" duration="3977000" />
       <workItem from="1702227070126" duration="4682000" />
+      <workItem from="1702302771089" duration="7825000" />
     </task>
     <servers />
   </component>
@@ -129,5 +400,8 @@
         <watch expression="LpImg" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/detect_plate$main.coverage" NAME="main Coverage Results" MODIFIED="1702311974702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
   </component>
 </project>
