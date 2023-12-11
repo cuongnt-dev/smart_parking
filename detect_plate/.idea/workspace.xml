@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="270b494f-e149-4dcb-a58a-f3ebab1ca775" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capture/398356746_1096367558447399_2081177772629897655_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract/638373313066896830_back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/extract/638373313066896830_back.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,9 +68,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="E:\Project\MySelf\LV\smart_parking\detect_plate\venv\Scripts\python.exe" />
       <option name="SDK_NAME" value="Python 3.9 (detect_plate) (2)" />
-      <option name="WORKING_DIRECTORY" value="D:\LV\smart_parking\detect_plate" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -96,6 +99,9 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -118,15 +124,6 @@
     <option name="version" value="3" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/detection.py</url>
-          <line>89</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="final_labels_frontal" />

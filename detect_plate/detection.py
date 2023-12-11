@@ -28,15 +28,21 @@ def crop_horizontal(img):
     img_cropped = img[:, left_crop:right_crop, :]
     return img_cropped
 
+def preprocessing(img):
+    gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    blurred_img = cv2.GaussianBlur(gray_img, (5, 5), 0)
+    # Apply thresholding
+    _, thresholded_img = cv2.threshold(blurred_img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    return thresholded_img
+
 def detect_plate(image_path):
     detect_plate_img = ""
     image_file = os.path.basename(image_path)
     # Đọc file ảnh đầu vào
     Ivehicle = cv2.imread(image_path)
     Ivehicle = cv2.resize(Ivehicle, (900, 700))
-    cv2.imwrite("resize.jpg", Ivehicle)
     Ivehicle = crop_horizontal(Ivehicle)
-    cv2.imwrite("crop_grizenn.jpg" , Ivehicle)
+    # Ivehicle = preprocessing(Ivehicle)
     # Kích thước lớn nhất và nhỏ nhất của 1 chiều ảnh
     Dmax = 400
     Dmin = 300
@@ -69,13 +75,14 @@ def detect_plate(image_path):
 
 
 def extract_number_plate_text(plate, image_file):
+    pre_plate = preprocessing(plate)
     pattern = r'[^A-Za-z0-9]+'
     plateResult = {}
     # Load the image of the number plate
     extract_path = f"{extract_dir_path}\{image_file}"
 
     reader = easyocr.Reader(["en"])
-    results = reader.readtext(plate)
+    results = reader.readtext(pre_plate)
 
     for result in results:
         bounding_box = result[0]
