@@ -776,7 +776,15 @@ Checkout(string parkingCardId, string entrance)
                 Bitmap bitmap = (Bitmap)pictureBoxEntrance2QRCode.Image;
 
                 // Create a BarcodeReader instance
-                BarcodeReader barcodeReader = new BarcodeReader();
+                BarcodeReader barcodeReader = new BarcodeReader
+                {
+                    Options =
+                    {
+                        TryHarder = true,
+                        TryInverted = true,
+                    },
+                    AutoRotate = true,
+                };
 
                 // Decode the QR code
                 var result = barcodeReader.Decode(bitmap);
