@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="270b494f-e149-4dcb-a58a-f3ebab1ca775" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capture/398356746_1096367558447399_2081177772629897655_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extract/638373313066896830_back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/extract/638373313066896830_back.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/398356746_1096367558447399_2081177772629897655_n.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

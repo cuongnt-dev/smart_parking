@@ -152,5 +152,36 @@ namespace WindowsFormsApp1.database
                 );
             }
         }
+
+        internal static int GetTotalCheckToday(string type)
+        {
+            string query = "SELECT COUNT(*) FROM \"log\" WHERE type = @Type AND DATE_TRUNC('day', occurrence) = CURRENT_DATE";
+            int count = conn.ExecuteScalar<int>(query, new
+            {
+                Type = type,
+            });
+            return count;
+        }
+
+        internal static Log GetLatestCheck(string type)
+        {
+            string query = "SELECT * FROM \"log\" WHERE type = @Type ORDER BY occurrence DESC LIMIT 1";
+            var logs = conn.Query<Log>(query, new
+            {
+                Type = type,
+            }).ToList();
+            if (logs.Count > 0)
+            {
+                return logs[0];
+            }
+            return null;
+        }
+
+        internal static int GetAvaiableSlot()
+        {
+            string query = $"SELECT (SELECT COUNT(*) FROM \"log\" WHERE type = '{Constant.CHECKIN_STATE}') - (SELECT COUNT(*) FROM \"log\" WHERE type = '{Constant.CHECKOUT_STATE}') AS result";
+            int count = conn.ExecuteScalar<int>(query);
+            return Constant.MAX_PARKING_SLOT - count;
+        }
     }
 }

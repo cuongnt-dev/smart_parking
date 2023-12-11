@@ -9,6 +9,7 @@ namespace WindowsFormsApp1
 {
     internal class Constant
     {
+        public const int MAX_PARKING_SLOT = 100;
         public const string PLC_PORT_NAME = "COM8";
         public const int PLC_BAUD_RATE = 19200;
         public const int PLC_DATABIT = 7;

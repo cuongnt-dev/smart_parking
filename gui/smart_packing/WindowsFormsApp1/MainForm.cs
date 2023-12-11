@@ -198,8 +198,11 @@ namespace WindowsFormsApp1
             List<User> usrs = DB.GetUserWithCondition("");
             foreach (var usr in usrs)
             {
-                string data = $"{usr.Card}_{Helper.GetCurrentDay()}";
-                UserManageForm.ExportQRCode(data, false);
+                if(usr.Card != null)
+                {
+                    string data = $"{usr.Card}_{Helper.GetCurrentDay()}";
+                    UserManageForm.ExportQRCode(data, false);
+                }
             }
         }
 
@@ -839,6 +842,7 @@ Checkout(string parkingCardId, string entrance)
             if(sensor_data == 0)
             {
                 int br_data = PLC.ReadFrom(Constant.PLC_READ_ENTRANCE_1_BR_REGISTER);
+                if (entranceState1 == null) return;
                 if (entranceState1.Value == Constant.CHECKIN_STATE)
                 {
                     if (br_data == Constant.PLC_READ_ENTRANCE_1_BR1O_BR2C)
@@ -859,6 +863,27 @@ Checkout(string parkingCardId, string entrance)
                     }
                 }
             }
+        }
+
+        private void UpdateStatisticInformation()
+        {
+            int checkinCount = DB.GetTotalCheckToday(Constant.CHECKIN_STATE);
+            int checkoutCount = DB.GetTotalCheckToday(Constant.CHECKOUT_STATE);
+            Log latestCheckin = DB.GetLatestCheck(Constant.CHECKIN_STATE);
+            Log latestCheckout = DB.GetLatestCheck(Constant.CHECKOUT_STATE);
+            int availableSlot = DB.GetAvaiableSlot();
+            string time = latestCheckin != null && latestCheckin.Occurrence != null ? latestCheckin.Occurrence.ToString("dd/MM/yyyy HH:mm:ss"): "Not Found";
+            labelLastCheckin.Text = $"Latest Checkin: {time}";
+            time = latestCheckout != null && latestCheckout.Occurrence != null ? latestCheckout.Occurrence.ToString("dd/MM/yyyy HH:mm:ss") : "Not Found";
+            labelLastCheckout.Text = $"Latest Checkout: {time}";
+            labelSlotAvailable.Text = $"Slot Avaiable: {availableSlot}";
+            labelNumberCheckin.Text = $"Number Checkin Today: {checkinCount}";
+            labelNumberCheckout.Text = $"Number Checkout Today: {checkoutCount}";
+        }
+
+        private void timerUpdateParkingInformation_Tick(object sender, EventArgs e)
+        {
+            UpdateStatisticInformation();
         }
     }
 }
