@@ -100,9 +100,9 @@ namespace WindowsFormsApp1.database
             return logs;
         }
 
-        internal static Log GetLatestLog(int id)
+        internal static Log GetLatestLog(string id)
         {
-            string query = $"SELECT * FROM \"log\" WHERE user_id='{id}' ORDER BY occurrence DESC LIMIT 1";
+            string query = $"SELECT * FROM \"log\" WHERE card='{id}' ORDER BY occurrence DESC LIMIT 1";
 
             
             var logs = conn.Query<Log>(query).ToList();

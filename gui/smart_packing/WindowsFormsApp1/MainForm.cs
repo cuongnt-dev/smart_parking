@@ -507,6 +507,7 @@ Checkin(string parkingCardId, string entrance)
                 Log l = new Log
                 {
                     UserID = usr.ID,
+                    Plate = res.PlateText,
                     Type = Constant.CHECKIN_STATE,
                     Occurrence = DateTime.Now,
                 };
@@ -518,19 +519,20 @@ Checkin(string parkingCardId, string entrance)
         Task
 Checkout(string parkingCardId, string entrance)
         {
-            // Trigger cardId Checkout {tmpCardId}
             User usr = DB.GetUserByCardId(parkingCardId);
+            // Trigger cardId Checkout {tmpCardId}
             DetectResponse res = await CapturePlateAsync(entrance, Constant.CHECKOUT_STATE);
-            if (usr.Plate != res.PlateText)
-            {
-                MessageBox.Show("Invalid Plate");
-                return;
-            }
+            
             // Get latest log of this user
-            Log log = DB.GetLatestLog(usr.ID);
+            Log log = DB.GetLatestLog(parkingCardId);
             if (log.Type != "Checkin")
             {
                 MessageBox.Show("This card didn't used for checkin before");
+                return;
+            }
+            if(res.PlateText != log.Plate)
+            {
+                MessageBox.Show("This plate different with one when checkin");
                 return;
             }
             Helper.PlaySound(Constant.CHECKOUT_STATE);
@@ -540,13 +542,12 @@ Checkout(string parkingCardId, string entrance)
                 UpdateEntranceLabelInfor(entrance, parkingCardId, res, Constant.CHECKOUT_STATE, DateTime.Now, usr.Name);
                 Log l = new Log
                 {
-                    UserID = usr.ID,
+                    Plate = res.PlateText,
                     Type = Constant.CHECKOUT_STATE,
                     Occurrence = DateTime.Now,
                 };
                 DB.CreateLog(l);
             });
-            
         }
 
         public void EndTimer(object sender, ElapsedEventArgs e)
@@ -574,11 +575,11 @@ Checkout(string parkingCardId, string entrance)
                     // Check current state of entrance
                     if (entranceState2.Value == Constant.CHECKIN_STATE)
                     {
-                        Checkin(parkingCardId, Constant.ENTRANCE_2);
+                        _ = Checkin(parkingCardId, Constant.ENTRANCE_2);
                     }
                     else
                     {
-                        Checkout(parkingCardId, Constant.ENTRANCE_2);
+                        _ = Checkout(parkingCardId, Constant.ENTRANCE_2);
                     }
                 }
             }

@@ -11,5 +11,9 @@ namespace WindowsFormsApp1.database
         public string Type { get; set; }
         public DateTime Occurrence { get; set; }
         public int UserID { get; set; }
+
+        public string Plate { get; set; }
+
+        public string Card { get; set; }
     }
 }

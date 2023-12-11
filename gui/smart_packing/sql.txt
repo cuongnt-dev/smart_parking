@@ -23,3 +23,7 @@ CREATE TABLE setting (
 );
 INSERT INTO "user" (name, company, parkingCardId, status, role, password)
 VALUES ('admin', 'YourCompany', '123456', 'Active', 'Admin', '5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5');
+
+
+ALTER TABLE log
+ADD COLUMN card VARCHAR(255);
