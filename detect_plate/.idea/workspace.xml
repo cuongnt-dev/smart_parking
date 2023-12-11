@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="270b494f-e149-4dcb-a58a-f3ebab1ca775" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/detect_plate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/detect_plate.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/setup.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/Constant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/Constant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/MainForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/bin/Debug/WindowsFormsApp1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/form/UserManageForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/form/UserManageForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/DesignTimeResolveAssemblyReferences.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/DesignTimeResolveAssemblyReferences.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/obj/Debug/WindowsFormsApp1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/utils/Hash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/utils/Hash.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/utils/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/WindowsFormsApp1/utils/Helper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/qr_code/QRCode_User_14978276.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,23 +35,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/LV/smart_parking/detect_plate/main.py",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/LV/smart_parking/detect_plate/main.py&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\LV\smart_parking\detect_plate\static" />
@@ -151,9 +134,5 @@
         <watch expression="LpImg" />
       </configuration>
     </watches-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/detect_plate$detect_plate.coverage" NAME="detect_plate Coverage Results" MODIFIED="1702228220352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/detect_plate$main.coverage" NAME="main Coverage Results" MODIFIED="1702231953343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:\LV\smart_parking\detect_plate" />
   </component>
 </project>

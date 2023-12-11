@@ -51,7 +51,7 @@ def detect():
     })
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/card', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         username = request.form.get('username')
