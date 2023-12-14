@@ -501,21 +501,19 @@ Checkin(string parkingCardId, string entrance)
             
 
             // Trigger cardId Checkin {cardId}
-            _ = Task.Run(() =>
+            this.Invoke(new Action(() =>
             {
-                this.Invoke(new Action(() =>
-                {
-                    UpdateEntranceLabelInfor(entrance, parkingCardId, res, Constant.CHECKIN_STATE, DateTime.Now, usr.Name);
-                }));
-                Log l = new Log
-                {
-                    UserID = usr.ID,
-                    Plate = res.PlateText,
-                    Type = Constant.CHECKIN_STATE,
-                    Occurrence = DateTime.Now,
-                };
-                DB.CreateLog(l);
-            });
+                UpdateEntranceLabelInfor(entrance, parkingCardId, res, Constant.CHECKIN_STATE, DateTime.Now, usr.Name);
+            }));
+            Log l = new Log
+            {
+                UserID = usr.ID,
+                Plate = res.PlateText,
+                Card = parkingCardId,
+                Type = Constant.CHECKIN_STATE,
+                Occurrence = DateTime.Now,
+            };
+            DB.CreateLog(l);
         }
 
         private async 
@@ -540,17 +538,19 @@ Checkout(string parkingCardId, string entrance)
             }
             Helper.PlaySound(Constant.CHECKOUT_STATE);
             // Trigger cardId Checkin {cardId}
-            _ = Task.Run(() =>
+            this.Invoke(new Action(() =>
             {
                 UpdateEntranceLabelInfor(entrance, parkingCardId, res, Constant.CHECKOUT_STATE, DateTime.Now, usr.Name);
-                Log l = new Log
-                {
-                    Plate = res.PlateText,
-                    Type = Constant.CHECKOUT_STATE,
-                    Occurrence = DateTime.Now,
-                };
-                DB.CreateLog(l);
-            });
+            }));
+            Log l = new Log
+            {
+                UserID = usr.ID,
+                Plate = res.PlateText,
+                Type = Constant.CHECKOUT_STATE,
+                Card = parkingCardId,
+                Occurrence = DateTime.Now,
+            };
+            DB.CreateLog(l);
         }
 
         public void EndTimer(object sender, ElapsedEventArgs e)
