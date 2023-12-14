@@ -30,10 +30,17 @@ def crop_horizontal(img):
 
 def preprocessing(img):
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    blurred_img = cv2.GaussianBlur(gray_img, (5, 5), 0)
+    cv2.imwrite("gray_img.jpg", gray_img)
+    blurred_img = cv2.GaussianBlur(gray_img, (3, 3), 0)
+    cv2.imwrite("blurred_img.jpg", blurred_img)
     # Apply thresholding
-    _, thresholded_img = cv2.threshold(blurred_img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-    return thresholded_img
+    adaptive_thresh = cv2.adaptiveThreshold(blurred_img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 17, 6)
+    # adaptive_thresh = cv2.adaptiveThreshold(blurred_img, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 17, 2)
+    # _, adaptive_thresh = cv2.threshold(blurred_img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+    kernel = np.ones((3, 3), np.uint8)
+    morph_img = cv2.morphologyEx(adaptive_thresh, cv2.MORPH_CLOSE, kernel)
+    return morph_img
 
 def detect_plate(image_path):
     detect_plate_img = ""
@@ -42,7 +49,7 @@ def detect_plate(image_path):
     Ivehicle = cv2.imread(image_path)
     Ivehicle = cv2.resize(Ivehicle, (900, 700))
     Ivehicle = crop_horizontal(Ivehicle)
-    # Ivehicle = preprocessing(Ivehicle)
+    cv2.imwrite("crop_horizontal.jpg", Ivehicle)
     # Kích thước lớn nhất và nhỏ nhất của 1 chiều ảnh
     Dmax = 400
     Dmin = 300
@@ -68,14 +75,16 @@ def detect_plate(image_path):
             break  # Break out of the outer loop
 
     if success_flag is False:
-        return _, _ , "Can't detect plate"
+        return None, None , "Can't detect plate"
     if len(LpImg):
         detect_plate_img = normalize_image(LpImg[0])
     return detect_plate_img, image_file, None
 
 
 def extract_number_plate_text(plate, image_file):
+    cv2.imwrite("plate.jpg", plate)
     pre_plate = preprocessing(plate)
+    cv2.imwrite("preprocessing.jpg", pre_plate)
     pattern = r'[^A-Za-z0-9]+'
     plateResult = {}
     # Load the image of the number plate
