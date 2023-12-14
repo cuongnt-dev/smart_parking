@@ -210,6 +210,10 @@ namespace WindowsFormsApp1
         {
             LoadMainForm(sender, e);
             CreateQRCodeToday();
+            Console.WriteLine(Helper.CalculateSimilarity("89ET 18896", "89E1 18896"));
+            Console.WriteLine(Helper.CalculateSimilarity("89ET 18896", "89ET 188961"));
+            Console.WriteLine(Helper.CalculateSimilarity("89ET 18896", "89E1 188961"));
+            Console.WriteLine(Helper.CalculateSimilarity("89ET 18896", "89E1 48896"));
         }
 
         private async void buttonCaptureCheckin_Click(object sender, EventArgs e)
