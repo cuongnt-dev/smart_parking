@@ -84,7 +84,7 @@ namespace WindowsFormsApp1.database
 
         static public void CreateLog(Log log)
         {
-            string query = "INSERT INTO log (type, occurrence, userId) VALUES (@Type, @Occurrence, @UserID)";
+            string query = "INSERT INTO log (type, occurrence, userId, plate, card) VALUES (@Type, @Occurrence, @UserID, @Plate, @Card)";
             conn.Execute(query, log);
         }
 
