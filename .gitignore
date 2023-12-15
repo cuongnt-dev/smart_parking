@@ -7,3 +7,6 @@ detect_plate/.idea/
 detect_plate/.idea/*
 gui/smart_packing/.vs/smart_packing/FileContentIndex/
 gui/smart_packing/WindowsFormsApp1/obj/Debug/
+detect_plate/detect/
+detect_plate/test/
+detect_plate/capture/
