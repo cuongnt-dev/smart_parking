@@ -5,17 +5,21 @@ import easyocr
 import numpy as np
 import re
 
-from util import normalize_image, replace_with_dict, current_milli_time, remove_special_characters
+from util import normalize_image, replace_with_dict, current_milli_time, remove_special_characters, \
+    filter_accept_number, detect_dot
 
 root = os.path.dirname(os.path.abspath(__file__))
 extract_dir_path = f"{root}\extract"
 global wpod_net
-
+global reader
 def init_model():
     global wpod_net
     wpod_net_path = "wpod-net_update1.json"
     wpod_net = load_model(wpod_net_path)
 
+def init_reader():
+    global reader
+    reader = easyocr.Reader(["en"])
 def crop_horizontal(img):
     # Get image dimensions
     height, width, _ = img.shape
@@ -90,7 +94,6 @@ def extract_number_plate_text(plate, image_file):
     # Load the image of the number plate
     extract_path = f"{extract_dir_path}\{image_file}"
 
-    reader = easyocr.Reader(["en"])
     results = reader.readtext(pre_plate)
 
     for result in results:
@@ -113,5 +116,7 @@ def extract_number_plate_text(plate, image_file):
             temp_str = remove_special_characters(temp_str[:-1]) + replace_with_dict(temp_str[-1], None)
             concatenated_string = f"{temp_str}"
         elif index == 1:
-            concatenated_string += f" {remove_special_characters(value)}"
+            value = replace_with_dict(value, None)
+            value = detect_dot(value)
+            concatenated_string += f" {filter_accept_number(value)}"
     return concatenated_string, extract_path

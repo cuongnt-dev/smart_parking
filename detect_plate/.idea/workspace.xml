@@ -6,6 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="270b494f-e149-4dcb-a58a-f3ebab1ca775" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blurred_img.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/blurred_img.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crop_horizontal.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/crop_horizontal.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gray_img.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/gray_img.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plate.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/plate.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../gui/smart_packing/.vs/smart_packing/v17/.suo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

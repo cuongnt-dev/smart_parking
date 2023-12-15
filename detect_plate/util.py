@@ -12,7 +12,7 @@ def normalize_image(image):
 
 def replace_with_dict(val, d):
     if d is None:
-        d = {'I': '1', 'J': '1', ".": "", "-": "", "|": "", "i": '1'}
+        d = {'I': '1', 'J': '1', ".": "", "-": "", "|": "", "i": '1', 'l': '1', 'L': '1', 'j': '1', 'T': 1}
     return val.translate(str.maketrans(d))
 
 
@@ -29,6 +29,31 @@ def remove_special_characters(text):
     pattern = r"[^\w\d]+"
     return re.sub(pattern, "", text)
 
+def filter_accept_number(text):
+    """
+  This function removes all special characters except a-z and 0-9 from a string.
+
+  Args:
+    text: The string to remove special characters from.
+
+  Returns:
+    The string with all special characters removed.
+  """
+    pattern = r"[^\d]+"
+    return re.sub(pattern, "", text)
+
+
+def detect_dot(input_string):
+    parts = input_string.split('.')
+    if len(parts) > 1:
+        # Extract the first two characters from the decimal part
+        decimal_result = parts[1][:2]
+
+        # Concatenate the integer part and the extracted decimal result
+        final_result = parts[0] + str(decimal_result)
+        return final_result
+    else:
+        return input_string
 
 def current_milli_time():
     return round(time.time() * 1000)

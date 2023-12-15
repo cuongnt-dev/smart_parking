@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 
-from detection import detect_plate, extract_number_plate_text, init_model
+from detection import detect_plate, extract_number_plate_text, init_model, init_reader
 import psycopg2
 
 from util import hash_string, get_current_day
@@ -74,5 +74,6 @@ def index():
 
 if __name__ == '__main__':
     init_model()
+    init_reader()
     init_connection()
     app.run(debug=True, port=3000)
