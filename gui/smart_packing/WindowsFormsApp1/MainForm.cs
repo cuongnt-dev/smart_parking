@@ -537,6 +537,42 @@ Checkout(string parkingCardId, string entrance)
                 MessageBox.Show("This plate different with one when checkin");
                 return;
             }
+
+            if (entrance == Constant.ENTRANCE_1)
+            {
+                if (entranceState1.Value == Constant.CHECKIN_STATE)
+                {
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR1);
+                    Thread.Sleep(1000);
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR2);
+                    Thread.Sleep(1000);
+                }
+                else if (entranceState1.Value == Constant.CHECKOUT_STATE)
+                {
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR1);
+                    Thread.Sleep(1000);
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR2);
+                    Thread.Sleep(1000);
+                }
+            }
+            else if (entrance == Constant.ENTRANCE_2)
+            {
+                if (entranceState2.Value == Constant.CHECKIN_STATE)
+                {
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR1);
+                    Thread.Sleep(1000);
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR2);
+                    Thread.Sleep(1000);
+                }
+                else if (entranceState2.Value == Constant.CHECKOUT_STATE)
+                {
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_CLOSE_BR1);
+                    Thread.Sleep(1000);
+                    PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_2_OPEN_BR2);
+                    Thread.Sleep(1000);
+                }
+            }
+
             Helper.PlaySound(Constant.CHECKOUT_STATE);
             // Trigger cardId Checkin {cardId}
             this.Invoke(new Action(() =>
@@ -839,7 +875,6 @@ Checkout(string parkingCardId, string entrance)
         private  void timerEntrance1CheckBike_Tick(object sender, EventArgs e)
         {
             int sensor_data = PLC.ReadFrom(Constant.PLC_READ_ENTRANCE_1_SENSOR_REGISTER);
-            Console.WriteLine($"Read from PLC_READ_ENTRANCE_1_SENSOR_REGISTER {sensor_data}");
             if(sensor_data == 0)
             {
                 int br_data = PLC.ReadFrom(Constant.PLC_READ_ENTRANCE_1_BR_REGISTER);
