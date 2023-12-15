@@ -12,7 +12,7 @@ def normalize_image(image):
 
 def replace_with_dict(val, d):
     if d is None:
-        d = {'I': '1', 'J': '1', ".": "", "-": "", "|": "", "i": '1', 'l': '1', 'L': '1', 'j': '1', 'T': 1}
+        d = {'I': '1', 'J': '1', "|": "1", "i": '1', 'l': '1', 'L': '1', 'j': '1', 'T': '1', '@': '0'}
     return val.translate(str.maketrans(d))
 
 
@@ -46,11 +46,8 @@ def filter_accept_number(text):
 def detect_dot(input_string):
     parts = input_string.split('.')
     if len(parts) > 1:
-        # Extract the first two characters from the decimal part
-        decimal_result = parts[1][:2]
-
         # Concatenate the integer part and the extracted decimal result
-        final_result = parts[0] + str(decimal_result)
+        final_result = parts[0][-3:] + parts[1][:2]
         return final_result
     else:
         return input_string

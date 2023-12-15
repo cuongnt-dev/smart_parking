@@ -42,9 +42,9 @@ def preprocessing(img):
     # adaptive_thresh = cv2.adaptiveThreshold(blurred_img, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 17, 2)
     # _, adaptive_thresh = cv2.threshold(blurred_img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
-    kernel = np.ones((3, 3), np.uint8)
-    morph_img = cv2.morphologyEx(adaptive_thresh, cv2.MORPH_CLOSE, kernel)
-    return morph_img
+    # kernel = np.ones((3, 3), np.uint8)
+    # morph_img = cv2.morphologyEx(adaptive_thresh, cv2.MORPH_CLOSE, kernel)
+    return adaptive_thresh
 
 def detect_plate(image_path):
     detect_plate_img = ""
@@ -52,8 +52,8 @@ def detect_plate(image_path):
     # Đọc file ảnh đầu vào
     Ivehicle = cv2.imread(image_path)
     Ivehicle = cv2.resize(Ivehicle, (900, 700))
-    Ivehicle = crop_horizontal(Ivehicle)
-    cv2.imwrite("crop_horizontal.jpg", Ivehicle)
+    # Ivehicle = crop_horizontal(Ivehicle)
+    # cv2.imwrite("crop_horizontal.jpg", Ivehicle)
     # Kích thước lớn nhất và nhỏ nhất của 1 chiều ảnh
     Dmax = 400
     Dmin = 300
@@ -111,12 +111,14 @@ def extract_number_plate_text(plate, image_file):
     # Concatenate the values into a single string
     concatenated_string = ""
     for index, value in enumerate(sorted_items):
-        temp_str = re.sub(pattern, '', str(value))
         if index == 0:
-            temp_str = remove_special_characters(temp_str[:-1]) + replace_with_dict(temp_str[-1], None)
-            concatenated_string = f"{temp_str}"
+            # value = replace_with_dict(value, None)
+            value = remove_special_characters(value)
+            value = value[:-1] + replace_with_dict(value[-1], None)
+            concatenated_string = f"{value}"
         elif index == 1:
             value = replace_with_dict(value, None)
             value = detect_dot(value)
+            value = remove_special_characters(value)
             concatenated_string += f" {filter_accept_number(value)}"
     return concatenated_string, extract_path
