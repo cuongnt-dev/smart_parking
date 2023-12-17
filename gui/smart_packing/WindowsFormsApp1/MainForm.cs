@@ -358,13 +358,15 @@ namespace WindowsFormsApp1
                 labelEntrance1Occurence.Text = $"Occurance: {occurance}";
                 labelEntrance1User.Text = $"User: {userName}";
                 textBoxPlateEntrance1.Text = res.PlateText;
-                if(state == Constant.CHECKIN_STATE)
+                pictureBoxSelectedImageEntrance1Cam1.Image = Image.FromFile(res.PlateExtractPath);
+                pictureBoxSelectedImageEntrance1Cam2.Image = res.FrontFilePath != "" ? Image.FromFile(res.FrontFilePath): null;
+                /*if(state == Constant.CHECKIN_STATE)
                 {
                     pictureBoxSelectedImageEntrance1Cam1.Image = Image.FromFile(res.PlateExtractPath);
                 } else
                 {
                     pictureBoxSelectedImageEntrance1Cam2.Image = Image.FromFile(res.PlateExtractPath);
-                }
+                }*/
             } else
             {
                 labelEntrance2CardID.Text = $"Card ID: {parkingCardId}";
@@ -373,14 +375,16 @@ namespace WindowsFormsApp1
                 labelEntrance2Occurence.Text = $"Occurance: {occurance}";
                 labelEntrance2User.Text = $"User: {userName}";
                 textBoxPlateEntrance2.Text = res.PlateText;
-                if (state == Constant.CHECKIN_STATE)
+                pictureBoxSelectedImageEntrance2Cam1.Image = Image.FromFile(res.PlateExtractPath);
+                pictureBoxSelectedImageEntrance2Cam2.Image = res.FrontFilePath != "" ? Image.FromFile(res.FrontFilePath) : null;
+                /*if (state == Constant.CHECKIN_STATE)
                 {
                     pictureBoxSelectedImageEntrance2Cam1.Image = Image.FromFile(res.PlateExtractPath);
                 }
                 else
                 {
                     pictureBoxSelectedImageEntrance2Cam2.Image = Image.FromFile(res.PlateExtractPath);
-                }
+                }*/
             }
         }
 
@@ -392,7 +396,7 @@ namespace WindowsFormsApp1
             string backFilePath = Path.Combine(Constant.CAPTURE_PATH, $"{currentTime}_back.jpg");
             Image captureFrontImage;
             Image captureBackImage;
-            bool testing = true;
+            bool testing = false;
             Random random = new Random();
             // Generate a random number between 1 and 25 (inclusive)
             int endRand = 23; //26
@@ -423,14 +427,17 @@ namespace WindowsFormsApp1
                     captureBackImage = testing ? Image.FromFile($"{Constant.TEST_PLATE_PATH}\\{randomNumber}.jpg") : pictureBoxCamEntrance2Out.Image;
                 }
             }
-            if (captureFrontImage != null)
-            {
-                captureFrontImage.Save(frontFilePath, ImageFormat.Jpeg);
-            }
+            
             if (captureBackImage != null)
             {
                 captureBackImage.Save(backFilePath, ImageFormat.Jpeg);
                 DetectResponse res = await ScanPlate(backFilePath);
+                res.BackFilePath = backFilePath;
+                if (captureFrontImage != null)
+                {
+                    captureFrontImage.Save(frontFilePath, ImageFormat.Jpeg);
+                    res.FrontFilePath = frontFilePath;
+                }
                 return res;
             } 
             else
@@ -454,8 +461,8 @@ Checkin(string parkingCardId, string entrance)
                 return;
             }
             DetectResponse res = await CapturePlateAsync(entrance, Constant.CHECKIN_STATE);
-            if(Helper.HasValue(res.Error)){
-                MessageBox.Show($"Error when Checkin {res.Error}");
+            if(res.PlateText == "" || Helper.HasValue(res.Error)){
+                MessageBox.Show($"Error found when Checkin");
                 return;
             }
             /*if (usr.Plate != res.PlateText)
@@ -512,6 +519,8 @@ Checkin(string parkingCardId, string entrance)
                 Card = parkingCardId,
                 Type = Constant.CHECKIN_STATE,
                 Occurrence = DateTime.Now,
+                Front = res.FrontFilePath,
+                Back = res.BackFilePath
             };
             DB.CreateLog(l);
         }
@@ -523,7 +532,12 @@ Checkout(string parkingCardId, string entrance)
             User usr = DB.GetUserByCardId(parkingCardId);
             // Trigger cardId Checkout {tmpCardId}
             DetectResponse res = await CapturePlateAsync(entrance, Constant.CHECKOUT_STATE);
-            
+            if (res.PlateText == "" || Helper.HasValue(res.Error))
+            {
+                MessageBox.Show($"Error found when Checkout");
+                return;
+            }
+
             // Get latest log of this user
             Log log = DB.GetLatestLog(parkingCardId);
             if (log.Type != "Checkin")
@@ -586,6 +600,8 @@ Checkout(string parkingCardId, string entrance)
                 Type = Constant.CHECKOUT_STATE,
                 Card = parkingCardId,
                 Occurrence = DateTime.Now,
+                Front = res.FrontFilePath,
+                Back = res.BackFilePath
             };
             DB.CreateLog(l);
         }
@@ -755,6 +771,10 @@ Checkout(string parkingCardId, string entrance)
 
         private async void timerEntrancd1QRCode_Tick(object sender, EventArgs e)
         {
+            if(controlMode == Constant.CONTROL_MODE_MANUAL)
+            {
+                return;
+            }
             try
             {
                 // Load the image
@@ -811,6 +831,10 @@ Checkout(string parkingCardId, string entrance)
 
         private async void timerEntrancd2QRCode_Tick(object sender, EventArgs e)
         {
+            if (controlMode == Constant.CONTROL_MODE_MANUAL)
+            {
+                return;
+            }
             try
             {
                 // Load the image
@@ -885,8 +909,10 @@ Checkout(string parkingCardId, string entrance)
                     {
                         PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_CLOSE_BR1);
                         Thread.Sleep(1000);
+                        pictureBoxSelectedImageEntrance1Cam1.Image = null;
                         PLC.WriteTo(Constant.PLC_WRITE_ENTRANCE_1_OPEN_BR2);
                         Thread.Sleep(1000);
+
                     }
                 } else
                 {

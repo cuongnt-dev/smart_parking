@@ -104,6 +104,10 @@
             this.timerEntrance1CheckBike = new System.Windows.Forms.Timer(this.components);
             this.labelControlMode = new System.Windows.Forms.Button();
             this.timerUpdateParkingInformation = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageEntrance1Cam1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedImageEntrance2Cam1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamEntrance1In)).BeginInit();
@@ -125,9 +129,10 @@
             // 
             // buttonCaptureCheckin
             // 
-            this.buttonCaptureCheckin.Location = new System.Drawing.Point(12, 633);
+            this.buttonCaptureCheckin.Location = new System.Drawing.Point(16, 779);
+            this.buttonCaptureCheckin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCaptureCheckin.Name = "buttonCaptureCheckin";
-            this.buttonCaptureCheckin.Size = new System.Drawing.Size(75, 23);
+            this.buttonCaptureCheckin.Size = new System.Drawing.Size(100, 28);
             this.buttonCaptureCheckin.TabIndex = 4;
             this.buttonCaptureCheckin.Text = "Capture";
             this.buttonCaptureCheckin.UseVisualStyleBackColor = true;
@@ -136,9 +141,10 @@
             // pictureBoxSelectedImageEntrance1Cam1
             // 
             this.pictureBoxSelectedImageEntrance1Cam1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSelectedImageEntrance1Cam1.Location = new System.Drawing.Point(2, 249);
+            this.pictureBoxSelectedImageEntrance1Cam1.Location = new System.Drawing.Point(11, 334);
+            this.pictureBoxSelectedImageEntrance1Cam1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxSelectedImageEntrance1Cam1.Name = "pictureBoxSelectedImageEntrance1Cam1";
-            this.pictureBoxSelectedImageEntrance1Cam1.Size = new System.Drawing.Size(272, 134);
+            this.pictureBoxSelectedImageEntrance1Cam1.Size = new System.Drawing.Size(357, 164);
             this.pictureBoxSelectedImageEntrance1Cam1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxSelectedImageEntrance1Cam1.TabIndex = 5;
             this.pictureBoxSelectedImageEntrance1Cam1.TabStop = false;
@@ -147,53 +153,58 @@
             // 
             this.pictureBoxSelectedImageEntrance2Cam1.AccessibleRole = System.Windows.Forms.AccessibleRole.Slider;
             this.pictureBoxSelectedImageEntrance2Cam1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSelectedImageEntrance2Cam1.Location = new System.Drawing.Point(14, 251);
+            this.pictureBoxSelectedImageEntrance2Cam1.Location = new System.Drawing.Point(16, 337);
+            this.pictureBoxSelectedImageEntrance2Cam1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxSelectedImageEntrance2Cam1.Name = "pictureBoxSelectedImageEntrance2Cam1";
-            this.pictureBoxSelectedImageEntrance2Cam1.Size = new System.Drawing.Size(282, 134);
+            this.pictureBoxSelectedImageEntrance2Cam1.Size = new System.Drawing.Size(375, 164);
             this.pictureBoxSelectedImageEntrance2Cam1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxSelectedImageEntrance2Cam1.TabIndex = 6;
             this.pictureBoxSelectedImageEntrance2Cam1.TabStop = false;
             // 
             // textBoxPlateEntrance1
             // 
-            this.textBoxPlateEntrance1.Location = new System.Drawing.Point(93, 635);
+            this.textBoxPlateEntrance1.Location = new System.Drawing.Point(124, 782);
+            this.textBoxPlateEntrance1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxPlateEntrance1.Name = "textBoxPlateEntrance1";
-            this.textBoxPlateEntrance1.Size = new System.Drawing.Size(140, 20);
+            this.textBoxPlateEntrance1.Size = new System.Drawing.Size(185, 22);
             this.textBoxPlateEntrance1.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 618);
+            this.label1.Location = new System.Drawing.Point(16, 761);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.Size = new System.Drawing.Size(89, 16);
             this.label1.TabIndex = 8;
             this.label1.Text = "Plate Number";
             // 
             // pictureBoxCamEntrance1In
             // 
-            this.pictureBoxCamEntrance1In.Location = new System.Drawing.Point(6, 41);
-            this.pictureBoxCamEntrance1In.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxCamEntrance1In.Location = new System.Drawing.Point(11, 78);
+            this.pictureBoxCamEntrance1In.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxCamEntrance1In.Name = "pictureBoxCamEntrance1In";
-            this.pictureBoxCamEntrance1In.Size = new System.Drawing.Size(268, 203);
+            this.pictureBoxCamEntrance1In.Size = new System.Drawing.Size(357, 250);
             this.pictureBoxCamEntrance1In.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCamEntrance1In.TabIndex = 12;
             this.pictureBoxCamEntrance1In.TabStop = false;
             // 
             // pictureBoxCamEntrance2In
             // 
-            this.pictureBoxCamEntrance2In.Location = new System.Drawing.Point(14, 41);
+            this.pictureBoxCamEntrance2In.Location = new System.Drawing.Point(16, 78);
+            this.pictureBoxCamEntrance2In.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxCamEntrance2In.Name = "pictureBoxCamEntrance2In";
-            this.pictureBoxCamEntrance2In.Size = new System.Drawing.Size(282, 203);
+            this.pictureBoxCamEntrance2In.Size = new System.Drawing.Size(376, 250);
             this.pictureBoxCamEntrance2In.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCamEntrance2In.TabIndex = 14;
             this.pictureBoxCamEntrance2In.TabStop = false;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 12);
+            this.button3.Location = new System.Drawing.Point(16, 15);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 55);
+            this.button3.Size = new System.Drawing.Size(121, 68);
             this.button3.TabIndex = 16;
             this.button3.Text = "User Management";
             this.button3.UseVisualStyleBackColor = true;
@@ -201,10 +212,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(126, 12);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Location = new System.Drawing.Point(168, 15);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 55);
+            this.button4.Size = new System.Drawing.Size(125, 68);
             this.button4.TabIndex = 17;
             this.button4.Text = "Parking Management";
             this.button4.UseVisualStyleBackColor = true;
@@ -212,9 +223,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1136, 12);
+            this.button1.Location = new System.Drawing.Point(1515, 15);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 55);
+            this.button1.Size = new System.Drawing.Size(111, 68);
             this.button1.TabIndex = 18;
             this.button1.Text = "Exit";
             this.button1.UseVisualStyleBackColor = true;
@@ -223,44 +235,45 @@
             // labelEntranceState1
             // 
             this.labelEntranceState1.AutoSize = true;
-            this.labelEntranceState1.Location = new System.Drawing.Point(4, 20);
-            this.labelEntranceState1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntranceState1.Location = new System.Drawing.Point(5, 25);
             this.labelEntranceState1.Name = "labelEntranceState1";
-            this.labelEntranceState1.Size = new System.Drawing.Size(85, 13);
+            this.labelEntranceState1.Size = new System.Drawing.Size(102, 16);
             this.labelEntranceState1.TabIndex = 19;
             this.labelEntranceState1.Text = "State: Loading...";
             // 
             // labelEntranceState2
             // 
             this.labelEntranceState2.AutoSize = true;
-            this.labelEntranceState2.Location = new System.Drawing.Point(14, 17);
-            this.labelEntranceState2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntranceState2.Location = new System.Drawing.Point(19, 21);
             this.labelEntranceState2.Name = "labelEntranceState2";
-            this.labelEntranceState2.Size = new System.Drawing.Size(85, 13);
+            this.labelEntranceState2.Size = new System.Drawing.Size(102, 16);
             this.labelEntranceState2.TabIndex = 20;
             this.labelEntranceState2.Text = "State: Loading...";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(618, 618);
+            this.label2.Location = new System.Drawing.Point(824, 761);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.Size = new System.Drawing.Size(89, 16);
             this.label2.TabIndex = 26;
             this.label2.Text = "Plate Number";
             // 
             // textBoxPlateEntrance2
             // 
-            this.textBoxPlateEntrance2.Location = new System.Drawing.Point(727, 638);
+            this.textBoxPlateEntrance2.Location = new System.Drawing.Point(969, 785);
+            this.textBoxPlateEntrance2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxPlateEntrance2.Name = "textBoxPlateEntrance2";
-            this.textBoxPlateEntrance2.Size = new System.Drawing.Size(151, 20);
+            this.textBoxPlateEntrance2.Size = new System.Drawing.Size(200, 22);
             this.textBoxPlateEntrance2.TabIndex = 25;
             // 
             // buttonCaptureCheckout
             // 
-            this.buttonCaptureCheckout.Location = new System.Drawing.Point(619, 633);
+            this.buttonCaptureCheckout.Location = new System.Drawing.Point(825, 779);
+            this.buttonCaptureCheckout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCaptureCheckout.Name = "buttonCaptureCheckout";
-            this.buttonCaptureCheckout.Size = new System.Drawing.Size(98, 26);
+            this.buttonCaptureCheckout.Size = new System.Drawing.Size(131, 32);
             this.buttonCaptureCheckout.TabIndex = 24;
             this.buttonCaptureCheckout.Text = "Capture";
             this.buttonCaptureCheckout.UseVisualStyleBackColor = true;
@@ -277,21 +290,21 @@
             this.groupBoxCheckin.Controls.Add(this.buttonOpenEntrance1Barier1);
             this.groupBoxCheckin.Controls.Add(this.labelEntrance1Barier1State);
             this.groupBoxCheckin.Controls.Add(this.statusIndicatorEntrance1Barier1);
-            this.groupBoxCheckin.Location = new System.Drawing.Point(8, 501);
-            this.groupBoxCheckin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxCheckin.Location = new System.Drawing.Point(11, 617);
+            this.groupBoxCheckin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxCheckin.Name = "groupBoxCheckin";
-            this.groupBoxCheckin.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxCheckin.Size = new System.Drawing.Size(279, 111);
+            this.groupBoxCheckin.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxCheckin.Size = new System.Drawing.Size(372, 137);
             this.groupBoxCheckin.TabIndex = 29;
             this.groupBoxCheckin.TabStop = false;
             this.groupBoxCheckin.Text = "Barier Control";
             // 
             // buttonCloseEntrance1Barier2
             // 
-            this.buttonCloseEntrance1Barier2.Location = new System.Drawing.Point(190, 62);
-            this.buttonCloseEntrance1Barier2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCloseEntrance1Barier2.Location = new System.Drawing.Point(253, 76);
+            this.buttonCloseEntrance1Barier2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCloseEntrance1Barier2.Name = "buttonCloseEntrance1Barier2";
-            this.buttonCloseEntrance1Barier2.Size = new System.Drawing.Size(58, 29);
+            this.buttonCloseEntrance1Barier2.Size = new System.Drawing.Size(77, 36);
             this.buttonCloseEntrance1Barier2.TabIndex = 9;
             this.buttonCloseEntrance1Barier2.Text = "Close";
             this.buttonCloseEntrance1Barier2.UseVisualStyleBackColor = true;
@@ -300,19 +313,18 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 62);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(21, 76);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(82, 13);
+            this.label10.Size = new System.Drawing.Size(103, 16);
             this.label10.TabIndex = 8;
             this.label10.Text = "Barier 2: Normal";
             // 
             // buttonOpenEntrance1Barier2
             // 
-            this.buttonOpenEntrance1Barier2.Location = new System.Drawing.Point(118, 62);
-            this.buttonOpenEntrance1Barier2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonOpenEntrance1Barier2.Location = new System.Drawing.Point(157, 76);
+            this.buttonOpenEntrance1Barier2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOpenEntrance1Barier2.Name = "buttonOpenEntrance1Barier2";
-            this.buttonOpenEntrance1Barier2.Size = new System.Drawing.Size(58, 29);
+            this.buttonOpenEntrance1Barier2.Size = new System.Drawing.Size(77, 36);
             this.buttonOpenEntrance1Barier2.TabIndex = 7;
             this.buttonOpenEntrance1Barier2.Text = "Open";
             this.buttonOpenEntrance1Barier2.UseVisualStyleBackColor = true;
@@ -321,29 +333,28 @@
             // labelEntrance1Barier2State
             // 
             this.labelEntrance1Barier2State.AutoSize = true;
-            this.labelEntrance1Barier2State.Location = new System.Drawing.Point(35, 78);
-            this.labelEntrance1Barier2State.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance1Barier2State.Location = new System.Drawing.Point(47, 96);
             this.labelEntrance1Barier2State.Name = "labelEntrance1Barier2State";
-            this.labelEntrance1Barier2State.Size = new System.Drawing.Size(33, 13);
+            this.labelEntrance1Barier2State.Size = new System.Drawing.Size(42, 16);
             this.labelEntrance1Barier2State.TabIndex = 6;
             this.labelEntrance1Barier2State.Text = "Close";
             // 
             // statusIndicatorEntrance1Barier2
             // 
-            this.statusIndicatorEntrance1Barier2.Location = new System.Drawing.Point(19, 77);
-            this.statusIndicatorEntrance1Barier2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.statusIndicatorEntrance1Barier2.Location = new System.Drawing.Point(25, 95);
+            this.statusIndicatorEntrance1Barier2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.statusIndicatorEntrance1Barier2.Name = "statusIndicatorEntrance1Barier2";
-            this.statusIndicatorEntrance1Barier2.Size = new System.Drawing.Size(12, 14);
+            this.statusIndicatorEntrance1Barier2.Size = new System.Drawing.Size(16, 17);
             this.statusIndicatorEntrance1Barier2.StatusColor = System.Drawing.Color.Red;
             this.statusIndicatorEntrance1Barier2.TabIndex = 5;
             this.statusIndicatorEntrance1Barier2.Text = "statusIndicator1";
             // 
             // buttonCloseEntrance1Barier1
             // 
-            this.buttonCloseEntrance1Barier1.Location = new System.Drawing.Point(190, 21);
-            this.buttonCloseEntrance1Barier1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCloseEntrance1Barier1.Location = new System.Drawing.Point(253, 26);
+            this.buttonCloseEntrance1Barier1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCloseEntrance1Barier1.Name = "buttonCloseEntrance1Barier1";
-            this.buttonCloseEntrance1Barier1.Size = new System.Drawing.Size(58, 29);
+            this.buttonCloseEntrance1Barier1.Size = new System.Drawing.Size(77, 36);
             this.buttonCloseEntrance1Barier1.TabIndex = 4;
             this.buttonCloseEntrance1Barier1.Text = "Close";
             this.buttonCloseEntrance1Barier1.UseVisualStyleBackColor = true;
@@ -352,19 +363,18 @@
             // labelCheckinBarierStatus
             // 
             this.labelCheckinBarierStatus.AutoSize = true;
-            this.labelCheckinBarierStatus.Location = new System.Drawing.Point(16, 21);
-            this.labelCheckinBarierStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCheckinBarierStatus.Location = new System.Drawing.Point(21, 26);
             this.labelCheckinBarierStatus.Name = "labelCheckinBarierStatus";
-            this.labelCheckinBarierStatus.Size = new System.Drawing.Size(82, 13);
+            this.labelCheckinBarierStatus.Size = new System.Drawing.Size(103, 16);
             this.labelCheckinBarierStatus.TabIndex = 3;
             this.labelCheckinBarierStatus.Text = "Barier 1: Normal";
             // 
             // buttonOpenEntrance1Barier1
             // 
-            this.buttonOpenEntrance1Barier1.Location = new System.Drawing.Point(118, 21);
-            this.buttonOpenEntrance1Barier1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonOpenEntrance1Barier1.Location = new System.Drawing.Point(157, 26);
+            this.buttonOpenEntrance1Barier1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOpenEntrance1Barier1.Name = "buttonOpenEntrance1Barier1";
-            this.buttonOpenEntrance1Barier1.Size = new System.Drawing.Size(58, 29);
+            this.buttonOpenEntrance1Barier1.Size = new System.Drawing.Size(77, 36);
             this.buttonOpenEntrance1Barier1.TabIndex = 2;
             this.buttonOpenEntrance1Barier1.Text = "Open";
             this.buttonOpenEntrance1Barier1.UseVisualStyleBackColor = true;
@@ -373,19 +383,18 @@
             // labelEntrance1Barier1State
             // 
             this.labelEntrance1Barier1State.AutoSize = true;
-            this.labelEntrance1Barier1State.Location = new System.Drawing.Point(35, 37);
-            this.labelEntrance1Barier1State.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance1Barier1State.Location = new System.Drawing.Point(47, 46);
             this.labelEntrance1Barier1State.Name = "labelEntrance1Barier1State";
-            this.labelEntrance1Barier1State.Size = new System.Drawing.Size(33, 13);
+            this.labelEntrance1Barier1State.Size = new System.Drawing.Size(42, 16);
             this.labelEntrance1Barier1State.TabIndex = 1;
             this.labelEntrance1Barier1State.Text = "Close";
             // 
             // statusIndicatorEntrance1Barier1
             // 
-            this.statusIndicatorEntrance1Barier1.Location = new System.Drawing.Point(19, 37);
-            this.statusIndicatorEntrance1Barier1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.statusIndicatorEntrance1Barier1.Location = new System.Drawing.Point(25, 46);
+            this.statusIndicatorEntrance1Barier1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.statusIndicatorEntrance1Barier1.Name = "statusIndicatorEntrance1Barier1";
-            this.statusIndicatorEntrance1Barier1.Size = new System.Drawing.Size(12, 14);
+            this.statusIndicatorEntrance1Barier1.Size = new System.Drawing.Size(16, 17);
             this.statusIndicatorEntrance1Barier1.StatusColor = System.Drawing.Color.Red;
             this.statusIndicatorEntrance1Barier1.TabIndex = 0;
             this.statusIndicatorEntrance1Barier1.Text = "statusIndicator1";
@@ -402,11 +411,11 @@
             this.groupBox1.Controls.Add(this.buttonOpenEntrance2Barier1);
             this.groupBox1.Controls.Add(this.labelEntrance2Barier1State);
             this.groupBox1.Controls.Add(this.statusIndicatorEntrance2Barier1);
-            this.groupBox1.Location = new System.Drawing.Point(608, 501);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(811, 617);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(296, 111);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(395, 137);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Barier Control";
@@ -414,19 +423,18 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(17, 62);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Location = new System.Drawing.Point(23, 76);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 13);
+            this.label12.Size = new System.Drawing.Size(100, 16);
             this.label12.TabIndex = 11;
             this.label12.Text = "Barier 2 Normal";
             // 
             // buttonCloseEntrance2Barier2
             // 
-            this.buttonCloseEntrance2Barier2.Location = new System.Drawing.Point(211, 62);
-            this.buttonCloseEntrance2Barier2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCloseEntrance2Barier2.Location = new System.Drawing.Point(281, 76);
+            this.buttonCloseEntrance2Barier2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCloseEntrance2Barier2.Name = "buttonCloseEntrance2Barier2";
-            this.buttonCloseEntrance2Barier2.Size = new System.Drawing.Size(58, 29);
+            this.buttonCloseEntrance2Barier2.Size = new System.Drawing.Size(77, 36);
             this.buttonCloseEntrance2Barier2.TabIndex = 10;
             this.buttonCloseEntrance2Barier2.Text = "Close";
             this.buttonCloseEntrance2Barier2.UseVisualStyleBackColor = true;
@@ -434,10 +442,10 @@
             // 
             // buttonOpenEntrance2Barier2
             // 
-            this.buttonOpenEntrance2Barier2.Location = new System.Drawing.Point(134, 63);
-            this.buttonOpenEntrance2Barier2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonOpenEntrance2Barier2.Location = new System.Drawing.Point(179, 78);
+            this.buttonOpenEntrance2Barier2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOpenEntrance2Barier2.Name = "buttonOpenEntrance2Barier2";
-            this.buttonOpenEntrance2Barier2.Size = new System.Drawing.Size(60, 28);
+            this.buttonOpenEntrance2Barier2.Size = new System.Drawing.Size(80, 34);
             this.buttonOpenEntrance2Barier2.TabIndex = 9;
             this.buttonOpenEntrance2Barier2.Text = "Open";
             this.buttonOpenEntrance2Barier2.UseVisualStyleBackColor = true;
@@ -446,19 +454,18 @@
             // labelEntrance2Barier2State
             // 
             this.labelEntrance2Barier2State.AutoSize = true;
-            this.labelEntrance2Barier2State.Location = new System.Drawing.Point(36, 77);
-            this.labelEntrance2Barier2State.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance2Barier2State.Location = new System.Drawing.Point(48, 95);
             this.labelEntrance2Barier2State.Name = "labelEntrance2Barier2State";
-            this.labelEntrance2Barier2State.Size = new System.Drawing.Size(33, 13);
+            this.labelEntrance2Barier2State.Size = new System.Drawing.Size(42, 16);
             this.labelEntrance2Barier2State.TabIndex = 8;
             this.labelEntrance2Barier2State.Text = "Close";
             // 
             // statusIndicatorEntrance2Barier2
             // 
-            this.statusIndicatorEntrance2Barier2.Location = new System.Drawing.Point(20, 77);
-            this.statusIndicatorEntrance2Barier2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.statusIndicatorEntrance2Barier2.Location = new System.Drawing.Point(27, 95);
+            this.statusIndicatorEntrance2Barier2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.statusIndicatorEntrance2Barier2.Name = "statusIndicatorEntrance2Barier2";
-            this.statusIndicatorEntrance2Barier2.Size = new System.Drawing.Size(12, 14);
+            this.statusIndicatorEntrance2Barier2.Size = new System.Drawing.Size(16, 17);
             this.statusIndicatorEntrance2Barier2.StatusColor = System.Drawing.Color.Red;
             this.statusIndicatorEntrance2Barier2.TabIndex = 7;
             this.statusIndicatorEntrance2Barier2.Text = "statusIndicator2";
@@ -466,19 +473,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 21);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(23, 26);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 13);
+            this.label5.Size = new System.Drawing.Size(100, 16);
             this.label5.TabIndex = 6;
             this.label5.Text = "Barier 1 Normal";
             // 
             // buttonCloseEntrance2Barier1
             // 
-            this.buttonCloseEntrance2Barier1.Location = new System.Drawing.Point(211, 21);
-            this.buttonCloseEntrance2Barier1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCloseEntrance2Barier1.Location = new System.Drawing.Point(281, 26);
+            this.buttonCloseEntrance2Barier1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCloseEntrance2Barier1.Name = "buttonCloseEntrance2Barier1";
-            this.buttonCloseEntrance2Barier1.Size = new System.Drawing.Size(58, 29);
+            this.buttonCloseEntrance2Barier1.Size = new System.Drawing.Size(77, 36);
             this.buttonCloseEntrance2Barier1.TabIndex = 5;
             this.buttonCloseEntrance2Barier1.Text = "Close";
             this.buttonCloseEntrance2Barier1.UseVisualStyleBackColor = true;
@@ -486,10 +492,10 @@
             // 
             // buttonOpenEntrance2Barier1
             // 
-            this.buttonOpenEntrance2Barier1.Location = new System.Drawing.Point(134, 23);
-            this.buttonOpenEntrance2Barier1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonOpenEntrance2Barier1.Location = new System.Drawing.Point(179, 28);
+            this.buttonOpenEntrance2Barier1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOpenEntrance2Barier1.Name = "buttonOpenEntrance2Barier1";
-            this.buttonOpenEntrance2Barier1.Size = new System.Drawing.Size(60, 28);
+            this.buttonOpenEntrance2Barier1.Size = new System.Drawing.Size(80, 34);
             this.buttonOpenEntrance2Barier1.TabIndex = 2;
             this.buttonOpenEntrance2Barier1.Text = "Open";
             this.buttonOpenEntrance2Barier1.UseVisualStyleBackColor = true;
@@ -498,29 +504,28 @@
             // labelEntrance2Barier1State
             // 
             this.labelEntrance2Barier1State.AutoSize = true;
-            this.labelEntrance2Barier1State.Location = new System.Drawing.Point(36, 37);
-            this.labelEntrance2Barier1State.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance2Barier1State.Location = new System.Drawing.Point(48, 46);
             this.labelEntrance2Barier1State.Name = "labelEntrance2Barier1State";
-            this.labelEntrance2Barier1State.Size = new System.Drawing.Size(33, 13);
+            this.labelEntrance2Barier1State.Size = new System.Drawing.Size(42, 16);
             this.labelEntrance2Barier1State.TabIndex = 1;
             this.labelEntrance2Barier1State.Text = "Close";
             // 
             // statusIndicatorEntrance2Barier1
             // 
-            this.statusIndicatorEntrance2Barier1.Location = new System.Drawing.Point(20, 37);
-            this.statusIndicatorEntrance2Barier1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.statusIndicatorEntrance2Barier1.Location = new System.Drawing.Point(27, 46);
+            this.statusIndicatorEntrance2Barier1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.statusIndicatorEntrance2Barier1.Name = "statusIndicatorEntrance2Barier1";
-            this.statusIndicatorEntrance2Barier1.Size = new System.Drawing.Size(12, 14);
+            this.statusIndicatorEntrance2Barier1.Size = new System.Drawing.Size(16, 17);
             this.statusIndicatorEntrance2Barier1.StatusColor = System.Drawing.Color.Red;
             this.statusIndicatorEntrance2Barier1.TabIndex = 0;
             this.statusIndicatorEntrance2Barier1.Text = "statusIndicator2";
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(242, 12);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Location = new System.Drawing.Point(323, 15);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(94, 55);
+            this.button6.Size = new System.Drawing.Size(125, 68);
             this.button6.TabIndex = 31;
             this.button6.Text = "System Management";
             this.button6.UseVisualStyleBackColor = true;
@@ -528,16 +533,18 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.pictureBoxSelectedImageEntrance2Cam2);
             this.groupBox2.Controls.Add(this.pictureBoxCamEntrance2Out);
             this.groupBox2.Controls.Add(this.labelEntranceState2);
             this.groupBox2.Controls.Add(this.pictureBoxCamEntrance2In);
             this.groupBox2.Controls.Add(this.pictureBoxSelectedImageEntrance2Cam1);
-            this.groupBox2.Location = new System.Drawing.Point(608, 83);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(811, 102);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(610, 397);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(813, 511);
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Entrance 2";
@@ -545,34 +552,38 @@
             // pictureBoxSelectedImageEntrance2Cam2
             // 
             this.pictureBoxSelectedImageEntrance2Cam2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSelectedImageEntrance2Cam2.Location = new System.Drawing.Point(311, 251);
+            this.pictureBoxSelectedImageEntrance2Cam2.Location = new System.Drawing.Point(412, 337);
+            this.pictureBoxSelectedImageEntrance2Cam2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxSelectedImageEntrance2Cam2.Name = "pictureBoxSelectedImageEntrance2Cam2";
-            this.pictureBoxSelectedImageEntrance2Cam2.Size = new System.Drawing.Size(282, 134);
+            this.pictureBoxSelectedImageEntrance2Cam2.Size = new System.Drawing.Size(375, 164);
             this.pictureBoxSelectedImageEntrance2Cam2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxSelectedImageEntrance2Cam2.TabIndex = 22;
             this.pictureBoxSelectedImageEntrance2Cam2.TabStop = false;
             // 
             // pictureBoxCamEntrance2Out
             // 
-            this.pictureBoxCamEntrance2Out.Location = new System.Drawing.Point(311, 41);
+            this.pictureBoxCamEntrance2Out.Location = new System.Drawing.Point(412, 78);
+            this.pictureBoxCamEntrance2Out.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxCamEntrance2Out.Name = "pictureBoxCamEntrance2Out";
-            this.pictureBoxCamEntrance2Out.Size = new System.Drawing.Size(282, 203);
+            this.pictureBoxCamEntrance2Out.Size = new System.Drawing.Size(376, 250);
             this.pictureBoxCamEntrance2Out.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCamEntrance2Out.TabIndex = 21;
             this.pictureBoxCamEntrance2Out.TabStop = false;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.pictureBoxSelectedImageEntrance1Cam2);
             this.groupBox3.Controls.Add(this.pictureBoxCamEntrance1Out);
             this.groupBox3.Controls.Add(this.labelEntranceState1);
             this.groupBox3.Controls.Add(this.pictureBoxCamEntrance1In);
             this.groupBox3.Controls.Add(this.pictureBoxSelectedImageEntrance1Cam1);
-            this.groupBox3.Location = new System.Drawing.Point(6, 83);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Location = new System.Drawing.Point(8, 102);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(570, 397);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(760, 511);
             this.groupBox3.TabIndex = 39;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Entrance 1";
@@ -580,19 +591,20 @@
             // pictureBoxSelectedImageEntrance1Cam2
             // 
             this.pictureBoxSelectedImageEntrance1Cam2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSelectedImageEntrance1Cam2.Location = new System.Drawing.Point(291, 249);
+            this.pictureBoxSelectedImageEntrance1Cam2.Location = new System.Drawing.Point(391, 334);
+            this.pictureBoxSelectedImageEntrance1Cam2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxSelectedImageEntrance1Cam2.Name = "pictureBoxSelectedImageEntrance1Cam2";
-            this.pictureBoxSelectedImageEntrance1Cam2.Size = new System.Drawing.Size(268, 134);
+            this.pictureBoxSelectedImageEntrance1Cam2.Size = new System.Drawing.Size(357, 164);
             this.pictureBoxSelectedImageEntrance1Cam2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxSelectedImageEntrance1Cam2.TabIndex = 21;
             this.pictureBoxSelectedImageEntrance1Cam2.TabStop = false;
             // 
             // pictureBoxCamEntrance1Out
             // 
-            this.pictureBoxCamEntrance1Out.Location = new System.Drawing.Point(291, 41);
-            this.pictureBoxCamEntrance1Out.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxCamEntrance1Out.Location = new System.Drawing.Point(391, 78);
+            this.pictureBoxCamEntrance1Out.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxCamEntrance1Out.Name = "pictureBoxCamEntrance1Out";
-            this.pictureBoxCamEntrance1Out.Size = new System.Drawing.Size(268, 203);
+            this.pictureBoxCamEntrance1Out.Size = new System.Drawing.Size(357, 250);
             this.pictureBoxCamEntrance1Out.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCamEntrance1Out.TabIndex = 20;
             this.pictureBoxCamEntrance1Out.TabStop = false;
@@ -612,11 +624,11 @@
             this.groupBox4.Controls.Add(this.labelNumberCheckout);
             this.groupBox4.Controls.Add(this.labelNumberCheckin);
             this.groupBox4.Controls.Add(this.labelInforDatetime);
-            this.groupBox4.Location = new System.Drawing.Point(9, 674);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Location = new System.Drawing.Point(12, 830);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox4.Size = new System.Drawing.Size(361, 180);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Size = new System.Drawing.Size(481, 222);
             this.groupBox4.TabIndex = 40;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Parking Information";
@@ -624,50 +636,45 @@
             // labelLastCheckout
             // 
             this.labelLastCheckout.AutoSize = true;
-            this.labelLastCheckout.Location = new System.Drawing.Point(16, 87);
-            this.labelLastCheckout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelLastCheckout.Location = new System.Drawing.Point(21, 107);
             this.labelLastCheckout.Name = "labelLastCheckout";
-            this.labelLastCheckout.Size = new System.Drawing.Size(138, 13);
+            this.labelLastCheckout.Size = new System.Drawing.Size(166, 16);
             this.labelLastCheckout.TabIndex = 5;
             this.labelLastCheckout.Text = "Latest Checkout: Loading...";
             // 
             // labelLastCheckin
             // 
             this.labelLastCheckin.AutoSize = true;
-            this.labelLastCheckin.Location = new System.Drawing.Point(16, 64);
-            this.labelLastCheckin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelLastCheckin.Location = new System.Drawing.Point(21, 79);
             this.labelLastCheckin.Name = "labelLastCheckin";
-            this.labelLastCheckin.Size = new System.Drawing.Size(131, 13);
+            this.labelLastCheckin.Size = new System.Drawing.Size(158, 16);
             this.labelLastCheckin.TabIndex = 4;
             this.labelLastCheckin.Text = "Latest Checkin: Loading...";
             // 
             // labelSlotAvailable
             // 
             this.labelSlotAvailable.AutoSize = true;
-            this.labelSlotAvailable.Location = new System.Drawing.Point(15, 110);
-            this.labelSlotAvailable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSlotAvailable.Location = new System.Drawing.Point(20, 135);
             this.labelSlotAvailable.Name = "labelSlotAvailable";
-            this.labelSlotAvailable.Size = new System.Drawing.Size(122, 13);
+            this.labelSlotAvailable.Size = new System.Drawing.Size(151, 16);
             this.labelSlotAvailable.TabIndex = 3;
             this.labelSlotAvailable.Text = "Slot Avaiable: Loading...";
             // 
             // labelNumberCheckout
             // 
             this.labelNumberCheckout.AutoSize = true;
-            this.labelNumberCheckout.Location = new System.Drawing.Point(16, 154);
-            this.labelNumberCheckout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNumberCheckout.Location = new System.Drawing.Point(21, 190);
             this.labelNumberCheckout.Name = "labelNumberCheckout";
-            this.labelNumberCheckout.Size = new System.Drawing.Size(179, 13);
+            this.labelNumberCheckout.Size = new System.Drawing.Size(221, 16);
             this.labelNumberCheckout.TabIndex = 2;
             this.labelNumberCheckout.Text = "Number Checkout Today: Loading...";
             // 
             // labelNumberCheckin
             // 
             this.labelNumberCheckin.AutoSize = true;
-            this.labelNumberCheckin.Location = new System.Drawing.Point(15, 132);
-            this.labelNumberCheckin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNumberCheckin.Location = new System.Drawing.Point(20, 162);
             this.labelNumberCheckin.Name = "labelNumberCheckin";
-            this.labelNumberCheckin.Size = new System.Drawing.Size(172, 13);
+            this.labelNumberCheckin.Size = new System.Drawing.Size(213, 16);
             this.labelNumberCheckin.TabIndex = 1;
             this.labelNumberCheckin.Text = "Number Checkin Today: Loading...";
             // 
@@ -675,10 +682,9 @@
             // 
             this.labelInforDatetime.AutoSize = true;
             this.labelInforDatetime.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInforDatetime.Location = new System.Drawing.Point(16, 46);
-            this.labelInforDatetime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelInforDatetime.Location = new System.Drawing.Point(21, 57);
             this.labelInforDatetime.Name = "labelInforDatetime";
-            this.labelInforDatetime.Size = new System.Drawing.Size(102, 13);
+            this.labelInforDatetime.Size = new System.Drawing.Size(125, 16);
             this.labelInforDatetime.TabIndex = 0;
             this.labelInforDatetime.Text = "Datetime: Loading...";
             // 
@@ -695,11 +701,11 @@
             this.groupBox5.Controls.Add(this.labelEntrance1Type);
             this.groupBox5.Controls.Add(this.labelEntrance1PlateNumber);
             this.groupBox5.Controls.Add(this.labelEntrance1CardID);
-            this.groupBox5.Location = new System.Drawing.Point(298, 501);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Location = new System.Drawing.Point(397, 617);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox5.Size = new System.Drawing.Size(278, 141);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox5.Size = new System.Drawing.Size(371, 174);
             this.groupBox5.TabIndex = 41;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Last CheckIn/Out Information";
@@ -707,50 +713,45 @@
             // labelEntrance1User
             // 
             this.labelEntrance1User.AutoSize = true;
-            this.labelEntrance1User.Location = new System.Drawing.Point(13, 70);
-            this.labelEntrance1User.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance1User.Location = new System.Drawing.Point(17, 86);
             this.labelEntrance1User.Name = "labelEntrance1User";
-            this.labelEntrance1User.Size = new System.Drawing.Size(35, 13);
+            this.labelEntrance1User.Size = new System.Drawing.Size(42, 16);
             this.labelEntrance1User.TabIndex = 4;
             this.labelEntrance1User.Text = "User: ";
             // 
             // labelEntrance1Occurence
             // 
             this.labelEntrance1Occurence.AutoSize = true;
-            this.labelEntrance1Occurence.Location = new System.Drawing.Point(13, 116);
-            this.labelEntrance1Occurence.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance1Occurence.Location = new System.Drawing.Point(17, 143);
             this.labelEntrance1Occurence.Name = "labelEntrance1Occurence";
-            this.labelEntrance1Occurence.Size = new System.Drawing.Size(66, 13);
+            this.labelEntrance1Occurence.Size = new System.Drawing.Size(78, 16);
             this.labelEntrance1Occurence.TabIndex = 3;
             this.labelEntrance1Occurence.Text = "Occurance: ";
             // 
             // labelEntrance1Type
             // 
             this.labelEntrance1Type.AutoSize = true;
-            this.labelEntrance1Type.Location = new System.Drawing.Point(13, 91);
-            this.labelEntrance1Type.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance1Type.Location = new System.Drawing.Point(17, 112);
             this.labelEntrance1Type.Name = "labelEntrance1Type";
-            this.labelEntrance1Type.Size = new System.Drawing.Size(37, 13);
+            this.labelEntrance1Type.Size = new System.Drawing.Size(45, 16);
             this.labelEntrance1Type.TabIndex = 2;
             this.labelEntrance1Type.Text = "Type: ";
             // 
             // labelEntrance1PlateNumber
             // 
             this.labelEntrance1PlateNumber.AutoSize = true;
-            this.labelEntrance1PlateNumber.Location = new System.Drawing.Point(13, 46);
-            this.labelEntrance1PlateNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance1PlateNumber.Location = new System.Drawing.Point(17, 57);
             this.labelEntrance1PlateNumber.Name = "labelEntrance1PlateNumber";
-            this.labelEntrance1PlateNumber.Size = new System.Drawing.Size(77, 13);
+            this.labelEntrance1PlateNumber.Size = new System.Drawing.Size(95, 16);
             this.labelEntrance1PlateNumber.TabIndex = 1;
             this.labelEntrance1PlateNumber.Text = "Plate Number: ";
             // 
             // labelEntrance1CardID
             // 
             this.labelEntrance1CardID.AutoSize = true;
-            this.labelEntrance1CardID.Location = new System.Drawing.Point(13, 23);
-            this.labelEntrance1CardID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance1CardID.Location = new System.Drawing.Point(17, 28);
             this.labelEntrance1CardID.Name = "labelEntrance1CardID";
-            this.labelEntrance1CardID.Size = new System.Drawing.Size(49, 13);
+            this.labelEntrance1CardID.Size = new System.Drawing.Size(58, 16);
             this.labelEntrance1CardID.TabIndex = 0;
             this.labelEntrance1CardID.Text = "Card ID: ";
             // 
@@ -761,11 +762,11 @@
             this.groupBox6.Controls.Add(this.labelEntrance2Type);
             this.groupBox6.Controls.Add(this.labelEntrance2PlateNumber);
             this.groupBox6.Controls.Add(this.labelEntrance2CardID);
-            this.groupBox6.Location = new System.Drawing.Point(924, 501);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Location = new System.Drawing.Point(1232, 617);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox6.Size = new System.Drawing.Size(278, 160);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox6.Size = new System.Drawing.Size(371, 197);
             this.groupBox6.TabIndex = 42;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Last CheckIn/Out Information";
@@ -773,59 +774,54 @@
             // labelEntrance2User
             // 
             this.labelEntrance2User.AutoSize = true;
-            this.labelEntrance2User.Location = new System.Drawing.Point(14, 77);
-            this.labelEntrance2User.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance2User.Location = new System.Drawing.Point(19, 95);
             this.labelEntrance2User.Name = "labelEntrance2User";
-            this.labelEntrance2User.Size = new System.Drawing.Size(35, 13);
+            this.labelEntrance2User.Size = new System.Drawing.Size(42, 16);
             this.labelEntrance2User.TabIndex = 9;
             this.labelEntrance2User.Text = "User: ";
             // 
             // labelEntrance2Occurence
             // 
             this.labelEntrance2Occurence.AutoSize = true;
-            this.labelEntrance2Occurence.Location = new System.Drawing.Point(14, 124);
-            this.labelEntrance2Occurence.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance2Occurence.Location = new System.Drawing.Point(19, 153);
             this.labelEntrance2Occurence.Name = "labelEntrance2Occurence";
-            this.labelEntrance2Occurence.Size = new System.Drawing.Size(66, 13);
+            this.labelEntrance2Occurence.Size = new System.Drawing.Size(78, 16);
             this.labelEntrance2Occurence.TabIndex = 8;
             this.labelEntrance2Occurence.Text = "Occurance: ";
             // 
             // labelEntrance2Type
             // 
             this.labelEntrance2Type.AutoSize = true;
-            this.labelEntrance2Type.Location = new System.Drawing.Point(14, 98);
-            this.labelEntrance2Type.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance2Type.Location = new System.Drawing.Point(19, 121);
             this.labelEntrance2Type.Name = "labelEntrance2Type";
-            this.labelEntrance2Type.Size = new System.Drawing.Size(37, 13);
+            this.labelEntrance2Type.Size = new System.Drawing.Size(45, 16);
             this.labelEntrance2Type.TabIndex = 7;
             this.labelEntrance2Type.Text = "Type: ";
             // 
             // labelEntrance2PlateNumber
             // 
             this.labelEntrance2PlateNumber.AutoSize = true;
-            this.labelEntrance2PlateNumber.Location = new System.Drawing.Point(14, 53);
-            this.labelEntrance2PlateNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance2PlateNumber.Location = new System.Drawing.Point(19, 65);
             this.labelEntrance2PlateNumber.Name = "labelEntrance2PlateNumber";
-            this.labelEntrance2PlateNumber.Size = new System.Drawing.Size(77, 13);
+            this.labelEntrance2PlateNumber.Size = new System.Drawing.Size(95, 16);
             this.labelEntrance2PlateNumber.TabIndex = 6;
             this.labelEntrance2PlateNumber.Text = "Plate Number: ";
             // 
             // labelEntrance2CardID
             // 
             this.labelEntrance2CardID.AutoSize = true;
-            this.labelEntrance2CardID.Location = new System.Drawing.Point(14, 30);
-            this.labelEntrance2CardID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEntrance2CardID.Location = new System.Drawing.Point(19, 37);
             this.labelEntrance2CardID.Name = "labelEntrance2CardID";
-            this.labelEntrance2CardID.Size = new System.Drawing.Size(49, 13);
+            this.labelEntrance2CardID.Size = new System.Drawing.Size(58, 16);
             this.labelEntrance2CardID.TabIndex = 5;
             this.labelEntrance2CardID.Text = "Card ID: ";
             // 
             // pictureBoxEntrance1QRCode
             // 
-            this.pictureBoxEntrance1QRCode.Location = new System.Drawing.Point(619, 689);
-            this.pictureBoxEntrance1QRCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxEntrance1QRCode.Location = new System.Drawing.Point(825, 848);
+            this.pictureBoxEntrance1QRCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxEntrance1QRCode.Name = "pictureBoxEntrance1QRCode";
-            this.pictureBoxEntrance1QRCode.Size = new System.Drawing.Size(194, 164);
+            this.pictureBoxEntrance1QRCode.Size = new System.Drawing.Size(259, 202);
             this.pictureBoxEntrance1QRCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxEntrance1QRCode.TabIndex = 43;
             this.pictureBoxEntrance1QRCode.TabStop = false;
@@ -838,10 +834,10 @@
             // 
             // pictureBoxEntrance2QRCode
             // 
-            this.pictureBoxEntrance2QRCode.Location = new System.Drawing.Point(860, 689);
-            this.pictureBoxEntrance2QRCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxEntrance2QRCode.Location = new System.Drawing.Point(1147, 848);
+            this.pictureBoxEntrance2QRCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxEntrance2QRCode.Name = "pictureBoxEntrance2QRCode";
-            this.pictureBoxEntrance2QRCode.Size = new System.Drawing.Size(194, 164);
+            this.pictureBoxEntrance2QRCode.Size = new System.Drawing.Size(259, 202);
             this.pictureBoxEntrance2QRCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxEntrance2QRCode.TabIndex = 44;
             this.pictureBoxEntrance2QRCode.TabStop = false;
@@ -849,18 +845,20 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(618, 674);
+            this.label6.Location = new System.Drawing.Point(824, 830);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 13);
+            this.label6.Size = new System.Drawing.Size(93, 16);
             this.label6.TabIndex = 45;
             this.label6.Text = "QR Entrance 1";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(857, 674);
+            this.label7.Location = new System.Drawing.Point(1143, 830);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 13);
+            this.label7.Size = new System.Drawing.Size(93, 16);
             this.label7.TabIndex = 46;
             this.label7.Text = "QR Entrance 2";
             // 
@@ -881,10 +879,10 @@
             this.labelControlMode.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.labelControlMode.Enabled = false;
             this.labelControlMode.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelControlMode.Location = new System.Drawing.Point(1019, 12);
-            this.labelControlMode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControlMode.Location = new System.Drawing.Point(1359, 15);
+            this.labelControlMode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControlMode.Name = "labelControlMode";
-            this.labelControlMode.Size = new System.Drawing.Size(94, 55);
+            this.labelControlMode.Size = new System.Drawing.Size(125, 68);
             this.labelControlMode.TabIndex = 50;
             this.labelControlMode.Text = "Control Mode: Loading...";
             this.labelControlMode.UseVisualStyleBackColor = false;
@@ -895,11 +893,47 @@
             this.timerUpdateParkingInformation.Interval = 10000;
             this.timerUpdateParkingInformation.Tick += new System.EventHandler(this.timerUpdateParkingInformation_Tick);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 16);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Back";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 16);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Back";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(388, 50);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 16);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Front";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(418, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 16);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Front";
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1244, 857);
+            this.ClientSize = new System.Drawing.Size(1659, 1055);
             this.Controls.Add(this.labelControlMode);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -923,7 +957,7 @@
             this.Controls.Add(this.textBoxPlateEntrance1);
             this.Controls.Add(this.buttonCaptureCheckin);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -1034,6 +1068,10 @@
         private System.Windows.Forms.Timer timerEntrance1CheckBike;
         private System.Windows.Forms.Button labelControlMode;
         private System.Windows.Forms.Timer timerUpdateParkingInformation;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label3;
     }
 }
 

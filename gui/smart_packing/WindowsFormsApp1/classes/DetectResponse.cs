@@ -13,5 +13,9 @@ namespace WindowsFormsApp1
         public string PlateText { get; set; }
 
         public string Error { get; set; }
+
+        public string FrontFilePath { get; set; }
+
+        public string BackFilePath { get; set; }
     }
 }

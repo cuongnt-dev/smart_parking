@@ -15,5 +15,9 @@ namespace WindowsFormsApp1.database
         public string Plate { get; set; }
 
         public string Card { get; set; }
+
+        public string Front { get; set; }
+
+        public string Back { get; set; }
     }
 }

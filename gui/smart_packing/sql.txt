@@ -26,3 +26,9 @@ VALUES ('admin', 'YourCompany', '123456', 'Active', 'Admin', '5994471ABB01112AFC
 
 ALTER TABLE log
 ADD COLUMN card VARCHAR(255);
+
+// Update
+ALTER TABLE log
+ADD COLUMN front VARCHAR(255);
+ALTER TABLE log
+ADD COLUMN back VARCHAR(255);
